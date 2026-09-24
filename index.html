@@ -86,8 +86,10 @@ button{font:inherit;color:inherit}
 .block-b .hero-role .en{letter-spacing:.04em}
 
 @media (prefers-reduced-motion:no-preference){
-  .field-hero{animation:drift 48s linear infinite}
-  @keyframes drift{to{transform:translate(96px,96px)}}
+  .field-cells{animation:drift-l 28s linear infinite}
+  .field-drops{animation:drift-r 28s linear infinite}
+  @keyframes drift-l{to{transform:translateX(-96px)}}
+  @keyframes drift-r{to{transform:translateX(96px)}}
   .block-a{animation:wipe-l 1s cubic-bezier(.2,.7,.1,1) .1s both}
   .block-b{animation:wipe-r 1s cubic-bezier(.2,.7,.1,1) .25s both}
   @keyframes wipe-l{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
@@ -133,6 +135,8 @@ button{font:inherit;color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
 .sec{display:grid;grid-template-columns:210px minmax(0,1fr);gap:48px;padding-block:96px;border-top:1px solid var(--line);scroll-margin-top:0}
 .sec:first-child{border-top:0}
+.sec>*{min-width:0}
+.fig-text{min-width:0}
 .sec-head{position:sticky;top:36px;align-self:start}
 .eyebrow{display:flex;align-items:center;gap:10px;font:500 11.5px/1.4 var(--latin);letter-spacing:.3em;color:var(--accent-text);text-transform:uppercase}
 .eyebrow .cjk{font-family:var(--sans);letter-spacing:.3em}
@@ -324,15 +328,26 @@ button{font:inherit;color:inherit}
 .sub-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin:48px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .sub-h h3{font-size:17px;font-weight:700;letter-spacing:.14em;line-height:1.5}
 .sub-h h3 .en{letter-spacing:.02em}
-.eq{margin-top:14px;padding:12px 16px;border-radius:14px;background:var(--ground);font:400 15.5px/1.9 "STIX Two Text","Cambria Math","Times New Roman",serif;color:var(--ink);letter-spacing:0;overflow-x:auto;display:grid;gap:4px}
-.eq>div{white-space:nowrap}
-.eq sub,.eq sup{font-size:.72em;line-height:0}
-.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .15em}
-.fr>span{padding:0 .2em;line-height:1.35}
+.eq{margin-top:14px;padding:14px 18px;border-radius:14px;background:var(--ground);font:400 16px/1.6 "STIX Two Text","Cambria Math","Times New Roman",serif;color:var(--ink);letter-spacing:0;overflow-x:auto;display:grid;gap:10px}
+.eqr{display:flex;align-items:center;justify-content:space-between;gap:18px;white-space:nowrap}
+.eqr .no{font-size:14px;color:var(--muted)}
+.eq i,.fig-text i,.chips i,.readout i{font-family:"STIX Two Text","Cambria Math","Times New Roman",serif;font-style:italic;letter-spacing:0}
+.fig-text i,.chips i,.readout i{font-size:1.12em;line-height:1}
+.eq sub,.eq sup{font-size:.7em;line-height:0}
+.eq sub sub,.eq sup sub{font-size:.85em}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .12em}
+.fr>span{padding:0 .18em;line-height:1.3}
 .fr>span:first-child{border-bottom:1px solid currentColor}
+.bp{display:inline-block;font-size:1.7em;line-height:1;vertical-align:-.18em;font-weight:300;transform:scaleX(.8)}
+.int{display:inline-flex;align-items:center;font-size:1.5em;line-height:1;vertical-align:-.15em}
+.lim{display:inline-flex;flex-direction:column;justify-content:space-between;height:2.1em;font-size:.45em;margin-left:.05em}
+.sum{display:inline-flex;flex-direction:column;align-items:center;vertical-align:-.55em;line-height:1}
+.sum>span{font-size:.62em}
 .plot .guide{fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:4 3}
 .plot .shade{fill:var(--apricot);fill-opacity:.35}
 .plot .lat{font-family:var(--latin)}
+.plot .it{font-family:"STIX Two Text","Cambria Math","Times New Roman",serif;font-style:italic;font-size:1.15em;letter-spacing:0}
+.plot .sb{font-size:.78em}
 .plot .cq1{stroke:var(--q1)} .plot .cq2{stroke:var(--q2)} .plot .cq3{stroke:var(--q3)} .plot .cq4{stroke:var(--q4)}
 .plot .fq1{fill:var(--q1)} .plot .fq2{fill:var(--q2)} .plot .fq3{fill:var(--q3)} .plot .fq4{fill:var(--q4)}
 .sw.q1{border-top-color:var(--q1)} .sw.q2{border-top-color:var(--q2)} .sw.q3{border-top-color:var(--q3)} .sw.q4{border-top-color:var(--q4)}
@@ -424,7 +439,29 @@ button{font:inherit;color:inherit}
   .app{grid-template-columns:44px minmax(0,1fr);align-items:center;gap:16px;padding:14px 16px}
   .fig{border-radius:24px}
   .inst{grid-template-columns:1fr;gap:10px}
-  .eq{font-size:14px}
+  .inst li{grid-template-columns:52px minmax(0,1fr);padding:14px 16px}
+  .inst svg{width:52px;height:52px}
+  .eq{font-size:14px;padding:12px 14px}
+  .eqr .no{font-size:12px}
+  .eqr{white-space:normal;align-items:flex-end}
+  .eqr .m{line-height:2.4}
+  .fr,.eqr sup,.int{white-space:nowrap}
+  .sec{padding-block:60px;gap:22px}
+  .sec-head h2{font-size:24px}
+  .intro-note{font-size:14px;margin-bottom:22px}
+  .sub-h{margin-top:40px}
+  .fig{padding:18px 16px 20px;gap:18px}
+  .fig-text h3{font-size:17px}
+  .readout{min-height:3.2em;font-size:11.5px}
+  .legend{font-size:12px;gap:4px 14px}
+  .lead{font-size:18px;letter-spacing:.08em}
+  .project,.paper{border-radius:24px}
+  .hero-role .rs{display:none}
+  .hero-role .r1{display:block}
+  .block-a .big{font-size:22px}
+  .block-b h1{font-size:54px}
+  .foot{padding-block:72px calc(130px + env(safe-area-inset-bottom,0px))}
+  .mail b{font-size:19px}
   .menu-list{grid-template-columns:1fr}
   .foot-inner{grid-template-columns:1fr}
   .foot-meta{text-align:left}
@@ -446,6 +483,13 @@ button{font:inherit;color:inherit}
       <rect class="m-cell" x="21.5" y="13.5" width="6" height="5" rx="1.5"/>
       <path class="m-drop" d="M72 58c0 0 9 9.6 9 15.6a9 9 0 0 1-18 0C63 67.6 72 58 72 58z"/>
     </pattern>
+    <pattern id="motif-cell" width="96" height="96" patternUnits="userSpaceOnUse">
+      <rect class="m-cell" x="18" y="18" width="13" height="23" rx="3.5"/>
+      <rect class="m-cell" x="21.5" y="13.5" width="6" height="5" rx="1.5"/>
+    </pattern>
+    <pattern id="motif-drop" width="96" height="96" patternUnits="userSpaceOnUse">
+      <path class="m-drop" d="M72 58c0 0 9 9.6 9 15.6a9 9 0 0 1-18 0C63 67.6 72 58 72 58z"/>
+    </pattern>
     <pattern id="motif-l" width="96" height="96" patternUnits="userSpaceOnUse">
       <rect class="m-cell-l" x="18" y="18" width="13" height="23" rx="3.5"/>
       <rect class="m-cell-l" x="21.5" y="13.5" width="6" height="5" rx="1.5"/>
@@ -456,7 +500,8 @@ button{font:inherit;color:inherit}
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <svg class="field field-hero" aria-hidden="true"><rect width="100%" height="100%" fill="url(#motif)"/></svg>
+  <svg class="field field-cells" aria-hidden="true"><rect width="100%" height="100%" fill="url(#motif-cell)"/></svg>
+  <svg class="field field-drops" aria-hidden="true"><rect width="100%" height="100%" fill="url(#motif-drop)"/></svg>
 
   <div class="block block-a">
     <p class="big"><span class="zh">超低溫電解液<br>與電池老化分析</span><span class="en">Low-temp electrolytes<br>&amp; battery aging</span></p>
@@ -467,7 +512,7 @@ button{font:inherit;color:inherit}
     <p class="cv-tag"><span class="yr">2026</span>CURRICULUM VITAE</p>
     <h1><span class="zh">郭晨志</span><span class="en">KUO CHEN CHIH</span></h1>
     <p class="small"><span class="zh">KUO, CHEN CHIH</span><span class="en cjk">郭晨志</span></p>
-    <p class="hero-role"><span class="zh">化學工程與材料科學研發工程師 ／ 電池技術專家</span><span class="en">Chemical &amp; Materials R&amp;D Engineer · Battery Specialist</span></p>
+    <p class="hero-role"><span class="zh"><span class="r1">化學工程與材料科學研發工程師</span><span class="rs"> ／ </span><span class="r1">電池技術專家</span></span><span class="en"><span class="r1">Chemical &amp; Materials R&amp;D Engineer</span><span class="rs"> · </span><span class="r1">Battery Specialist</span></span></p>
   </div>
 </header>
 
@@ -680,13 +725,13 @@ button{font:inherit;color:inherit}
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 1 · EIS</p>
             <h3><span class="zh">阻抗頻譜與等效電路擬合</span><span class="en">Impedance spectra &amp; equivalent-circuit fitting</span></h3>
-            <p><span class="zh">量測每顆電池的阻抗頻譜，以等效電路擬合出歐姆阻抗 R<sub>s</sub>、鋰負極表面 LiCl 鈍化膜阻抗 R<sub>SEI</sub>、電荷轉移阻抗 R<sub>ct</sub> 與擴散阻抗 R<sub>W</sub>。各參數再以同批電池的中位數正規化，比較批次間分散度，快速挑出阻抗偏高、弧形異常的電池。</span><span class="en">Each cell's spectrum is fitted to an equivalent circuit to extract the ohmic resistance R<sub>s</sub>, the LiCl passivation-film resistance R<sub>SEI</sub>, the charge-transfer resistance R<sub>ct</sub> and the diffusion resistance R<sub>W</sub>. Parameters are then normalized to the batch median to compare spread across batches and flag cells with high impedance or distorted arcs.</span></p>
+            <p><span class="zh">量測每顆電池的阻抗頻譜，以等效電路擬合出歐姆阻抗 <i>R</i><sub>s</sub>、鋰負極表面 LiCl 鈍化膜阻抗 <i>R</i><sub>SEI</sub>、電荷轉移阻抗 <i>R</i><sub>ct</sub> 與擴散阻抗 <i>R</i><sub>W</sub>。各參數再以同批電池的中位數正規化，比較批次間分散度，快速挑出阻抗偏高、弧形異常的電池。</span><span class="en">Each cell's spectrum is fitted to an equivalent circuit to extract the ohmic resistance <i>R</i><sub>s</sub>, the LiCl passivation-film resistance <i>R</i><sub>SEI</sub>, the charge-transfer resistance <i>R</i><sub>ct</sub> and the diffusion resistance <i>R</i><sub>W</sub>. Parameters are then normalized to the batch median to compare spread across batches and flag cells with high impedance or distorted arcs.</span></p>
             <div class="eq" aria-label="Impedance model">
-              <div><i>Z</i>(<i>ω</i>) = <i>R</i><sub>s</sub> + <span class="fr"><span><i>R</i><sub>SEI</sub></span><span>1 + <i>R</i><sub>SEI</sub><i>Q</i><sub>1</sub>(<i>jω</i>)<sup><i>n</i><sub>1</sub></sup></span></span> + <span class="fr"><span><i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub></span><span>1 + (<i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub>)<i>Q</i><sub>2</sub>(<i>jω</i>)<sup><i>n</i><sub>2</sub></sup></span></span></div>
-              <div><i>Z</i><sub>W</sub> = <i>σω</i><sup>−1/2</sup>(1 − <i>j</i>)</div>
+              <div class="eqr"><span class="m"><i>Z</i>(<i>ω</i>) = <i>R</i><sub>s</sub> + <span class="fr"><span><i>R</i><sub>SEI</sub></span><span>1 + <i>R</i><sub>SEI</sub><i>Q</i><sub>1</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>1</sub></sup></span></span> + <span class="fr"><span><i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub></span><span>1 + (<i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub>)<i>Q</i><sub>2</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>2</sub></sup></span></span></span><span class="no">(1)</span></div>
+              <div class="eqr"><span class="m"><i>Z</i><sub>W</sub> = <i>σ</i><i>ω</i><sup>−1/2</sup>(1 − <i>j</i>)</span><span class="no">(2)</span></div>
             </div>
             <ul class="chips">
-              <li>R<sub>s</sub> · R<sub>SEI</sub> · R<sub>ct</sub> · R<sub>W</sub></li><li>CPE</li><li>R / R<sub>median</sub></li>
+              <li><i>R</i><sub>s</sub> · <i>R</i><sub>SEI</sub> · <i>R</i><sub>ct</sub> · <i>R</i><sub>W</sub></li><li>CPE</li><li>R / <i>R</i><sub>median</sub></li>
               <li class="sim"><span class="zh cjk">模型模擬</span><span class="en">Simulated</span></li>
             </ul>
           </figcaption>
@@ -707,13 +752,13 @@ button{font:inherit;color:inherit}
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 2 · OCV Drip</p>
             <h3><span class="zh">脈衝放電的電壓響應</span><span class="en">Voltage response to pulsed discharge</span></h3>
-            <p><span class="zh">以 1、10、50、100 mA 定電流放電並記錄電壓變化。Li–SOCl₂ 電池的 LiCl 鈍化膜會使放電初期電壓先下探再回升（電壓延遲），穩定後的壓降 ΔV 隨電流增大；比較加速老化（75 °C、95 % RH、91 天）前後的 ΔV 與靜置回復電壓，評估電池長期可靠度。</span><span class="en">Cells are discharged at 1, 10, 50 and 100 mA while voltage is logged. The LiCl passivation film makes the voltage dip and then recover at the start of discharge (voltage delay), and the steady drop ΔV grows with current. Comparing ΔV and rest-recovery voltage before and after accelerated aging (75 °C, 95 % RH, 91 days) gauges long-term reliability.</span></p>
+            <p><span class="zh">以 1、10、50、100 mA 定電流放電並記錄電壓變化。Li–SOCl₂ 電池的 LiCl 鈍化膜會使放電初期電壓先下探再回升（電壓延遲），穩定後的壓降 ΔV 隨電流增大；比較加速老化前後的 ΔV 與靜置回復電壓，評估電池長期可靠度。</span><span class="en">Cells are discharged at 1, 10, 50 and 100 mA while voltage is logged. The LiCl passivation film makes the voltage dip and then recover at the start of discharge (voltage delay), and the steady drop ΔV grows with current. Comparing ΔV and rest-recovery voltage before and after accelerated aging gauges long-term reliability.</span></p>
             <div class="eq" aria-label="Voltage model">
-              <div><i>V</i>(<i>t</i>) = OCV − <i>IR</i><sub>Ω</sub> − <i>η</i><sub>ss</sub>(<i>I</i>) − Δ<i>V</i><sub>d</sub>(<i>I</i>)·e<sup>−<i>t</i>/<i>τ</i></sup></div>
-              <div>Δ<i>V</i> = OCV − <i>V</i><sub>ss</sub></div>
+              <div class="eqr"><span class="m"><i>V</i>(<i>t</i>) = <i>E</i><sub>OCV</sub> − <i>I</i><i>R</i><sub>Ω</sub> − <i>η</i><sub>ss</sub>(<i>I</i>) − Δ<i>V</i><sub>d</sub>(<i>I</i>) e<sup>−<i>t</i>/<i>τ</i></sup></span><span class="no">(3)</span></div>
+              <div class="eqr"><span class="m">Δ<i>V</i> = <i>E</i><sub>OCV</sub> − <i>V</i><sub>ss</sub></span><span class="no">(4)</span></div>
             </div>
             <ul class="chips">
-              <li>1 – 100 mA</li><li>Voltage delay</li><li>75 °C · 95 % RH · 91 d</li>
+              <li>1 – 100 mA</li><li>Voltage delay</li><li><span class="zh cjk">加速老化</span><span class="en">Accelerated aging</span></li>
               <li class="sim"><span class="zh cjk">模型模擬</span><span class="en">Simulated</span></li>
             </ul>
           </figcaption>
@@ -787,13 +832,13 @@ button{font:inherit;color:inherit}
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 4 · DSC</p>
             <h3><span class="zh">電解液的低溫相變化</span><span class="en">Low-temperature phase behaviour of an electrolyte</span></h3>
-            <p><span class="zh">以 10 °C/min 升溫掃描，讀出玻璃轉移 T<sub>g</sub>（含焓鬆弛）、冷結晶放熱峰 T<sub>c</sub> 與熔融吸熱峰；以切線法求熔融起始溫度 T<sub>m,onset</sub>，積分峰面積得熔融焓 ΔH<sub>m</sub>，判斷電解液在低溫下能否維持液態。負責維護實驗室 DSC 2500。</span><span class="en">A 10 °C/min heating scan shows the glass transition T<sub>g</sub> (with enthalpy relaxation), the cold-crystallization exotherm T<sub>c</sub> and the melting endotherm. The tangent method gives the melting onset T<sub>m,onset</sub> and peak integration gives ΔH<sub>m</sub> — telling whether an electrolyte stays liquid at low temperature. I maintain the lab's DSC 2500.</span></p>
+            <p><span class="zh">以 10 °C/min 升溫掃描，讀出玻璃轉移 <i>T</i><sub>g</sub>（含焓鬆弛）、冷結晶放熱峰 <i>T</i><sub>c</sub> 與熔融吸熱峰；以切線法求熔融起始溫度 <i>T</i><sub>m,onset</sub>，積分峰面積得熔融焓 Δ<i>H</i><sub>m</sub>，判斷電解液在低溫下能否維持液態。負責維護實驗室 DSC 2500。</span><span class="en">A 10 °C/min heating scan shows the glass transition <i>T</i><sub>g</sub> (with enthalpy relaxation), the cold-crystallization exotherm <i>T</i><sub>c</sub> and the melting endotherm. The tangent method gives the melting onset <i>T</i><sub>m,onset</sub> and peak integration gives Δ<i>H</i><sub>m</sub> — telling whether an electrolyte stays liquid at low temperature. I maintain the lab's DSC 2500.</span></p>
             <div class="eq" aria-label="DSC model">
-              <div><i>q</i>(<i>T</i>) = <i>β</i>·<i>C</i><sub>p</sub>(<i>T</i>) + Δ<i>H</i>·d<i>α</i>/d<i>t</i></div>
-              <div>Δ<i>H</i><sub>m</sub> = <span class="fr"><span>1</span><span><i>β</i></span></span>∫ (<i>q</i><sub>b</sub> − <i>q</i>) d<i>T</i></div>
+              <div class="eqr"><span class="m"><i>q</i>(<i>T</i>) = <i>β</i> <i>C</i><sub>p</sub>(<i>T</i>) + Δ<i>H</i> <span class="fr"><span>d<i>α</i></span><span>d<i>t</i></span></span></span><span class="no">(5)</span></div>
+              <div class="eqr"><span class="m">Δ<i>H</i><sub>m</sub> = <span class="fr"><span>1</span><span><i>β</i></span></span> <span class="int">∫<span class="lim"><span><i>T</i><sub>2</sub></span><span><i>T</i><sub>1</sub></span></span></span><span class="bp">[</span><i>q</i><sub>b</sub>(<i>T</i>) − <i>q</i>(<i>T</i>)<span class="bp">]</span> d<i>T</i></span><span class="no">(6)</span></div>
             </div>
             <ul class="chips">
-              <li>β = 10 °C/min</li><li id="chip-onset">T<sub>m,onset</sub></li><li id="chip-dh">ΔH<sub>m</sub></li><li>Exo ↑</li>
+              <li>β = 10 °C/min</li><li id="chip-onset"><i>T</i><sub>m,onset</sub></li><li id="chip-dh">Δ<i>H</i><sub>m</sub></li><li>Exo ↑</li>
               <li class="sim"><span class="zh cjk">模型模擬</span><span class="en">Simulated</span></li>
             </ul>
           </figcaption>
@@ -812,13 +857,14 @@ button{font:inherit;color:inherit}
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 5 · TGA</p>
             <h3><span class="zh">TG 與 DTG 曲線</span><span class="en">TG and DTG curves</span></h3>
-            <p><span class="zh">兩段一級反應以 Arrhenius 動力學在 10 °C/min 下積分：TG 記錄質量變化，DTG 為其一階導數，峰值 T<sub>p</sub> 即最大失重速率；以切線法求分解起始溫度 T<sub>onset</sub>。於 Nature Energy 投稿論文中負責電池材料的 TGA 量測與數據判讀，並負責維護 TGA Q500。</span><span class="en">Two first-order steps integrated with Arrhenius kinetics at 10 °C/min: TG tracks mass, DTG is its first derivative whose peak T<sub>p</sub> marks the fastest mass loss, and the tangent method gives the decomposition onset T<sub>onset</sub>. I ran the TGA measurements and data interpretation for battery materials in the Nature Energy submission, and maintain the lab's TGA Q500.</span></p>
+            <p><span class="zh">兩段一級反應以 Arrhenius 動力學在 10 °C/min 下積分：TG 記錄質量變化，DTG 為其一階導數，峰值 <i>T</i><sub>p</sub> 即最大失重速率；以切線法求分解起始溫度 <i>T</i><sub>onset</sub>。於 Nature Energy 投稿論文中負責電池材料的 TGA 量測與數據判讀，並負責維護 TGA Q500。</span><span class="en">Two first-order steps integrated with Arrhenius kinetics at 10 °C/min: TG tracks mass, DTG is its first derivative whose peak <i>T</i><sub>p</sub> marks the fastest mass loss, and the tangent method gives the decomposition onset <i>T</i><sub>onset</sub>. I ran the TGA measurements and data interpretation for battery materials in the Nature Energy submission, and maintain the lab's TGA Q500.</span></p>
             <div class="eq" aria-label="TGA model">
-              <div><span class="fr"><span>d<i>α</i><sub><i>i</i></sub></span><span>d<i>T</i></span></span> = <span class="fr"><span><i>A</i><sub><i>i</i></sub></span><span><i>β</i></span></span> exp(−<span class="fr"><span><i>E</i><sub>a,<i>i</i></sub></span><span><i>RT</i></span></span>)(1 − <i>α</i><sub><i>i</i></sub>)</div>
-              <div><i>m</i>(<i>T</i>) = <i>m</i><sub>0</sub> − Σ Δ<i>m</i><sub><i>i</i></sub><i>α</i><sub><i>i</i></sub>,&nbsp;&nbsp; DTG = −d<i>m</i>/d<i>T</i></div>
+              <div class="eqr"><span class="m"><span class="fr"><span>d<i>α</i><sub><i>i</i></sub></span><span>d<i>T</i></span></span> = <span class="fr"><span><i>A</i><sub><i>i</i></sub></span><span><i>β</i></span></span> exp<span class="bp">(</span>−<span class="fr"><span><i>E</i><sub>a,<i>i</i></sub></span><span><i>R</i><i>T</i></span></span><span class="bp">)</span>(1 − <i>α</i><sub><i>i</i></sub>)</span><span class="no">(7)</span></div>
+              <div class="eqr"><span class="m"><i>m</i>(<i>T</i>) = <i>m</i><sub>0</sub> − <span class="sum">Σ<span><i>i</i></span></span> Δ<i>m</i><sub><i>i</i></sub> <i>α</i><sub><i>i</i></sub>(<i>T</i>)</span><span class="no">(8)</span></div>
+              <div class="eqr"><span class="m">DTG = −<span class="fr"><span>d<i>m</i></span><span>d<i>T</i></span></span></span><span class="no">(9)</span></div>
             </div>
             <ul class="chips">
-              <li>E<sub>a</sub> = 90 / 170 kJ mol⁻¹</li><li id="chip-tonset">T<sub>onset</sub></li><li id="chip-tp">T<sub>p</sub></li>
+              <li><i>E</i><sub>a</sub> = 90 / 170 kJ mol⁻¹</li><li id="chip-tonset"><i>T</i><sub>onset</sub></li><li id="chip-tp"><i>T</i><sub>p</sub></li>
               <li class="sim"><span class="zh cjk">模型模擬</span><span class="en">Simulated</span></li>
             </ul>
           </figcaption>
@@ -1136,17 +1182,32 @@ button{font:inherit;color:inherit}
   function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
   function S(z){return 1/(1+Math.exp(-z))}
 
+  /* rich text: *x* = italic quantity symbol, _{..} = subscript */
+  function rich(parent,x,y,s,cls,anchor){
+    var t=el('text',{x:x,y:y,'class':cls,'text-anchor':anchor||'start'},parent),re=/(\*[^*]+\*|_\{[^}]+\})/g,last=0,m,shift=0;
+    function add(str,attrs){attrs=attrs||{};if(shift){attrs.dy=-shift;shift=0}var sp=el('tspan',attrs,t);sp.textContent=str}
+    while((m=re.exec(s))){
+      if(m.index>last)add(s.slice(last,m.index));
+      var tok=m[0];
+      if(tok.charAt(0)==='*')add(tok.slice(1,-1),{'class':'it'});
+      else{if(shift){add('')}var sb=el('tspan',{'class':'sb',dy:3.5},t);sb.textContent=tok.slice(2,-1);shift=3.5}
+      last=re.lastIndex;
+    }
+    if(last<s.length)add(s.slice(last));
+    return t;
+  }
   function frame(svg,o){
     var g=el('g',{},svg);
     o.yt.forEach(function(v){var py=o.y(v);el('line',{x1:o.L,x2:o.R,y1:py,y2:py,'class':'grid'},g);txt(g,o.L-8,py+3.5,o.yf(v),'tick','end')});
     o.xt.forEach(function(v){var px=o.x(v);if(o.vgrid)el('line',{x1:px,x2:px,y1:o.T,y2:o.B,'class':'grid'},g);if(o.showX)txt(g,px,o.B+17,o.xf(v),'tick','middle')});
     el('line',{x1:o.L,x2:o.R,y1:o.B,y2:o.B,'class':'base'},g);
-    if(o.yTitle)txt(g,o.L,o.T-12,o.yTitle,'ttl','start');
-    if(o.showX&&o.xTitle)txt(g,o.R,o.B+34,o.xTitle,'ttl','end');
+    if(o.yTitle)rich(g,o.L,o.T-12,o.yTitle,'ttl','start');
+    if(o.showX&&o.xTitle)rich(g,o.R,o.B+34,o.xTitle,'ttl','end');
     return g;
   }
   function pointer(svg,e){var r=svg.getBoundingClientRect(),vb=svg.viewBox.baseVal;return[(e.clientX-r.left)*vb.width/r.width,(e.clientY-r.top)*vb.height/r.height]}
-  function show(rd,s){if(s==null){rd.hint.hidden=false;rd.val.textContent=''}else{rd.hint.hidden=true;rd.val.textContent=s}}
+  function show(rd,s){if(s==null){rd.hint.hidden=false;rd.val.innerHTML=''}else{rd.hint.hidden=true;rd.val.innerHTML=s}}
+  var SEP='&ensp;·&ensp;';
   function hover(svg,rd,onMove,onLeave){
     svg.addEventListener('pointermove',onMove);
     svg.addEventListener('pointerdown',onMove);
@@ -1189,7 +1250,7 @@ button{font:inherit;color:inherit}
     var m={l:36,r:14,t:32,b:44},pw=W-m.l-m.r,ph=pw*Y/X,H=Math.round(m.t+ph+m.b);
     var svg=svgFor(host,W,H,'Nyquist plot, simulated: normal cell vs abnormal cell');
     var x=lin(0,X,m.l,m.l+pw),y=lin(0,Y,m.t+ph,m.t);
-    frame(svg,{x:x,y:y,xt:ticks(0,X,2),yt:ticks(0,Y,2),xf:String,yf:String,L:m.l,R:m.l+pw,T:m.t,B:m.t+ph,showX:true,vgrid:true,xTitle:'Z′ / Ω',yTitle:'−Z″ / Ω'});
+    frame(svg,{x:x,y:y,xt:ticks(0,X,2),yt:ticks(0,Y,2),xf:String,yf:String,L:m.l,R:m.l+pw,T:m.t,B:m.t+ph,showX:true,vgrid:true,xTitle:'*Z*′ / Ω',yTitle:'−*Z*″ / Ω'});
     EIS.forEach(function(s){
       var p=el('path',{d:path(s.pts.map(function(q){return[q.x,q.y]}),x,y),'class':'ln c'+s.c},svg);
       if(s.dash)p.setAttribute('stroke-dasharray',s.dash);
@@ -1208,7 +1269,7 @@ button{font:inherit;color:inherit}
       var pt=pointer(svg,e),best=null,bs=null,bd=Infinity;
       EIS.forEach(function(s){s.pts.forEach(function(q){var dx=x(q.x)-pt[0],dy=y(q.y)-pt[1],d=dx*dx+dy*dy;if(d<bd){bd=d;best=q;bs=s}})});
       ring.setAttribute('cx',x(best.x));ring.setAttribute('cy',y(best.y));focus.setAttribute('visibility','visible');
-      show(rd,bs[lang()]+'  ·  f = '+fmtF(best.f)+'  ·  Z′ = '+best.x.toFixed(2)+' Ω  ·  −Z″ = '+best.y.toFixed(2)+' Ω');
+      show(rd,bs[lang()]+SEP+'<i>f</i> = '+fmtF(best.f)+SEP+'<i>Z</i>′ = '+best.x.toFixed(2)+' Ω'+SEP+'−<i>Z</i>″ = '+best.y.toFixed(2)+' Ω');
     },function(){focus.setAttribute('visibility','hidden')});
   }
 
@@ -1225,7 +1286,7 @@ button{font:inherit;color:inherit}
     var m={l:44,r:58,t:32,b:44},pw=W-m.l-m.r,ph=Math.max(170,pw*0.52),H=Math.round(m.t+ph+m.b);
     var svg=svgFor(host,W,H,'OCV drip, simulated: cell voltage during 1, 10, 50 and 100 mA discharge');
     var x=lin(0,60,m.l,m.l+pw),y=lin(2.8,3.8,m.t+ph,m.t);
-    frame(svg,{x:x,y:y,xt:ticks(0,60,10),yt:ticks(2.8,3.8,0.2),xf:String,yf:function(v){return v.toFixed(1)},L:m.l,R:m.l+pw,T:m.t,B:m.t+ph,showX:true,vgrid:false,xTitle:'t / min',yTitle:'Voltage / V'});
+    frame(svg,{x:x,y:y,xt:ticks(0,60,10),yt:ticks(2.8,3.8,0.2),xf:String,yf:function(v){return v.toFixed(1)},L:m.l,R:m.l+pw,T:m.t,B:m.t+ph,showX:true,vgrid:false,xTitle:'*t* / min',yTitle:'*V* / V'});
     el('line',{x1:m.l,x2:m.l+pw,y1:y(OCV),y2:y(OCV),'class':'cross'},svg);
     txt(svg,m.l+pw+6,y(OCV)+3.5,'OCV','tick','start');
     DRIP.forEach(function(s,i){
@@ -1237,10 +1298,10 @@ button{font:inherit;color:inherit}
     hover(svg,rd,function(e){
       var t=Math.round(clamp(x.inv(pointer(svg,e)[0]),0,60)*4)/4,px=x(t);
       cross.setAttribute('x1',px);cross.setAttribute('x2',px);
-      var parts=['t = '+t.toFixed(1)+' min'];
-      DRIP.forEach(function(s,i){var v=drip(s,t);dots[i].setAttribute('cx',px);dots[i].setAttribute('cy',y(v));parts.push(s.I+' mA '+v.toFixed(3)+' V')});
+      var parts=['<i>t</i> = '+t.toFixed(1)+' min'];
+      DRIP.forEach(function(s,i){var v=drip(s,t);dots[i].setAttribute('cx',px);dots[i].setAttribute('cy',y(v));parts.push(s.I+' mA: '+v.toFixed(3)+' V')});
       focus.setAttribute('visibility','visible');
-      show(rd,parts.join('  ·  '));
+      show(rd,parts.join(SEP));
     },function(){focus.setAttribute('visibility','hidden')});
   }
 
@@ -1269,7 +1330,7 @@ button{font:inherit;color:inherit}
     var m={l:44,r:14,t:32,b:44},pw=W-m.l-m.r,ph=Math.max(170,pw*0.52),H=Math.round(m.t+ph+m.b);
     var svg=svgFor(host,W,H,'DSC heating curve, simulated: glass transition, cold crystallization and melting with onset and enthalpy');
     var x=lin(-120,40,m.l,m.l+pw),y=lin(-1.2,0.4,m.t+ph,m.t);
-    frame(svg,{x:x,y:y,xt:ticks(-120,40,20),yt:ticks(-1.2,0.4,0.4),xf:function(v){return v%40===0?num(v,0):''},yf:function(v){return v===0?'0':num(v,1)},L:m.l,R:m.l+pw,T:m.t,B:m.t+ph,showX:true,vgrid:false,xTitle:'T / °C',yTitle:'Heat flow / W g⁻¹'});
+    frame(svg,{x:x,y:y,xt:ticks(-120,40,20),yt:ticks(-1.2,0.4,0.4),xf:function(v){return v%40===0?num(v,0):''},yf:function(v){return v===0?'0':num(v,1)},L:m.l,R:m.l+pw,T:m.t,B:m.t+ph,showX:true,vgrid:false,xTitle:'*T* / °C',yTitle:'Heat flow / W g⁻¹'});
     txt(svg,m.l+pw,m.t-12,'Exo ↑','ttl','end');
     // shaded melting enthalpy
     var area=[],T;for(T=-40;T<=0.001;T+=0.25)area.push([T,dsc(T)]);
@@ -1284,16 +1345,16 @@ button{font:inherit;color:inherit}
     // annotations
     var yg=y(dsc(-98));
     el('line',{x1:x(-98),x2:x(-98),y1:yg+6,y2:yg+12,'class':'base'},svg);
-    txt(svg,x(-98),yg+26,'Tg','lbl lat','middle');
-    txt(svg,x(-72),y(dsc(-72))-10,'Tc','lbl lat','middle');
-    txt(svg,x(DSC.onset)-8,y(dscBase(DSC.onset))+18,'T onset','lbl lat','end');
-    txt(svg,x(-22)+12,y(-0.92),'ΔHm','lbl lat','start');
+    rich(svg,x(-98),yg+26,'*T*_{g}','lbl lat','middle');
+    rich(svg,x(-72),y(dsc(-72))-12,'*T*_{c}','lbl lat','middle');
+    rich(svg,x(DSC.onset)-8,y(dscBase(DSC.onset))+18,'*T*_{m,onset}','lbl lat','end');
+    rich(svg,x(-22)+12,y(-0.92),'Δ*H*_{m}','lbl lat','start');
     var focus=el('g',{visibility:'hidden'},svg),cross=el('line',{y1:m.t,y2:m.t+ph,'class':'cross'},focus),dot=el('circle',{r:4,'class':'mk f2'},focus);
     hover(svg,rd,function(e){
       var T=Math.round(clamp(x.inv(pointer(svg,e)[0]),-120,40)*4)/4,v=dsc(T),px=x(T);
       cross.setAttribute('x1',px);cross.setAttribute('x2',px);dot.setAttribute('cx',px);dot.setAttribute('cy',y(v));
       focus.setAttribute('visibility','visible');
-      show(rd,'T = '+num(T,1)+' °C  ·  q = '+num(v,3)+' W/g');
+      show(rd,'<i>T</i> = '+num(T,1)+' °C'+SEP+'<i>q</i> = '+num(v,3)+' W g⁻¹');
     },function(){focus.setAttribute('visibility','hidden')});
   }
 
@@ -1326,8 +1387,8 @@ button{font:inherit;color:inherit}
     var T1=m.t,B1=T1+ph1,T2=B1+gap,B2=T2+ph2,H=Math.round(B2+m.b);
     var svg=svgFor(host,W,H,'TGA, simulated: TG mass curve and DTG derivative sharing a temperature axis, with onset and peak temperatures');
     var x=lin(0,600,m.l,m.l+pw),y1=lin(20,110,B1,T1),y2=lin(0,1.2,B2,T2),xt=ticks(0,600,100);
-    frame(svg,{x:x,y:y1,xt:xt,yt:ticks(20,100,20),xf:String,yf:String,L:m.l,R:m.l+pw,T:T1,B:B1,showX:false,vgrid:true,yTitle:'TG · Mass / %'});
-    frame(svg,{x:x,y:y2,xt:xt,yt:ticks(0,1.2,0.4),xf:String,yf:function(v){return v===0?'0':v.toFixed(1)},L:m.l,R:m.l+pw,T:T2,B:B2,showX:true,vgrid:true,xTitle:'T / °C',yTitle:'DTG · −dm/dT / % °C⁻¹'});
+    frame(svg,{x:x,y:y1,xt:xt,yt:ticks(20,100,20),xf:String,yf:String,L:m.l,R:m.l+pw,T:T1,B:B1,showX:false,vgrid:true,yTitle:'TG / %'});
+    frame(svg,{x:x,y:y2,xt:xt,yt:ticks(0,1.2,0.4),xf:String,yf:function(v){return v===0?'0':v.toFixed(1)},L:m.l,R:m.l+pw,T:T2,B:B2,showX:true,vgrid:true,xTitle:'*T* / °C',yTitle:'DTG / % °C⁻¹'});
     var a=TGA.pts.map(function(p){return[p.T,p.m]}),b=TGA.pts.map(function(p){return[p.T,p.d]});
     // onset construction: plateau, tangent at inflection, residue line
     el('line',{x1:x(TGA.onset-70),x2:x(TGA.onset+12),y1:y1(88),y2:y1(88),'class':'guide'},svg);
@@ -1337,11 +1398,11 @@ button{font:inherit;color:inherit}
     el('path',{d:path(b,x,y2)+'L'+x(600).toFixed(1)+' '+y2(0).toFixed(1)+'L'+x(25).toFixed(1)+' '+y2(0).toFixed(1)+'Z','class':'area'},svg);
     el('path',{d:path(b,x,y2),'class':'ln c1'},svg);
     el('circle',{cx:x(TGA.onset),cy:y1(88),r:3.5,'class':'mk f1'},svg);
-    txt(svg,x(TGA.onset)-8,y1(88)-8,'T onset','lbl lat','end');
+    rich(svg,x(TGA.onset)-8,y1(88)-10,'*T*_{onset}','lbl lat','end');
     txt(svg,x(98),y1(86),'−12 %','lbl lat','end');
     txt(svg,x(TGA.onset)-10,y1(58),'−58 %','lbl lat','end');
     bi(svg,x(600),y1(30)-8,'殘餘 30 %','Residue 30 %','lbl','end');
-    [TGA.p1,TGA.p2].forEach(function(p){el('circle',{cx:x(p.T),cy:y2(p.d),r:3.5,'class':'mk f1'},svg);txt(svg,x(p.T),y2(p.d)-10,'Tp '+Math.round(p.T)+' °C','lbl lat','middle')});
+    [TGA.p1,TGA.p2].forEach(function(p){el('circle',{cx:x(p.T),cy:y2(p.d),r:3.5,'class':'mk f1'},svg);rich(svg,x(p.T),y2(p.d)-12,'*T*_{p} = '+Math.round(p.T)+' °C','lbl lat','middle')});
     var focus=el('g',{visibility:'hidden'},svg),
         c1=el('line',{y1:T1,y2:B1,'class':'cross'},focus),c2=el('line',{y1:T2,y2:B2,'class':'cross'},focus),
         d1=el('circle',{r:4,'class':'mk f2'},focus),d2=el('circle',{r:4,'class':'mk f1'},focus);
@@ -1350,16 +1411,16 @@ button{font:inherit;color:inherit}
       [c1,c2].forEach(function(c){c.setAttribute('x1',px);c.setAttribute('x2',px)});
       d1.setAttribute('cx',px);d1.setAttribute('cy',y1(p.m));d2.setAttribute('cx',px);d2.setAttribute('cy',y2(p.d));
       focus.setAttribute('visibility','visible');
-      show(rd,'T = '+p.T.toFixed(1)+' °C  ·  TG = '+p.m.toFixed(2)+' %  ·  DTG = '+p.d.toFixed(3)+' % /°C');
+      show(rd,'<i>T</i> = '+p.T.toFixed(1)+' °C'+SEP+'TG = '+p.m.toFixed(2)+' %'+SEP+'DTG = '+p.d.toFixed(3)+' % °C⁻¹');
     },function(){focus.setAttribute('visibility','hidden')});
   }
 
   // computed figures into the caption chips
   function chip(id,html){var c=document.getElementById(id);if(c)c.innerHTML=html}
-  chip('chip-onset','T<sub>m,onset</sub> ≈ '+num(DSC.onset,1)+' °C');
-  chip('chip-dh','ΔH<sub>m</sub> ≈ '+DSC.dH.toFixed(1)+' J g⁻¹');
-  chip('chip-tonset','T<sub>onset</sub> ≈ '+Math.round(TGA.onset)+' °C');
-  chip('chip-tp','T<sub>p</sub> ≈ '+Math.round(TGA.p1.T)+' / '+Math.round(TGA.p2.T)+' °C');
+  chip('chip-onset','<i>T</i><sub>m,onset</sub> ≈ '+num(DSC.onset,1)+' °C');
+  chip('chip-dh','Δ<i>H</i><sub>m</sub> ≈ '+DSC.dH.toFixed(1)+' J g⁻¹');
+  chip('chip-tonset','<i>T</i><sub>onset</sub> ≈ '+Math.round(TGA.onset)+' °C');
+  chip('chip-tp','<i>T</i><sub>p</sub> ≈ '+Math.round(TGA.p1.T)+' / '+Math.round(TGA.p2.T)+' °C');
 
   mount('plot-eis',renderEIS);
   mount('plot-ocv',renderOCV);
