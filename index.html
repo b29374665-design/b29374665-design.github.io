@@ -492,105 +492,105 @@ button{font:inherit;color:inherit}
 .pdf-dl{display:inline-flex;align-items:center;gap:6px;text-decoration:none}
 .print-head{display:none}
 
-/* ============ PRINT / PDF ============ */
+/* ============ PRINT / PDF — one-page A4, built from the page's own sections ============ */
+.print-sheet{display:none}
 @media print{
-  @page{size:A4;margin:10mm 13mm 11mm}
+  @page{size:A4;margin:9mm 10mm}
   :root,:root[data-theme="dark"],:root:not([data-theme="light"]){color-scheme:light;--ground:#fff;--paper:#fff;--ink:#2b1c16;--ink-2:#584038;--muted:#8a6f62;--line:#e6d3c4;--apricot:#f3ae7e;--apricot-soft:#fbe3d1;--burnt:#c9603a;--accent-text:#a9492a;--cocoa:#56372b;--band:#fff;--on-block:#fff7f1;--sage:#5f7d43;--s1:#5a3a2e;--s2:#c9603a}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
   html,body{background:#fff!important}
-  body{font-size:9.4pt;line-height:1.6;letter-spacing:.02em}
-  .hero,.bar,.menu,#methods,.foot,.copy,.pdf-dl,.pdf-btn,.stats,.contact,.eyebrow,.tga,.step-n{display:none!important}
-  .print-head{display:flex!important;justify-content:space-between;align-items:flex-end;gap:8mm;padding-bottom:3.5mm;margin-bottom:1mm;border-bottom:1.6pt solid var(--burnt)}
-  .print-head h1{font-size:22pt;font-weight:900;letter-spacing:.14em;line-height:1.15;color:var(--ink)}
-  .print-head h1 .en{font-family:var(--latin);font-weight:600;font-size:19pt;letter-spacing:.06em}
-  .print-head h1 small{margin-left:3mm;font:600 9.5pt var(--latin);letter-spacing:.2em;color:var(--muted)}
-  .print-head h1 small .en{font-family:var(--sans);letter-spacing:.2em}
-  .ph-role{margin-top:1mm;font-size:10pt;color:var(--ink-2);letter-spacing:.08em}
-  .ph-seek{margin-top:1.8mm;display:flex;align-items:center;gap:2.5mm;font-size:10pt;font-weight:700;color:var(--accent-text);letter-spacing:.08em}
-  .ph-seek b{background:var(--burnt);color:#fff;border-radius:1.5mm;padding:.4mm 2.2mm;font-size:8.4pt;font-weight:500;letter-spacing:.12em}
-  .ph-contact{text-align:right;font:500 8.8pt/1.65 var(--latin);color:var(--ink-2);letter-spacing:.02em}
-  .ph-contact .zh{font-family:var(--sans)}
-  .wrap{max-width:none;padding:0}
-  .sec,.sec:first-child{display:grid;grid-template-columns:27mm minmax(0,1fr);gap:4mm;padding-block:3.6mm;border-top:.6pt solid var(--line)}
-  .sec:first-child{border-top:0}
-  .sec-head{position:static}
-  .sec-head h2{margin:0;font-size:11pt;letter-spacing:.14em;line-height:1.4;color:var(--accent-text)}
-  .sec-head h2 .en{font-size:11pt;letter-spacing:.02em}
-  h2,h3,h4{break-after:avoid}
-  .lead{font-size:10pt;line-height:1.7;letter-spacing:.04em;max-width:none}
-  .lead mark{background:none;font-weight:700}
-  .body-text{margin-top:1.5mm;font-size:9.2pt;line-height:1.65;max-width:none}
-  .note{font-size:8.9pt;line-height:1.6;padding-left:3mm;max-width:none;border-left-width:1pt}
-  .track{margin-top:1.5mm;max-width:none}
-  .track li{grid-template-columns:5mm minmax(0,1fr) auto;gap:3mm;padding-block:1mm;break-inside:avoid}
-  .track li::before{left:2.35mm;width:1pt}
-  .dot{width:3.6mm;height:3.6mm}
-  .cert-name{font-size:9.3pt;letter-spacing:.04em}
-  .status{font-size:8.5pt}
-  .tl>li{grid-template-columns:24mm minmax(0,1fr);gap:3mm;break-inside:avoid}
-  .tl-body{padding:0 0 3mm}
-  .tl-body::before,.tl-body::after{display:none}
-  .when{font-size:8.8pt;padding-top:.5mm}
-  .tl h3{font-size:10.2pt;letter-spacing:.06em}
-  .role{font-size:8.9pt;margin-top:0}
-  .pts{margin-top:1mm;gap:.7mm;font-size:9pt;line-height:1.55}
-  .pts li{padding-left:3.2mm}
-  .pts li::before{top:.62em;width:1.4mm;height:1.4mm}
-  .project{padding:0;border-radius:0;box-shadow:none;background:none}
-  .proj-head{gap:0}
-  .proj-head h3{margin-top:0;font-size:10.2pt}
-  .partner{font-size:8.9pt;margin-top:0}
-  .proj-role{margin-top:1mm;font-size:8.5pt}
-  .pill-on{padding:.2mm 2.4mm;border-radius:1.5mm}
-  .steps,.steps li,.steps li+li,.steps li:nth-child(n+3){border:0;margin:0}
-  .steps{margin-top:1.5mm;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2mm 5mm}
-  .steps li,.steps li+li,.steps li:nth-child(n+3){padding:0}
-  .steps h4{margin:0;font-size:9pt}
-  .steps p{font-size:8.6pt;line-height:1.5}
-  .paper{margin-top:2.5mm;display:block;padding:2.5mm 3.5mm;border:.6pt solid var(--line);border-radius:2mm;background:none;color:var(--ink);break-inside:avoid}
-  .journal{display:inline;font-size:12pt;margin:0}
-  .paper .sub{display:inline;margin-left:3mm;font-size:8.8pt;opacity:1;color:var(--ink-2)}
-  .coauthor{margin-top:1mm;font-size:8.8pt}
-  .paper p.desc{margin-top:.8mm;font-size:8.8pt;line-height:1.5;opacity:1}
-  .edu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5mm}
-  .edu{border-top-width:1pt;padding-top:1.5mm;break-inside:avoid}
-  .edu h3{font-size:10pt;margin-top:.5mm}
-  .edu .deg{font-size:8.9pt;margin-top:0}
-  .edu p{margin-top:.8mm;font-size:8.6pt;line-height:1.5}
-  .skill-groups{grid-template-columns:repeat(3,minmax(0,1fr));gap:4mm}
-  .skill-groups h3{font-size:9.2pt}
-  .skill-groups .k{display:none}
-  .pills{margin-top:1.2mm;gap:1mm}
-  .pills li{font-size:8.3pt;padding:.4mm 2.2mm;border-radius:1.5mm;box-shadow:0 0 0 .5pt var(--line)}
-  .pills.core li{box-shadow:none}
-  .soft{margin-top:3mm;padding-top:2.5mm}
-  .soft h3{font-size:9.2pt}
-  .soft>.k{display:none}
-  .apps{margin-top:1.5mm;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5mm}
-  .app{grid-template-columns:6.5mm minmax(0,1fr);align-items:center;gap:2mm;padding:1.2mm 2mm;border-radius:1.5mm;box-shadow:0 0 0 .5pt var(--line);break-inside:avoid}
-  .app svg{width:6.5mm;height:6.5mm}
-  .app b{font-size:8.3pt;line-height:1.25}
-  .app .d{display:none}
-  .train li,.train li:first-child{grid-template-columns:30mm minmax(0,1fr);gap:3mm;padding-block:1mm;break-inside:avoid}
-  .train h3{font-size:9.4pt}
-  .train .role{font-size:8.6pt}
-  .tag{font-size:8.2pt;padding:.2mm 2mm;border-radius:1.5mm}
+  body{font-size:8.4pt;line-height:1.45;letter-spacing:.01em}
+  .hero,.bar,.menu,main.wrap,.foot{display:none!important}
+
+  .print-head{display:flex!important;justify-content:space-between;align-items:flex-end;gap:6mm;padding-bottom:2.6mm;border-bottom:1.4pt solid var(--burnt)}
   .print-head>div:first-child{flex:1;min-width:0}
-  .ph-contact{white-space:nowrap;font-size:8.3pt}
-  .when,.tag,.status{white-space:nowrap}
-  .tl>li{grid-template-columns:25mm minmax(0,1fr)}
-  #cv[data-lang="en"] main{font-size:8.9pt}
-  #cv[data-lang="en"] .sec{padding-block:2.6mm}
-  #cv[data-lang="en"] .tl-body{padding-bottom:2.2mm}
-  #cv[data-lang="en"] .pills li{font-size:8pt;line-height:1.35}
-  #cv[data-lang="en"] .pts{font-size:8.7pt;line-height:1.5}
-  #cv[data-lang="en"] .body-text{font-size:8.8pt;line-height:1.55}
-  #cv[data-lang="en"] .lead{font-size:9.6pt;line-height:1.6}
-  #cv[data-lang="en"] .note{font-size:8.6pt;line-height:1.5}
-  #cv[data-lang="en"] .steps p,#cv[data-lang="en"] .edu p,#cv[data-lang="en"] .paper p.desc{font-size:8.4pt;line-height:1.45}
-  #cv[data-lang="en"] .role{letter-spacing:.02em}
-}
-</style>
+  .print-head h1{font-size:19pt;font-weight:900;letter-spacing:.14em;line-height:1.1;color:var(--ink)}
+  .print-head h1 .en{font-family:var(--latin);font-weight:600;font-size:16pt;letter-spacing:.05em}
+  .print-head h1 small{margin-left:2.5mm;font:600 8.6pt var(--latin);letter-spacing:.2em;color:var(--muted)}
+  .print-head h1 small .en{font-family:var(--sans)}
+  .ph-role{margin-top:.8mm;font-size:9pt;color:var(--ink-2);letter-spacing:.06em}
+  .ph-seek{margin-top:1.2mm;display:flex;align-items:center;gap:2mm;font-size:9pt;font-weight:700;color:var(--accent-text);letter-spacing:.06em}
+  .ph-seek b{background:var(--burnt);color:#fff;border-radius:1.2mm;padding:.2mm 1.8mm;font-size:7.6pt;font-weight:500;letter-spacing:.1em}
+  .ph-contact{text-align:right;white-space:nowrap;font:500 8pt/1.6 var(--latin);color:var(--ink-2)}
+  .ph-contact .zh{font-family:var(--sans)}
+
+  .print-sheet{display:grid!important;grid-template-columns:minmax(0,1fr) 61mm;gap:5.5mm;margin-top:3.2mm}
+  .ps-side{border-left:.6pt solid var(--line);padding-left:4.5mm}
+  .print-sheet .sec{display:block;padding:0;border:0;margin:0 0 3.4mm}
+  .print-sheet .sec:last-child{margin-bottom:0}
+  .print-sheet .sec-head{position:static;margin-bottom:1.5mm;padding-bottom:.5mm;border-bottom:.8pt solid var(--burnt)}
+  .print-sheet .sec-head h2{margin:0;font-size:9.8pt;line-height:1.3;letter-spacing:.18em;color:var(--accent-text)}
+  .print-sheet .sec-head h2 .en{font-size:9.8pt;letter-spacing:.04em}
+  .print-sheet h2,.print-sheet h3,.print-sheet h4{break-after:avoid}
+  .print-sheet .eyebrow,.print-sheet .stats,.print-sheet .contact,.print-sheet .body-text,.print-sheet .note,.print-sheet .tga,.print-sheet .step-n,.print-sheet .copy,.print-sheet .k,.print-sheet .app .d,.print-sheet .edu p:not(.deg){display:none!important}
+
+  /* profile */
+  .print-sheet .lead{font-size:8.9pt;font-weight:500;line-height:1.6;letter-spacing:.03em;max-width:none}
+  .print-sheet .lead .en{letter-spacing:.01em}
+  .print-sheet .lead mark{background:none;font-weight:700;color:var(--ink)}
+
+  /* experience */
+  .print-sheet .tl>li{display:grid;grid-template-columns:18mm minmax(0,1fr);gap:2.4mm;break-inside:avoid}
+  .print-sheet .tl-body{padding:0 0 2mm}
+  .print-sheet .tl>li:last-child .tl-body{padding-bottom:0}
+  .print-sheet .tl-body::before,.print-sheet .tl-body::after{display:none}
+  .print-sheet .when{font-size:7.8pt;line-height:1.4;padding-top:.4mm;white-space:normal}
+  .print-sheet .tl h3{font-size:9.2pt;letter-spacing:.04em;line-height:1.35}
+  .print-sheet .role{font-size:8pt;margin-top:.2mm;letter-spacing:.02em}
+  .print-sheet .pts{margin-top:.6mm;gap:.35mm;font-size:8.1pt;line-height:1.45}
+  .print-sheet .pts li{padding-left:2.6mm}
+  .print-sheet .pts li::before{top:.6em;left:0;width:1.1mm;height:1.1mm}
+
+  /* research */
+  .print-sheet .project{padding:0;border-radius:0;box-shadow:none;background:none}
+  .print-sheet .proj-head{display:block}
+  .print-sheet .proj-head h3{margin:0;font-size:9.2pt;line-height:1.35}
+  .print-sheet .partner{display:inline;font-size:8pt;margin:0}
+  .print-sheet .proj-role{display:inline;margin:0 0 0 2mm;font-size:7.6pt}
+  .print-sheet .pill-on{padding:0 1.8mm;border-radius:1.2mm}
+  .print-sheet .steps,.print-sheet .steps li,.print-sheet .steps li+li,.print-sheet .steps li:nth-child(n){border:0;margin:0;padding:0}
+  .print-sheet .steps{margin-top:1.2mm;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1mm 4mm}
+  .print-sheet .steps h4{margin:0;font-size:8.2pt;line-height:1.35}
+  .print-sheet .steps p{font-size:7.8pt;line-height:1.4;color:var(--ink-2)}
+  .print-sheet .paper{margin-top:1.8mm;display:block;padding:1.6mm 2.6mm;border:.6pt solid var(--line);border-radius:1.6mm;background:none;color:var(--ink);break-inside:avoid}
+  .print-sheet .journal{display:inline;font-size:10pt;margin:0}
+  .print-sheet .paper .sub{display:inline;margin-left:2mm;font-size:7.8pt;opacity:1;color:var(--ink-2)}
+  .print-sheet .coauthor{margin-top:.6mm;font-size:7.9pt}
+  .print-sheet .paper p.desc{margin-top:.4mm;font-size:7.8pt;line-height:1.4;opacity:1}
+
+  /* sidebar: licences */
+  .print-sheet .track{margin:0;max-width:none}
+  .print-sheet .track li{grid-template-columns:3.4mm minmax(0,1fr);gap:0 2mm;padding-block:.8mm;align-items:start;break-inside:avoid}
+  .print-sheet .track li+li{border-top:.5pt solid var(--line)}
+  .print-sheet .track li::before{left:1.55mm;width:.8pt}
+  .print-sheet .dot{width:3.2mm;height:3.2mm;margin-top:.4mm}
+  .print-sheet .done .dot svg{width:6px;height:5px}
+  .print-sheet .cert-name{font-size:8pt;line-height:1.35;letter-spacing:.02em}
+  .print-sheet .track .status{grid-column:2;font-size:7.2pt;line-height:1.3;white-space:normal}
+  /* sidebar: education */
+  .print-sheet .edu-grid{display:grid;grid-template-columns:1fr;gap:1.8mm}
+  .print-sheet .edu{border:0;padding:0;break-inside:avoid}
+  .print-sheet .edu .when{font-size:7.6pt;padding:0}
+  .print-sheet .edu h3{margin:0;font-size:8.6pt;line-height:1.3}
+  .print-sheet .edu .deg{margin:0;font-size:7.8pt}
+  /* sidebar: skills + software */
+  .print-sheet .skill-groups{display:grid;grid-template-columns:1fr;gap:1.6mm}
+  .print-sheet .skill-groups h3{font-size:8.2pt;line-height:1.3}
+  .print-sheet .pills{margin-top:.7mm;gap:.7mm}
+  .print-sheet .pills li{font-size:7.3pt;line-height:1.35;padding:.2mm 1.5mm;border-radius:1.1mm;box-shadow:0 0 0 .5pt var(--line)}
+  .print-sheet .pills.core li{box-shadow:none}
+  .print-sheet .soft{margin-top:1.8mm;padding-top:1.4mm;border-top:.5pt solid var(--line)}
+  .print-sheet .soft h3{font-size:8.2pt}
+  .print-sheet .apps{display:flex;flex-wrap:wrap;gap:.7mm;margin-top:.8mm}
+  .print-sheet .app{display:inline-flex;align-items:center;gap:1mm;padding:.2mm 1.5mm .2mm .5mm;border-radius:1.1mm;box-shadow:0 0 0 .5pt var(--line);background:none}
+  .print-sheet .app svg{width:3.4mm;height:3.4mm}
+  .print-sheet .app b{font-size:7.2pt;line-height:1.3;font-weight:500}
+  /* sidebar: training */
+  .print-sheet .train li,.print-sheet .train li:first-child{display:block;padding:.6mm 0;border:0}
+  .print-sheet .tag{display:inline-block;font-size:7.2pt;padding:0 1.5mm;border-radius:1.1mm;margin-bottom:.3mm}
+  .print-sheet .train h3{font-size:8pt;line-height:1.35}
+  .print-sheet .train .role{font-size:7.6pt}
+}</style>
 
 </head>
 <body>
@@ -655,7 +655,7 @@ button{font:inherit;color:inherit}
     </div>
     <div>
       <p class="lead">
-        <span class="zh">國立台灣科技大學化工所碩士生，專精<mark>電化學、超低溫電解液</mark>與<mark>鋰電池性能／老化評估</mark>，並為 <mark>Nature Energy</mark> 投稿論文共同作者。</span>
+        <span class="zh">國立臺灣科技大學化工所碩士生，專精<mark>電化學、超低溫電解液</mark>與<mark>鋰電池性能／老化評估</mark>，並為 <mark>Nature Energy</mark> 投稿論文共同作者。</span>
         <span class="en">M.S. candidate in Chemical Engineering at NTUST, specializing in <mark>electrochemistry, ultra-low-temperature electrolytes</mark> and <mark>lithium battery reliability / aging</mark>; co-author on a <mark>Nature Energy</mark> submission.</span>
       </p>
       <p class="body-text">
@@ -726,7 +726,7 @@ button{font:inherit;color:inherit}
         <li>
           <span class="dot"></span>
           <span class="cert-name"><span class="zh">乙級職業安全衛生管理員</span><span class="en">Occupational Safety and Health Management Personnel (Level B)</span></span>
-          <span class="status">2026 / 11 <span class="zh cjk">中旬 考試預定</span><span class="en">· mid-Nov exam scheduled</span></span>
+          <span class="status">2026 / 11 <span class="zh cjk">中旬考試預定</span><span class="en">· mid-Nov exam scheduled</span></span>
         </li>
         <li>
           <span class="dot"></span>
@@ -750,7 +750,7 @@ button{font:inherit;color:inherit}
           <h3><span class="zh">SEED 大型研究中心（台科大）</span><span class="en">Sustainable Electrochemical Energy Development (SEED) Center, NTUST</span></h3>
           <p class="role"><span class="zh">實驗室設備採購、資產維護與安全專員</span><span class="en">Lab Equipment Procurement &amp; Asset Maintenance Manager</span></p>
           <ul class="pts">
-            <li><span class="zh"><b>設備採購與驗收（逾 200 萬元）：</b>主責手套箱 Oxygen Sensor、DSC 壓機組與年度維護合約、電池液壓打片機、真空幫浦、10 隻 Eppendorf Pipette 及低溫水槽等設備之詢價、採購及點收建檔。</span><span class="en"><b>Procurement (&gt;NTD 2M):</b> Led procurement of glovebox O₂ sensors, a DSC press set with annual maintenance contract, a hydraulic electrode punch, vacuum pumps, 10 Eppendorf pipettes and low-temperature baths.</span></li>
+            <li><span class="zh"><b>設備採購與驗收（逾 200 萬元）：</b>主責手套箱 Oxygen Sensor、DSC 壓機組與年度維護合約、電池液壓打片機、真空幫浦、10 支 Eppendorf Pipette 及低溫水槽等設備之詢價、採購及點收建檔。</span><span class="en"><b>Procurement (&gt;NTD 2M):</b> Led procurement of glovebox O₂ sensors, a DSC press set with annual maintenance contract, a hydraulic electrode punch, vacuum pumps, 10 Eppendorf pipettes and low-temperature baths.</span></li>
             <li><span class="zh"><b>核心儀器維護與校正：</b>專責維護實驗室高階熱分析儀器 TGA Q500 與 DSC 2500，確保量測精度與高稼動率。</span><span class="en"><b>Instrument maintenance:</b> Responsible for maintenance and calibration of the key thermal analysis instruments, TGA Q500 and DSC 2500.</span></li>
             <li><span class="zh">與原廠代理商（Waters、TA Instruments、友和貿易）維修工程師建立緊密聯繫管道，故障發生時即時通報，多能於 <b>24 小時內</b>獲工程師到場處置，大幅縮短儀器停機時間。</span><span class="en">Maintained close, responsive contact with vendor engineers (Waters, TA Instruments, Uni-Onward), frequently securing on-site repair within <b>24 hours</b> of a fault report — significantly reducing instrument downtime.</span></li>
           </ul>
@@ -1097,8 +1097,8 @@ button{font:inherit;color:inherit}
     </div>
     <div class="edu-grid">
       <article class="edu">
-        <div class="when">2025 – 2027 <span class="zh cjk">（預計）</span><span class="en">(expected)</span></div>
-        <h3><span class="zh">國立台灣科技大學</span><span class="en">National Taiwan University of Science and Technology</span></h3>
+        <div class="when">2025 – 2027<span class="zh cjk">（預計）</span><span class="en"> (expected)</span></div>
+        <h3><span class="zh">國立臺灣科技大學</span><span class="en">National Taiwan University of Science and Technology</span></h3>
         <p class="deg"><span class="zh">化學工程研究所 碩士班</span><span class="en">M.S. in Chemical Engineering</span></p>
         <p><span class="zh">專攻超低溫電解液開發與電池老化分析；修習奈米材料與應用（微影製程、奈米壓印微影、自組裝微影）、化工安全與輻射防護等課程。</span><span class="en">Focus on low-temperature electrolytes and battery aging. Coursework: Nanomaterials and Applications (lithography, nanoimprint &amp; self-assembly), Process Safety &amp; Radiation Protection.</span></p>
       </article>
@@ -1584,6 +1584,20 @@ button{font:inherit;color:inherit}
   if(!top)return;                       // inside an embed (e.g. preview frames) downloads are blocked
   function sync(){var en=cv.getAttribute('data-lang')==='en';links.forEach(function(l){l.hidden=false;l.href=en?'resume-en.pdf':'resume-zh.pdf';l.setAttribute('download',en?'KUO_CHEN_CHIH_Resume_EN.pdf':'KUO_CHEN_CHIH_Resume_ZH.pdf')})}
   sync();new MutationObserver(sync).observe(cv,{attributes:true,attributeFilter:['data-lang']});
+})();
+</script>
+<script>
+(function(){
+  var main=document.querySelector('main.wrap');if(!main)return;
+  var sheet=document.createElement('div'),L=document.createElement('div'),R=document.createElement('div');
+  sheet.className='print-sheet';sheet.setAttribute('aria-hidden','true');L.className='ps-main';R.className='ps-side';
+  [['about',L],['work',L],['research',L],['licenses',R],['edu',R],['skills',R],['training',R]].forEach(function(p){
+    var s=document.getElementById(p[0]);if(!s)return;
+    var c=s.cloneNode(true);c.removeAttribute('id');
+    [].forEach.call(c.querySelectorAll('[id]'),function(e){e.removeAttribute('id')});
+    p[1].appendChild(c);
+  });
+  sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);
 })();
 </script>
 
