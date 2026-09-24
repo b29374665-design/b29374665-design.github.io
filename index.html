@@ -160,7 +160,7 @@ button{font:inherit;color:inherit}
 .body-text{margin-top:22px;color:var(--ink-2);max-width:40em;font-size:15px;line-height:2.05}
 .body-text .en{line-height:1.8;letter-spacing:.02em}
 
-.contact{margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-block:1px solid var(--line)}
+.contact{margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-block:1px solid var(--line)}
 .contact>div{padding:18px 22px;display:grid;gap:4px;align-content:start}
 .contact>div+div{border-left:1px solid var(--line)}
 .contact>div:first-child{padding-left:0}
@@ -482,6 +482,114 @@ button{font:inherit;color:inherit}
   .lang button{padding:8px 10px}
   .menu-btn{width:52px;height:52px}
 }
+
+/* seeking + pdf */
+.seek{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:14px;font-weight:500;letter-spacing:.12em}
+.seek b{background:var(--burnt);border-radius:999px;padding:2px 11px;font-size:11.5px;font-weight:500;letter-spacing:.14em}
+.seek .en,.seek b .en{letter-spacing:.04em}
+.pdf-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;background:var(--apricot-soft);color:var(--accent-text);font:600 12px/1 var(--latin);letter-spacing:.1em;text-decoration:none}
+.pdf-btn:hover{background:var(--apricot);color:#3b1f14}
+.pdf-dl{display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.print-head{display:none}
+
+/* ============ PRINT / PDF ============ */
+@media print{
+  @page{size:A4;margin:10mm 13mm 11mm}
+  :root,:root[data-theme="dark"],:root:not([data-theme="light"]){color-scheme:light;--ground:#fff;--paper:#fff;--ink:#2b1c16;--ink-2:#584038;--muted:#8a6f62;--line:#e6d3c4;--apricot:#f3ae7e;--apricot-soft:#fbe3d1;--burnt:#c9603a;--accent-text:#a9492a;--cocoa:#56372b;--band:#fff;--on-block:#fff7f1;--sage:#5f7d43;--s1:#5a3a2e;--s2:#c9603a}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
+  html,body{background:#fff!important}
+  body{font-size:9.4pt;line-height:1.6;letter-spacing:.02em}
+  .hero,.bar,.menu,#methods,.foot,.copy,.pdf-dl,.pdf-btn,.stats,.contact,.eyebrow,.tga,.step-n{display:none!important}
+  .print-head{display:flex!important;justify-content:space-between;align-items:flex-end;gap:8mm;padding-bottom:3.5mm;margin-bottom:1mm;border-bottom:1.6pt solid var(--burnt)}
+  .print-head h1{font-size:22pt;font-weight:900;letter-spacing:.14em;line-height:1.15;color:var(--ink)}
+  .print-head h1 .en{font-family:var(--latin);font-weight:600;font-size:19pt;letter-spacing:.06em}
+  .print-head h1 small{margin-left:3mm;font:600 9.5pt var(--latin);letter-spacing:.2em;color:var(--muted)}
+  .print-head h1 small .en{font-family:var(--sans);letter-spacing:.2em}
+  .ph-role{margin-top:1mm;font-size:10pt;color:var(--ink-2);letter-spacing:.08em}
+  .ph-seek{margin-top:1.8mm;display:flex;align-items:center;gap:2.5mm;font-size:10pt;font-weight:700;color:var(--accent-text);letter-spacing:.08em}
+  .ph-seek b{background:var(--burnt);color:#fff;border-radius:1.5mm;padding:.4mm 2.2mm;font-size:8.4pt;font-weight:500;letter-spacing:.12em}
+  .ph-contact{text-align:right;font:500 8.8pt/1.65 var(--latin);color:var(--ink-2);letter-spacing:.02em}
+  .ph-contact .zh{font-family:var(--sans)}
+  .wrap{max-width:none;padding:0}
+  .sec,.sec:first-child{display:grid;grid-template-columns:27mm minmax(0,1fr);gap:4mm;padding-block:3.6mm;border-top:.6pt solid var(--line)}
+  .sec:first-child{border-top:0}
+  .sec-head{position:static}
+  .sec-head h2{margin:0;font-size:11pt;letter-spacing:.14em;line-height:1.4;color:var(--accent-text)}
+  .sec-head h2 .en{font-size:11pt;letter-spacing:.02em}
+  h2,h3,h4{break-after:avoid}
+  .lead{font-size:10pt;line-height:1.7;letter-spacing:.04em;max-width:none}
+  .lead mark{background:none;font-weight:700}
+  .body-text{margin-top:1.5mm;font-size:9.2pt;line-height:1.65;max-width:none}
+  .note{font-size:8.9pt;line-height:1.6;padding-left:3mm;max-width:none;border-left-width:1pt}
+  .track{margin-top:1.5mm;max-width:none}
+  .track li{grid-template-columns:5mm minmax(0,1fr) auto;gap:3mm;padding-block:1mm;break-inside:avoid}
+  .track li::before{left:2.35mm;width:1pt}
+  .dot{width:3.6mm;height:3.6mm}
+  .cert-name{font-size:9.3pt;letter-spacing:.04em}
+  .status{font-size:8.5pt}
+  .tl>li{grid-template-columns:24mm minmax(0,1fr);gap:3mm;break-inside:avoid}
+  .tl-body{padding:0 0 3mm}
+  .tl-body::before,.tl-body::after{display:none}
+  .when{font-size:8.8pt;padding-top:.5mm}
+  .tl h3{font-size:10.2pt;letter-spacing:.06em}
+  .role{font-size:8.9pt;margin-top:0}
+  .pts{margin-top:1mm;gap:.7mm;font-size:9pt;line-height:1.55}
+  .pts li{padding-left:3.2mm}
+  .pts li::before{top:.62em;width:1.4mm;height:1.4mm}
+  .project{padding:0;border-radius:0;box-shadow:none;background:none}
+  .proj-head{gap:0}
+  .proj-head h3{margin-top:0;font-size:10.2pt}
+  .partner{font-size:8.9pt;margin-top:0}
+  .proj-role{margin-top:1mm;font-size:8.5pt}
+  .pill-on{padding:.2mm 2.4mm;border-radius:1.5mm}
+  .steps,.steps li,.steps li+li,.steps li:nth-child(n+3){border:0;margin:0}
+  .steps{margin-top:1.5mm;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2mm 5mm}
+  .steps li,.steps li+li,.steps li:nth-child(n+3){padding:0}
+  .steps h4{margin:0;font-size:9pt}
+  .steps p{font-size:8.6pt;line-height:1.5}
+  .paper{margin-top:2.5mm;display:block;padding:2.5mm 3.5mm;border:.6pt solid var(--line);border-radius:2mm;background:none;color:var(--ink);break-inside:avoid}
+  .journal{display:inline;font-size:12pt;margin:0}
+  .paper .sub{display:inline;margin-left:3mm;font-size:8.8pt;opacity:1;color:var(--ink-2)}
+  .coauthor{margin-top:1mm;font-size:8.8pt}
+  .paper p.desc{margin-top:.8mm;font-size:8.8pt;line-height:1.5;opacity:1}
+  .edu-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5mm}
+  .edu{border-top-width:1pt;padding-top:1.5mm;break-inside:avoid}
+  .edu h3{font-size:10pt;margin-top:.5mm}
+  .edu .deg{font-size:8.9pt;margin-top:0}
+  .edu p{margin-top:.8mm;font-size:8.6pt;line-height:1.5}
+  .skill-groups{grid-template-columns:repeat(3,minmax(0,1fr));gap:4mm}
+  .skill-groups h3{font-size:9.2pt}
+  .skill-groups .k{display:none}
+  .pills{margin-top:1.2mm;gap:1mm}
+  .pills li{font-size:8.3pt;padding:.4mm 2.2mm;border-radius:1.5mm;box-shadow:0 0 0 .5pt var(--line)}
+  .pills.core li{box-shadow:none}
+  .soft{margin-top:3mm;padding-top:2.5mm}
+  .soft h3{font-size:9.2pt}
+  .soft>.k{display:none}
+  .apps{margin-top:1.5mm;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5mm}
+  .app{grid-template-columns:6.5mm minmax(0,1fr);align-items:center;gap:2mm;padding:1.2mm 2mm;border-radius:1.5mm;box-shadow:0 0 0 .5pt var(--line);break-inside:avoid}
+  .app svg{width:6.5mm;height:6.5mm}
+  .app b{font-size:8.3pt;line-height:1.25}
+  .app .d{display:none}
+  .train li,.train li:first-child{grid-template-columns:30mm minmax(0,1fr);gap:3mm;padding-block:1mm;break-inside:avoid}
+  .train h3{font-size:9.4pt}
+  .train .role{font-size:8.6pt}
+  .tag{font-size:8.2pt;padding:.2mm 2mm;border-radius:1.5mm}
+  .print-head>div:first-child{flex:1;min-width:0}
+  .ph-contact{white-space:nowrap;font-size:8.3pt}
+  .when,.tag,.status{white-space:nowrap}
+  .tl>li{grid-template-columns:25mm minmax(0,1fr)}
+  #cv[data-lang="en"] main{font-size:8.9pt}
+  #cv[data-lang="en"] .sec{padding-block:2.6mm}
+  #cv[data-lang="en"] .tl-body{padding-bottom:2.2mm}
+  #cv[data-lang="en"] .pills li{font-size:8pt;line-height:1.35}
+  #cv[data-lang="en"] .pts{font-size:8.7pt;line-height:1.5}
+  #cv[data-lang="en"] .body-text{font-size:8.8pt;line-height:1.55}
+  #cv[data-lang="en"] .lead{font-size:9.6pt;line-height:1.6}
+  #cv[data-lang="en"] .note{font-size:8.6pt;line-height:1.5}
+  #cv[data-lang="en"] .steps p,#cv[data-lang="en"] .edu p,#cv[data-lang="en"] .paper p.desc{font-size:8.4pt;line-height:1.45}
+  #cv[data-lang="en"] .role{letter-spacing:.02em}
+}
 </style>
 
 </head>
@@ -525,9 +633,18 @@ button{font:inherit;color:inherit}
     <h1><span class="zh">郭晨志</span><span class="en">KUO CHEN CHIH</span></h1>
     <p class="small"><span class="zh">KUO, CHEN CHIH</span><span class="en cjk">郭晨志</span></p>
     <p class="hero-role"><span class="zh"><span class="r1">化學工程與材料科學研發工程師</span><span class="rs"> ／ </span><span class="r1">電池技術專家</span></span><span class="en"><span class="r1">Chemical &amp; Materials R&amp;D Engineer</span><span class="rs"> · </span><span class="r1">Battery Specialist</span></span></p>
+    <p class="seek"><b><span class="zh">求職方向</span><span class="en">Seeking</span></b><span class="zh">環安衛工程師（EHS）</span><span class="en">EHS Engineer</span></p>
   </div>
 </header>
 
+<header class="print-head">
+  <div>
+    <h1><span class="zh">郭晨志</span><span class="en">KUO, CHEN CHIH</span><small><span class="zh">KUO, CHEN CHIH</span><span class="en">郭晨志</span></small></h1>
+    <p class="ph-role"><span class="zh">化學工程與材料科學研發工程師 ／ 電池技術專家</span><span class="en">Chemical &amp; Materials R&amp;D Engineer · Battery Specialist</span></p>
+    <p class="ph-seek"><b><span class="zh">求職方向</span><span class="en">Seeking</span></b><span class="zh">環安衛工程師（EHS）</span><span class="en">EHS Engineer</span></p>
+  </div>
+  <div class="ph-contact">b29374665@gmail.com<br>b29374665-design.github.io<br><span class="zh">新北市新莊區・可出差／外派／輪班</span><span class="en">Xinzhuang, New Taipei · Open to relocation / shifts</span></div>
+</header>
 <main class="wrap">
 
   <!-- ============ PROFILE ============ -->
@@ -550,6 +667,10 @@ button{font:inherit;color:inherit}
         <div>
           <span class="k">Email</span>
           <span class="v"><b id="email-a">b29374665@gmail.com</b><button class="copy" type="button" data-copy="email-a"><span class="c-idle"><span class="zh">複製</span><span class="en">Copy</span></span><span class="c-done"><span class="zh">已複製</span><span class="en">Copied</span></span></button></span>
+        </div>
+        <div>
+          <span class="k">Seeking</span>
+          <span class="v"><span class="zh">環安衛工程師（EHS）</span><span class="en">EHS Engineer</span></span>
         </div>
         <div>
           <span class="k">Based in</span>
@@ -575,6 +696,44 @@ button{font:inherit;color:inherit}
           <p><span class="zh">環安衛證照規劃：3 張已取得、2 張備考</span><span class="en">EHS licenses planned: 3 held, 2 in progress</span></p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ LICENSES ============ -->
+  <section class="sec" id="licenses">
+    <div class="sec-head">
+      <p class="eyebrow"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><rect y="2" width="8" height="11" rx="2" fill="currentColor"/><rect x="2.5" width="3" height="2.5" rx=".8" fill="currentColor"/></svg><span class="zh">Licenses</span><span class="en cjk">環安衛證照</span></p>
+      <h2><span class="zh">環安衛證照</span><span class="en">EHS Licenses</span></h2>
+    </div>
+    <div>
+      <p class="note"><span class="zh">大學修課期間察覺：懂反應、懂產率、懂吸放熱，卻不了解物料運送、廠內廢水廢氣廢棄物排放與危害應變。故研究所期間利用夜間與假日修習學分班並考取以下證照。</span><span class="en">Coursework revealed a gap: understanding reaction yield and heat balance is not enough without knowing material logistics, on-site waste discharge and emergency response. I pursued the following EHS credentials part-time — evenings and weekends — during graduate study.</span></p>
+      <ol class="track">
+        <li class="done">
+          <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="cert-name"><span class="zh">乙級廢水處理專責人員</span><span class="en">Dedicated Wastewater and Sewage Treatment Specialist (Class B)</span></span>
+          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
+        </li>
+        <li class="done">
+          <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="cert-name"><span class="zh">室內空氣品質維護管理專責人員</span><span class="en">Indoor Air Quality Maintenance Management Specialist</span></span>
+          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
+        </li>
+        <li class="done">
+          <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="cert-name"><span class="zh">甲級廢棄物處理專責人員</span><span class="en">Waste Disposal Technician (Class A)</span></span>
+          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span class="cert-name"><span class="zh">乙級職業安全衛生管理員</span><span class="en">Occupational Safety and Health Management Personnel (Level B)</span></span>
+          <span class="status">2026 / 11 <span class="zh cjk">中旬 考試預定</span><span class="en">· mid-Nov exam scheduled</span></span>
+        </li>
+        <li>
+          <span class="dot"></span>
+          <span class="cert-name"><span class="zh">甲級職業安全管理師</span><span class="en">Occupational Safety Management Specialist (Level A)</span></span>
+          <span class="status">2027 / 03 <span class="zh cjk">考試預定</span><span class="en">· exam scheduled</span></span>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -1028,44 +1187,6 @@ button{font:inherit;color:inherit}
     </div>
   </section>
 
-  <!-- ============ LICENSES ============ -->
-  <section class="sec" id="licenses">
-    <div class="sec-head">
-      <p class="eyebrow"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><rect y="2" width="8" height="11" rx="2" fill="currentColor"/><rect x="2.5" width="3" height="2.5" rx=".8" fill="currentColor"/></svg><span class="zh">Licenses</span><span class="en cjk">環安衛證照</span></p>
-      <h2><span class="zh">環安衛證照</span><span class="en">EHS Licenses</span></h2>
-    </div>
-    <div>
-      <p class="note"><span class="zh">大學修課期間察覺：懂反應、懂產率、懂吸放熱，卻不了解物料運送、廠內廢水廢氣廢棄物排放與危害應變。故研究所期間利用夜間與假日修習學分班並考取以下證照。</span><span class="en">Coursework revealed a gap: understanding reaction yield and heat balance is not enough without knowing material logistics, on-site waste discharge and emergency response. I pursued the following EHS credentials part-time — evenings and weekends — during graduate study.</span></p>
-      <ol class="track">
-        <li class="done">
-          <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="cert-name"><span class="zh">乙級廢水處理專責人員</span><span class="en">Dedicated Wastewater and Sewage Treatment Specialist (Class B)</span></span>
-          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
-        </li>
-        <li class="done">
-          <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="cert-name"><span class="zh">室內空氣品質維護管理專責人員</span><span class="en">Indoor Air Quality Maintenance Management Specialist</span></span>
-          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
-        </li>
-        <li class="done">
-          <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="cert-name"><span class="zh">甲級廢棄物處理專責人員</span><span class="en">Waste Disposal Technician (Class A)</span></span>
-          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
-        </li>
-        <li>
-          <span class="dot"></span>
-          <span class="cert-name"><span class="zh">乙級職業安全衛生管理員</span><span class="en">Occupational Safety and Health Management Personnel (Level B)</span></span>
-          <span class="status">2026 / 11 <span class="zh cjk">中旬 考試預定</span><span class="en">· mid-Nov exam scheduled</span></span>
-        </li>
-        <li>
-          <span class="dot"></span>
-          <span class="cert-name"><span class="zh">甲級職業安全管理師</span><span class="en">Occupational Safety Management Specialist (Level A)</span></span>
-          <span class="status">2027 / 03 <span class="zh cjk">考試預定</span><span class="en">· exam scheduled</span></span>
-        </li>
-      </ol>
-    </div>
-  </section>
-
   <!-- ============ TRAINING ============ -->
   <section class="sec" id="training">
     <div class="sec-head">
@@ -1096,7 +1217,7 @@ button{font:inherit;color:inherit}
       <div>
         <p class="eyebrow"><span class="zh">Contact</span><span class="en cjk">聯絡方式</span></p>
         <h2><span class="zh">聯絡方式</span><span class="en">Get in touch</span></h2>
-        <div class="mail"><b id="email-f">b29374665@gmail.com</b><button class="copy" type="button" data-copy="email-f"><span class="c-idle"><span class="zh">複製 Email</span><span class="en">Copy email</span></span><span class="c-done"><span class="zh">已複製</span><span class="en">Copied</span></span></button></div>
+        <div class="mail"><b id="email-f">b29374665@gmail.com</b><button class="copy" type="button" data-copy="email-f"><span class="c-idle"><span class="zh">複製 Email</span><span class="en">Copy email</span></span><span class="c-done"><span class="zh">已複製</span><span class="en">Copied</span></span></button><a class="copy pdf-dl" data-pdf href="resume-zh.pdf" download hidden><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載 PDF 履歷</span><span class="en">Download PDF résumé</span></a></div>
       </div>
       <div class="foot-meta">
         <div><span class="zh">新北市新莊區・可接受出差／外派／輪班</span><span class="en">Xinzhuang, New Taipei · Open to relocation</span></div>
@@ -1113,12 +1234,12 @@ button{font:inherit;color:inherit}
     <p class="menu-label">INDEX</p>
     <ul class="menu-list">
       <li><a href="#about"><span class="big"><span class="zh">簡介</span><span class="en">Profile</span></span><span class="small"><span class="zh">PROFILE</span><span class="en">簡介</span></span></a></li>
+      <li><a href="#licenses"><span class="big"><span class="zh">環安衛證照</span><span class="en">Licenses</span></span><span class="small"><span class="zh">LICENSES</span><span class="en">環安衛證照</span></span></a></li>
       <li><a href="#work"><span class="big"><span class="zh">經歷</span><span class="en">Experience</span></span><span class="small"><span class="zh">EXPERIENCE</span><span class="en">經歷</span></span></a></li>
       <li><a href="#research"><span class="big"><span class="zh">研究與產學</span><span class="en">Research</span></span><span class="small"><span class="zh">RESEARCH</span><span class="en">研究與產學</span></span></a></li>
       <li><a href="#methods"><span class="big"><span class="zh">分析方法</span><span class="en">Methods</span></span><span class="small"><span class="zh">METHODS</span><span class="en">分析方法</span></span></a></li>
       <li><a href="#edu"><span class="big"><span class="zh">學歷</span><span class="en">Education</span></span><span class="small"><span class="zh">EDUCATION</span><span class="en">學歷</span></span></a></li>
       <li><a href="#skills"><span class="big"><span class="zh">專長與儀器</span><span class="en">Skills</span></span><span class="small"><span class="zh">SKILLS</span><span class="en">專長與儀器</span></span></a></li>
-      <li><a href="#licenses"><span class="big"><span class="zh">環安衛證照</span><span class="en">Licenses</span></span><span class="small"><span class="zh">LICENSES</span><span class="en">環安衛證照</span></span></a></li>
       <li><a href="#training"><span class="big"><span class="zh">研討會與培訓</span><span class="en">Training</span></span><span class="small"><span class="zh">TRAINING</span><span class="en">研討會與培訓</span></span></a></li>
       <li><a href="#contact"><span class="big"><span class="zh">聯絡方式</span><span class="en">Contact</span></span><span class="small"><span class="zh">CONTACT</span><span class="en">聯絡方式</span></span></a></li>
     </ul>
@@ -1131,6 +1252,7 @@ button{font:inherit;color:inherit}
     <span class="nm zh">郭晨志</span><span class="nm en">KUO CHEN CHIH</span>
     <span class="sub"><span class="zh">國立台灣科技大學 化學工程研究所<br>電池・電解液研究</span><span class="en">M.S. Chemical Engineering, NTUST<br>Battery &amp; electrolyte research</span></span>
   </a>
+  <a class="pdf-btn" data-pdf href="resume-zh.pdf" download hidden aria-label="Download PDF"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PDF</span></a>
   <div class="lang" role="group" aria-label="Language">
     <button type="button" id="lang-zh" data-lang-set="zh" aria-pressed="true">中</button>
     <button type="button" id="lang-en" data-lang-set="en" aria-pressed="false">EN</button>
@@ -1450,6 +1572,15 @@ button{font:inherit;color:inherit}
   mount('plot-ocv',renderOCV);
   mount('plot-dsc',renderDSC);
   mount('plot-tga',renderTGA);
+})();
+</script>
+<script>
+(function(){
+  var cv=document.getElementById('cv'),links=[].slice.call(document.querySelectorAll('[data-pdf]')),top=true;
+  try{top=window.self===window.top}catch(e){top=false}
+  if(!top)return;                       // inside an embed (e.g. preview frames) downloads are blocked
+  function sync(){var en=cv.getAttribute('data-lang')==='en';links.forEach(function(l){l.hidden=false;l.href=en?'resume-en.pdf':'resume-zh.pdf';l.setAttribute('download',en?'KUO_CHEN_CHIH_Resume_EN.pdf':'KUO_CHEN_CHIH_Resume_ZH.pdf')})}
+  sync();new MutationObserver(sync).observe(cv,{attributes:true,attributeFilter:['data-lang']});
 })();
 </script>
 
