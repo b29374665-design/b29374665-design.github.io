@@ -337,7 +337,10 @@ button{font:inherit;color:inherit}
 .sub-h h3{font-size:17px;font-weight:700;letter-spacing:.14em;line-height:1.5}
 .sub-h h3 .en{letter-spacing:.02em}
 .eq{margin-top:14px;padding:14px 18px;border-radius:14px;background:var(--ground);font:400 16px/1.6 "STIX Two Text","Cambria Math","Times New Roman",serif;color:var(--ink);letter-spacing:0;overflow-x:auto;display:grid;gap:10px}
-.eqr{display:flex;align-items:center;justify-content:space-between;gap:18px;white-space:nowrap}
+.eqr{display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
+.eqr .m{line-height:2.3;min-width:0}
+.eqr .no{flex-shrink:0}
+.fr,.eq sup,.int,.sum{white-space:nowrap}
 .eqr .no{font-size:14px;color:var(--muted)}
 .eq i,.fig-text i,.chips i,.readout i{font-family:"STIX Two Text","Cambria Math","Times New Roman",serif;font-style:italic;letter-spacing:0}
 .fig-text i,.chips i,.readout i{font-size:1.12em;line-height:1}
@@ -455,9 +458,6 @@ button{font:inherit;color:inherit}
   .eq sub,.eq sup{font-size:.74em}
   .fr>span{padding:0 .12em;line-height:1.4}
   .eqr .no{font-size:12px}
-  .eqr{white-space:normal;align-items:flex-end}
-  .eqr .m{line-height:2.4}
-  .fr,.eqr sup,.int{white-space:nowrap}
   .sec{padding-block:60px;gap:22px}
   .sec-head h2{font-size:24px}
   .intro-note{font-size:14px;margin-bottom:22px}
@@ -588,10 +588,10 @@ button{font:inherit;color:inherit}
       <li>
         <div class="when">2025 – <span class="zh cjk">現在</span><span class="en">Present</span></div>
         <div class="tl-body">
-          <h3><span class="zh">SEED 大型研究中心（台科大）</span><span class="en">SEED Research Center (NTUST)</span></h3>
+          <h3><span class="zh">SEED 大型研究中心（台科大）</span><span class="en">Sustainable Electrochemical Energy Development (SEED) Center, NTUST</span></h3>
           <p class="role"><span class="zh">實驗室設備採購、資產維護與安全專員</span><span class="en">Lab Equipment Procurement &amp; Asset Maintenance Manager</span></p>
           <ul class="pts">
-            <li><span class="zh"><b>設備採購與驗收（逾 200 萬元）：</b>主責手套箱 Oxygen Sensor、DSC 壓機組與年度維護合約、電池液壓打片機、真空幫浦、10 隻 Eppendorf Pipette 及低溫水槽等設備之詢價、採購及點收建檔。</span><span class="en"><b>Procurement (&gt;NTD 2M):</b> Led procurement of glovebox O₂ sensors, a DSC press set with annual maintenance contract, battery hydraulic crimpers, vacuum pumps, 10 Eppendorf pipettes and low-temperature baths.</span></li>
+            <li><span class="zh"><b>設備採購與驗收（逾 200 萬元）：</b>主責手套箱 Oxygen Sensor、DSC 壓機組與年度維護合約、電池液壓打片機、真空幫浦、10 隻 Eppendorf Pipette 及低溫水槽等設備之詢價、採購及點收建檔。</span><span class="en"><b>Procurement (&gt;NTD 2M):</b> Led procurement of glovebox O₂ sensors, a DSC press set with annual maintenance contract, a hydraulic electrode punch, vacuum pumps, 10 Eppendorf pipettes and low-temperature baths.</span></li>
             <li><span class="zh"><b>核心儀器維護與校正：</b>專責維護實驗室高階熱分析儀器 TGA Q500 與 DSC 2500，確保量測精度與高稼動率。</span><span class="en"><b>Instrument maintenance:</b> Responsible for maintenance and calibration of the key thermal analysis instruments, TGA Q500 and DSC 2500.</span></li>
             <li><span class="zh">與原廠代理商（Waters、TA Instruments、友和貿易）維修工程師建立緊密聯繫管道，故障發生時即時通報，多能於 <b>24 小時內</b>獲工程師到場處置，大幅縮短儀器停機時間。</span><span class="en">Maintained close, responsive contact with vendor engineers (Waters, TA Instruments, Yoho Trade), frequently securing on-site repair within <b>24 hours</b> of a fault report — significantly reducing instrument downtime.</span></li>
           </ul>
@@ -610,10 +610,10 @@ button{font:inherit;color:inherit}
       <li>
         <div class="when">2021 – 2024</div>
         <div class="tl-body">
-          <h3><span class="zh">東海大學學生宿舍／全民英檢（GEPT）</span><span class="en">Tunghai Housing / GEPT Exam</span></h3>
+          <h3><span class="zh">東海大學學生宿舍／全民英檢（GEPT）</span><span class="en">Tunghai University Student Housing / GEPT</span></h3>
           <p class="role"><span class="zh">宿舍管理員（2 年）／考場作業人員（兼職）</span><span class="en">Resident Assistant (2 yrs) / Exam Staff (part-time)</span></p>
           <ul class="pts">
-            <li><span class="zh">統籌百人宿舍公共安全與生活秩序，協調住民糾紛與校方行政業務；兼職嚴謹執行考場點收與試卷零失誤管理。</span><span class="en">Maintained living standards and safety for hundreds of students; ensured zero-defect protocol execution in nationwide exams.</span></li>
+            <li><span class="zh">統籌百人宿舍公共安全與生活秩序，協調住民糾紛與校方行政業務；兼職嚴謹執行考場點收與試卷零失誤管理。</span><span class="en">Oversaw safety and daily order in a 100-resident dormitory, mediating resident disputes and liaising with university administration; as part-time exam staff, handled test-paper check-in with zero errors.</span></li>
           </ul>
         </div>
       </li>
@@ -944,7 +944,7 @@ button{font:inherit;color:inherit}
         <div class="when">2020 – 2024</div>
         <h3><span class="zh">東海大學</span><span class="en">Tunghai University</span></h3>
         <p class="deg"><span class="zh">化學工程與材料工程學系 學士</span><span class="en">B.S. in Chemical &amp; Materials Engineering</span></p>
-        <p><span class="zh">奠定傳統化工運作核心，精修單元操作與程序控制（Aspen Plus V14／Dynamic 模擬）。</span><span class="en">Focus on unit operations &amp; process control (Aspen Plus V14 / Dynamic simulation).</span></p>
+        <p><span class="zh">奠定傳統化工運作核心，精修單元操作與程序控制（Aspen Plus V14／Aspen Dynamics 模擬）。</span><span class="en">Focus on unit operations &amp; process control (Aspen Plus V14 / Aspen Dynamics simulation).</span></p>
       </article>
     </div>
   </section>
@@ -1055,12 +1055,12 @@ button{font:inherit;color:inherit}
         <li>
           <span class="dot"></span>
           <span class="cert-name"><span class="zh">乙級職業安全衛生管理員</span><span class="en">Occupational Safety and Health Management Personnel (Level B)</span></span>
-          <span class="status">2026 / 11 <span class="zh cjk">中旬 考試預定</span><span class="en">· mid-Nov exam</span></span>
+          <span class="status">2026 / 11 <span class="zh cjk">中旬 考試預定</span><span class="en">· mid-Nov exam scheduled</span></span>
         </li>
         <li>
           <span class="dot"></span>
           <span class="cert-name"><span class="zh">甲級職業安全管理師</span><span class="en">Occupational Safety Management Specialist (Level A)</span></span>
-          <span class="status">2027 / 03 <span class="zh cjk">考試預定</span><span class="en">· exam</span></span>
+          <span class="status">2027 / 03 <span class="zh cjk">考試預定</span><span class="en">· exam scheduled</span></span>
         </li>
       </ol>
     </div>
