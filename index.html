@@ -294,7 +294,7 @@ button{font:inherit;color:inherit}
 .intro-note{font-size:14.5px;line-height:2;color:var(--ink-2);max-width:42em;margin-bottom:28px}
 .intro-note .en{line-height:1.8;letter-spacing:.02em}
 .figs{display:grid;gap:20px}
-.fig{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(22px,3vw,40px);align-items:start;background:var(--paper);border-radius:30px;padding:clamp(20px,3.2vw,38px);box-shadow:0 0 0 1px var(--line)}
+.fig{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(22px,3vw,40px);align-items:start;background:var(--paper);border-radius:30px;padding:clamp(20px,3.2vw,38px);box-shadow:0 0 0 1px var(--line)}
 .fig-chart{min-width:0}
 .legend{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:12.5px;color:var(--ink-2);letter-spacing:.04em}
 .legend li{display:flex;align-items:center;gap:8px}
@@ -336,9 +336,9 @@ button{font:inherit;color:inherit}
 .sub-h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin:48px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .sub-h h3{font-size:17px;font-weight:700;letter-spacing:.14em;line-height:1.5}
 .sub-h h3 .en{letter-spacing:.02em}
-.eq{margin-top:14px;padding:14px 18px;border-radius:14px;background:var(--ground);font:400 16px/1.6 "STIX Two Text","Cambria Math","Times New Roman",serif;color:var(--ink);letter-spacing:0;overflow-x:auto;display:grid;gap:10px}
-.eqr{display:flex;align-items:flex-end;justify-content:space-between;gap:14px}
-.eqr .m{line-height:2.3;min-width:0}
+.eq{margin-top:14px;padding:14px 16px;border-radius:14px;background:var(--ground);font:400 15px/1.6 "STIX Two Text","Cambria Math","Times New Roman",serif;color:var(--ink);letter-spacing:0;overflow-x:auto;display:grid;gap:10px}
+.eqr{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.eqr .m{white-space:nowrap;line-height:1.9}
 .eqr .no{flex-shrink:0}
 .fr,.eq sup,.int,.sum{white-space:nowrap}
 .eqr .no{font-size:14px;color:var(--muted)}
@@ -351,7 +351,7 @@ button{font:inherit;color:inherit}
 .fr>span:first-child{border-bottom:1px solid currentColor}
 .bp{display:inline-block;font-size:1.7em;line-height:1;vertical-align:-.18em;font-weight:300;transform:scaleX(.8)}
 .int{display:inline-flex;align-items:center;font-size:1.5em;line-height:1;vertical-align:-.15em}
-.lim{display:inline-flex;flex-direction:column;justify-content:space-between;height:2.1em;font-size:.45em;margin-left:.05em}
+.lim{display:inline-flex;flex-direction:column;justify-content:space-between;height:2.3em;font-size:.5em;margin:0 .35em 0 .1em}
 .sum{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1;margin:0 .12em 0 .06em}
 .sum .s-sym{font-size:1.5em;line-height:1}
 .sum .s-pad,.sum .s-lo{font-size:.62em;line-height:1.1}
@@ -896,8 +896,10 @@ button{font:inherit;color:inherit}
             <h3><span class="zh">阻抗頻譜與等效電路擬合</span><span class="en">Impedance spectra &amp; equivalent-circuit fitting</span></h3>
             <p><span class="zh">量測每顆電池的阻抗頻譜，以等效電路擬合出歐姆阻抗 <i>R</i><sub>s</sub>、鋰負極表面 LiCl 鈍化膜阻抗 <i>R</i><sub>SEI</sub>、電荷轉移阻抗 <i>R</i><sub>ct</sub> 與擴散阻抗 <i>R</i><sub>W</sub>。各參數再以同批電池的中位數正規化，比較批次間分散度，快速挑出阻抗偏高、弧形異常的電池。</span><span class="en">Each cell's spectrum is fitted to an equivalent circuit to extract the ohmic resistance <i>R</i><sub>s</sub>, the LiCl passivation-film resistance <i>R</i><sub>SEI</sub>, the charge-transfer resistance <i>R</i><sub>ct</sub> and the diffusion resistance <i>R</i><sub>W</sub>. Parameters are then normalized to the batch median to compare spread across batches and flag cells with high impedance or distorted arcs.</span></p>
             <div class="eq" aria-label="Impedance model">
-              <div class="eqr"><span class="m"><i>Z</i>(<i>ω</i>) = <i>R</i><sub>s</sub> + <span class="fr"><span><i>R</i><sub>SEI</sub></span><span>1 + <i>R</i><sub>SEI</sub><i>Q</i><sub>1</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>1</sub></sup></span></span> + <span class="fr"><span><i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub></span><span>1 + (<i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub>)<i>Q</i><sub>2</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>2</sub></sup></span></span></span><span class="no">(1)</span></div>
-              <div class="eqr"><span class="m"><i>Z</i><sub>W</sub> = <i>σ</i><i>ω</i><sup>−1/2</sup>(1 − <i>j</i>)</span><span class="no">(2)</span></div>
+              <div class="eqr"><span class="m"><i>Z</i>(<i>ω</i>) = <i>R</i><sub>s</sub> + <i>Z</i><sub>SEI</sub> + <i>Z</i><sub>ct</sub></span><span class="no">(1)</span></div>
+              <div class="eqr"><span class="m"><i>Z</i><sub>SEI</sub> = <span class="fr"><span><i>R</i><sub>SEI</sub></span><span>1 + <i>R</i><sub>SEI</sub><i>Q</i><sub>1</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>1</sub></sup></span></span></span><span class="no">(2)</span></div>
+              <div class="eqr"><span class="m"><i>Z</i><sub>ct</sub> = <span class="fr"><span><i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub></span><span>1 + (<i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub>)<i>Q</i><sub>2</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>2</sub></sup></span></span></span><span class="no">(3)</span></div>
+              <div class="eqr"><span class="m"><i>Z</i><sub>W</sub> = <i>σ</i><i>ω</i><sup>−1/2</sup>(1 − <i>j</i>)</span><span class="no">(4)</span></div>
             </div>
             <ul class="chips">
               <li><i>R</i><sub>s</sub> · <i>R</i><sub>SEI</sub> · <i>R</i><sub>ct</sub> · <i>R</i><sub>W</sub></li><li>CPE</li><li>R / <i>R</i><sub>median</sub></li>
@@ -923,8 +925,8 @@ button{font:inherit;color:inherit}
             <h3><span class="zh">脈衝放電的電壓響應</span><span class="en">Voltage response to pulsed discharge</span></h3>
             <p><span class="zh">以 1、10、50、100 mA 定電流放電並記錄電壓變化。Li–SOCl₂ 電池的 LiCl 鈍化膜會使放電初期電壓先下探再回升（電壓延遲），穩定後的壓降 ΔV 隨電流增大；比較加速老化前後的 ΔV 與靜置回復電壓，評估電池長期可靠度。</span><span class="en">Cells are discharged at 1, 10, 50 and 100 mA while voltage is logged. The LiCl passivation film makes the voltage dip and then recover at the start of discharge (voltage delay), and the steady drop ΔV grows with current. Comparing ΔV and rest-recovery voltage before and after accelerated aging gauges long-term reliability.</span></p>
             <div class="eq" aria-label="Voltage model">
-              <div class="eqr"><span class="m"><i>V</i>(<i>t</i>) = <i>E</i><sub>OCV</sub> − <i>I</i><i>R</i><sub>Ω</sub> − <i>η</i><sub>ss</sub>(<i>I</i>) − Δ<i>V</i><sub>d</sub>(<i>I</i>) e<sup>−<i>t</i>/<i>τ</i></sup></span><span class="no">(3)</span></div>
-              <div class="eqr"><span class="m">Δ<i>V</i> = <i>E</i><sub>OCV</sub> − <i>V</i><sub>ss</sub></span><span class="no">(4)</span></div>
+              <div class="eqr"><span class="m"><i>V</i>(<i>t</i>) = <i>E</i><sub>OCV</sub> − Δ<i>V</i>(<i>t</i>)</span><span class="no">(5)</span></div>
+              <div class="eqr"><span class="m">Δ<i>V</i>(<i>t</i>) = <i>I</i><i>R</i><sub>Ω</sub> + <i>η</i><sub>ss</sub>(<i>I</i>) + Δ<i>V</i><sub>d</sub> e<sup>−<i>t</i>/<i>τ</i></sup></span><span class="no">(6)</span></div>
             </div>
             <ul class="chips">
               <li>1 – 100 mA</li><li>Voltage delay</li><li><span class="zh cjk">加速老化</span><span class="en">Accelerated aging</span></li>
@@ -1003,8 +1005,8 @@ button{font:inherit;color:inherit}
             <h3><span class="zh">電解液的低溫相變化</span><span class="en">Low-temperature phase behaviour of an electrolyte</span></h3>
             <p><span class="zh">以 10 °C/min 升溫掃描，讀出玻璃轉移 <i>T</i><sub>g</sub>（含焓鬆弛）、冷結晶放熱峰 <i>T</i><sub>c</sub> 與熔融吸熱峰；以切線法求熔融起始溫度 <i>T</i><sub>m,onset</sub>，積分峰面積得熔融焓 Δ<i>H</i><sub>m</sub>，判斷電解液在低溫下能否維持液態。負責維護實驗室 DSC 2500。</span><span class="en">A 10 °C/min heating scan shows the glass transition <i>T</i><sub>g</sub> (with enthalpy relaxation), the cold-crystallization exotherm <i>T</i><sub>c</sub> and the melting endotherm. The tangent method gives the melting onset <i>T</i><sub>m,onset</sub> and peak integration gives Δ<i>H</i><sub>m</sub> — telling whether an electrolyte stays liquid at low temperature. I maintain the lab's DSC 2500.</span></p>
             <div class="eq" aria-label="DSC model">
-              <div class="eqr"><span class="m"><i>q</i>(<i>T</i>) = <i>β</i> <i>C</i><sub>p</sub>(<i>T</i>) + Δ<i>H</i> <span class="fr"><span>d<i>α</i></span><span>d<i>t</i></span></span></span><span class="no">(5)</span></div>
-              <div class="eqr"><span class="m">Δ<i>H</i><sub>m</sub> = <span class="fr"><span>1</span><span><i>β</i></span></span> <span class="int">∫<span class="lim"><span><i>T</i><sub>2</sub></span><span><i>T</i><sub>1</sub></span></span></span><span class="bp">[</span><i>q</i><sub>b</sub>(<i>T</i>) − <i>q</i>(<i>T</i>)<span class="bp">]</span> d<i>T</i></span><span class="no">(6)</span></div>
+              <div class="eqr"><span class="m"><i>q</i>(<i>T</i>) = <i>β</i> <i>C</i><sub>p</sub>(<i>T</i>) + Δ<i>H</i> <span class="fr"><span>d<i>α</i></span><span>d<i>t</i></span></span></span><span class="no">(7)</span></div>
+              <div class="eqr"><span class="m">Δ<i>H</i><sub>m</sub> = <span class="fr"><span>1</span><span><i>β</i></span></span> <span class="int">∫<span class="lim"><span><i>T</i><sub>2</sub></span><span><i>T</i><sub>1</sub></span></span></span>(<i>q</i><sub>b</sub> − <i>q</i>) d<i>T</i></span><span class="no">(8)</span></div>
             </div>
             <ul class="chips">
               <li>β = 10 °C/min</li><li id="chip-onset"><i>T</i><sub>m,onset</sub></li><li id="chip-dh">Δ<i>H</i><sub>m</sub></li><li>Exo ↑</li>
@@ -1028,9 +1030,10 @@ button{font:inherit;color:inherit}
             <h3><span class="zh">TG 與 DTG 曲線</span><span class="en">TG and DTG curves</span></h3>
             <p><span class="zh">兩段一級反應以 Arrhenius 動力學在 10 °C/min 下積分：TG 記錄質量變化，DTG 為其一階導數，峰值 <i>T</i><sub>p</sub> 即最大失重速率；以切線法求分解起始溫度 <i>T</i><sub>onset</sub>。於 Nature Energy 投稿論文中負責電池材料的 TGA 量測與數據判讀，並負責維護 TGA Q500。</span><span class="en">Two first-order steps integrated with Arrhenius kinetics at 10 °C/min: TG tracks mass, DTG is its first derivative whose peak <i>T</i><sub>p</sub> marks the fastest mass loss, and the tangent method gives the decomposition onset <i>T</i><sub>onset</sub>. I ran the TGA measurements and data interpretation for battery materials in the Nature Energy submission, and maintain the lab's TGA Q500.</span></p>
             <div class="eq" aria-label="TGA model">
-              <div class="eqr"><span class="m"><span class="fr"><span>d<i>α</i><sub><i>i</i></sub></span><span>d<i>T</i></span></span> = <span class="fr"><span><i>A</i><sub><i>i</i></sub></span><span><i>β</i></span></span> exp<span class="bp">(</span>−<span class="fr"><span><i>E</i><sub>a,<i>i</i></sub></span><span><i>R</i><i>T</i></span></span><span class="bp">)</span>(1 − <i>α</i><sub><i>i</i></sub>)</span><span class="no">(7)</span></div>
-              <div class="eqr"><span class="m"><i>m</i>(<i>T</i>) = <i>m</i><sub>0</sub> − <span class="sum"><span class="s-pad">i</span><span class="s-sym">Σ</span><span class="s-lo"><i>i</i></span></span> Δ<i>m</i><sub><i>i</i></sub> <i>α</i><sub><i>i</i></sub>(<i>T</i>)</span><span class="no">(8)</span></div>
-              <div class="eqr"><span class="m">DTG = −<span class="fr"><span>d<i>m</i></span><span>d<i>T</i></span></span></span><span class="no">(9)</span></div>
+              <div class="eqr"><span class="m"><span class="fr"><span>d<i>α</i><sub><i>i</i></sub></span><span>d<i>T</i></span></span> = <i>k</i><sub><i>i</i></sub>(<i>T</i>)(1 − <i>α</i><sub><i>i</i></sub>)</span><span class="no">(9)</span></div>
+              <div class="eqr"><span class="m"><i>k</i><sub><i>i</i></sub>(<i>T</i>) = <span class="fr"><span><i>A</i><sub><i>i</i></sub></span><span><i>β</i></span></span> exp<span class="bp">(</span>−<span class="fr"><span><i>E</i><sub>a,<i>i</i></sub></span><span><i>R</i><i>T</i></span></span><span class="bp">)</span></span><span class="no">(10)</span></div>
+              <div class="eqr"><span class="m"><i>m</i>(<i>T</i>) = <i>m</i><sub>0</sub> − <span class="sum"><span class="s-pad">i</span><span class="s-sym">Σ</span><span class="s-lo"><i>i</i></span></span> Δ<i>m</i><sub><i>i</i></sub> <i>α</i><sub><i>i</i></sub>(<i>T</i>)</span><span class="no">(11)</span></div>
+              <div class="eqr"><span class="m">DTG = −<span class="fr"><span>d<i>m</i></span><span>d<i>T</i></span></span></span><span class="no">(12)</span></div>
             </div>
             <ul class="chips">
               <li><i>E</i><sub>a</sub> = 90 / 170 kJ mol⁻¹</li><li id="chip-tonset"><i>T</i><sub>onset</sub></li><li id="chip-tp"><i>T</i><sub>p</sub></li>
