@@ -1277,7 +1277,7 @@ button{font:inherit;color:inherit}
     el('path',{d:path(area,x,y)+path(back,x,y).replace('M','L')+'Z','class':'shade'},svg);
     // baseline extrapolation + onset tangent
     el('path',{d:'M'+x(-50)+' '+y(dscBase(-50))+'L'+x(10)+' '+y(dscBase(10)),'class':'guide'},svg);
-    var t0=DSC.onset-3,t1=DSC.Ti+3.5;
+    var qi=dsc(DSC.Ti),t0=DSC.Ti+(dscBase(DSC.onset)+0.08-qi)/DSC.slope,t1=DSC.Ti+(qi-0.18-qi)/DSC.slope;
     el('line',{x1:x(t0),y1:y(dsc(DSC.Ti)+DSC.slope*(t0-DSC.Ti)),x2:x(t1),y2:y(dsc(DSC.Ti)+DSC.slope*(t1-DSC.Ti)),'class':'guide'},svg);
     el('path',{d:path(DSC.pts,x,y),'class':'ln c2'},svg);
     el('circle',{cx:x(DSC.onset),cy:y(dscBase(DSC.onset)),r:3.5,'class':'mk f1'},svg);
