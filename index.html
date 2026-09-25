@@ -622,7 +622,7 @@ main.wrap{display:flex;flex-direction:column}
 
   .print-sheet{display:grid!important;grid-template-columns:minmax(0,1fr) 61mm;gap:5.5mm;margin-top:3.2mm}
   .ps-side{border-left:.6pt solid var(--line);padding-left:4.5mm}
-  .print-sheet .sec{display:block;padding:0;border:0;margin:0 0 3.4mm}
+  .print-sheet .sec{display:block;padding:0;border:0;margin:0 0 2.6mm}
   /* paint each section / entry as one unit, so the PDF text layer reads in visual order (ATS résumé parsers) */
   .print-sheet .sec,.print-sheet .tl>li,.print-sheet .track li{position:relative;z-index:0}
   .print-sheet .sec:last-child{margin-bottom:0}
@@ -633,7 +633,7 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .eyebrow,.print-sheet .contact,.print-sheet .body-text,.print-sheet .note,.print-sheet .tga,.print-sheet .step-n,.print-sheet .copy,.print-sheet .k,.print-sheet .app .d{display:none!important}
 
   /* profile */
-  .print-sheet .lead{font-size:8.9pt;font-weight:500;line-height:1.6;letter-spacing:.03em;max-width:none}
+  .print-sheet .lead{font-size:8.9pt;font-weight:500;line-height:1.55;letter-spacing:.03em;max-width:none}
   .print-sheet .lead .en{letter-spacing:.01em}
   .print-sheet .lead mark{background:none;font-weight:700;color:var(--ink)}
 
@@ -645,7 +645,7 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .when{font-size:7.8pt;line-height:1.4;padding-top:.4mm;white-space:normal}
   .print-sheet .tl h3{font-size:9.2pt;letter-spacing:.04em;line-height:1.35}
   .print-sheet .role{font-size:8pt;margin-top:.2mm;letter-spacing:.02em}
-  .print-sheet .pts{margin-top:.6mm;gap:.35mm;font-size:8.1pt;line-height:1.45}
+  .print-sheet .pts{margin-top:.6mm;gap:.35mm;font-size:8.1pt;line-height:1.4}
   .print-sheet .pts li{padding-left:2.6mm}
   .print-sheet .pts li::before{top:.6em;left:0;width:1.1mm;height:1.1mm}
 
@@ -718,7 +718,7 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .train .role i{margin:0}
   .print-sheet .ps-side .sec{margin-bottom:2mm}
   /* English runs longer: tighten it a little so the sheet stays on one A4 page */
-  #cv[data-lang="en"] .print-sheet{zoom:.93}
+  #cv[data-lang="en"] .print-sheet{zoom:.92}
   #cv[data-lang="en"] .print-sheet :is(.pts,.pts .en,.steps p,.steps p .en,.paper p.desc,.paper p.desc .en){line-height:1.34}
 }</style>
 
@@ -1358,6 +1358,7 @@ main.wrap{display:flex;flex-direction:column}
         <span class="tag"><span class="zh">論文發表</span><span class="en">Presenter</span></span>
         <div>
           <h3><span class="zh">2026 台灣化學工程學會年會（TwIChE）</span><span class="en">2026 TwIChE Annual Meeting</span></h3>
+          <p class="role date">2026/12/05–06<span class="zh">・逢甲大學</span><span class="en"> · Feng Chia University</span></p>
           <p class="role ptitle"><span class="zh">發表題目：</span><span class="en">Title: </span><i lang="en">Weakly Solvating Allyl Ether Electrolytes for Subzero Li‖SPAN Batteries: Solvation Structure, Transport Properties, and Separator Wettability</i></p>
         </div>
       </li>
@@ -1365,14 +1366,14 @@ main.wrap{display:flex;flex-direction:column}
         <span class="tag"><span class="zh">原廠研討會</span><span class="en">Vendor seminar</span></span>
         <div>
           <h3><span class="zh">TA Waters ARES‑G3 新一代應變控制型流變儀發表與材料應用交流會</span><span class="en">TA Instruments ARES‑G3 launch &amp; applications forum</span></h3>
-          <p class="role date">2026 / 07 / 17</p>
+          <p class="role date">2026/07/17<span class="zh">・臺灣大學</span><span class="en"> · National Taiwan University</span></p>
         </div>
       </li>
       <li>
         <span class="tag"><span class="zh">原廠講座</span><span class="en">Vendor lecture</span></span>
         <div>
-          <h3><span class="zh">TA Waters TGA 講座（台灣場）</span><span class="en">TA Instruments TGA lecture, Taiwan</span></h3>
-          <p class="role date">2026 / 06 / 03</p>
+          <h3><span class="zh">TA Waters TGA 講座（台灣場）</span><span class="en">TA Instruments TGA lecture</span></h3>
+          <p class="role date">2026/06/03<span class="zh">・臺灣大學</span><span class="en"> · National Taiwan University</span></p>
         </div>
       </li>
     </ul>
