@@ -300,6 +300,7 @@ button{font:inherit;color:inherit}
 .tag{justify-self:start;align-self:start;font-size:12.5px;letter-spacing:.1em;padding:4px 14px;border-radius:999px;background:var(--apricot-soft);color:var(--accent-text);font-weight:500;line-height:1.6}
 .train h3{font-size:16.5px;font-weight:700;letter-spacing:.1em;line-height:1.6}
 .train h3 .en{letter-spacing:.02em}
+.train .role i{font-family:var(--latin);letter-spacing:.01em}
 
 /* footer */
 .foot{position:relative;overflow:hidden;background:var(--cocoa);color:var(--on-block);padding-block:96px calc(150px + env(safe-area-inset-bottom,0px))}
@@ -617,7 +618,7 @@ button{font:inherit;color:inherit}
 
   /* sidebar: licences */
   .print-sheet .track{margin:0;max-width:none}
-  .print-sheet .track li{grid-template-columns:3.4mm minmax(0,1fr);gap:0 2mm;padding-block:.8mm;align-items:start;break-inside:avoid}
+  .print-sheet .track li{grid-template-columns:3.4mm minmax(0,1fr);gap:0 2mm;padding-block:.55mm;align-items:start;break-inside:avoid}
   .print-sheet .track li+li{border-top:.5pt solid var(--line)}
   .print-sheet .track li::before{left:1.55mm;width:.8pt}
   .print-sheet .dot{width:3.2mm;height:3.2mm;margin-top:.4mm}
@@ -642,11 +643,16 @@ button{font:inherit;color:inherit}
   .print-sheet .app{display:inline-flex;align-items:center;gap:1mm;padding:.2mm 1.5mm .2mm .5mm;border-radius:1.1mm;box-shadow:0 0 0 .5pt var(--line);background:none}
   .print-sheet .app svg{width:3.4mm;height:3.4mm}
   .print-sheet .app b{font-size:7.2pt;line-height:1.3;font-weight:500}
-  /* sidebar: training */
-  .print-sheet .train li,.print-sheet .train li:first-child{display:block;padding:.6mm 0;border:0}
-  .print-sheet .tag{display:inline-block;font-size:7.2pt;padding:0 1.5mm;border-radius:1.1mm;margin-bottom:.3mm}
-  .print-sheet .train h3{font-size:8pt;line-height:1.35}
-  .print-sheet .train .role{font-size:7.6pt}
+  /* sidebar: training — tag, title and date run on together */
+  .print-sheet .train li,.print-sheet .train li:first-child{display:block;padding:.2mm 0;border:0;line-height:1.35}
+  .print-sheet .tag{display:inline-block;font-size:7pt;padding:0 1.4mm;border-radius:1.1mm;margin:0 1.4mm .2mm 0}
+  .print-sheet .train li>div,.print-sheet .train h3{display:inline}
+  .print-sheet .train h3{font-size:7.6pt;line-height:1.35}
+  .print-sheet .train .role,.print-sheet .train .role i{display:inline;margin-left:1.4mm;font-size:6.8pt;line-height:1.35}
+  .print-sheet .train .role i{margin:0}
+  .print-sheet .ps-side .sec{margin-bottom:2mm}
+  /* English runs longer: tighten it a little so the sheet stays on one A4 page */
+  #cv[data-lang="en"] .print-sheet :is(.pts,.pts .en,.steps p,.steps p .en,.paper p.desc,.paper p.desc .en){line-height:1.34}
 }</style>
 
 </head>
@@ -745,12 +751,12 @@ button{font:inherit;color:inherit}
           <p><span class="zh">精密設備詢價、採購與驗收</span><span class="en">Precision equipment procured &amp; accepted</span></p>
         </div>
         <div class="stat">
-          <div class="num">24<small style="margin:0 0 0 3px">h</small></div>
-          <p><span class="zh">儀器故障後多能於時限內獲原廠到場處置</span><span class="en">Typical vendor on-site repair after a fault report</span></p>
+          <div class="num">6</div>
+          <p><span class="zh">跨化工、機械、材料 3 系所的實驗室 TGA 委測</span><span class="en">Labs across 3 departments served with TGA testing</span></p>
         </div>
         <div class="stat">
-          <div class="num">5</div>
-          <p><span class="zh">環安衛證照規劃：3 張已取得、2 張備考</span><span class="en">EHS licenses planned: 3 held, 2 in progress</span></p>
+          <div class="num">3<small style="margin:0 0 0 4px">+2</small></div>
+          <p><span class="zh">環保專責證照已取得 3 張，職安 2 張備考中</span><span class="en">3 environmental licences held, 2 OSH exams scheduled</span></p>
         </div>
       </div>
     </div>
@@ -768,17 +774,17 @@ button{font:inherit;color:inherit}
         <li class="done">
           <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <span class="cert-name"><span class="zh">乙級廢水處理專責人員</span><span class="en">Dedicated Wastewater and Sewage Treatment Specialist (Class B)</span></span>
-          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
+          <span class="status"><span class="zh cjk">2026 取得</span><span class="en">Certified 2026</span></span>
         </li>
         <li class="done">
           <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <span class="cert-name"><span class="zh">室內空氣品質維護管理專責人員</span><span class="en">Indoor Air Quality Maintenance Management Specialist</span></span>
-          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
+          <span class="status"><span class="zh cjk">2026 取得</span><span class="en">Certified 2026</span></span>
         </li>
         <li class="done">
           <span class="dot"><svg width="10" height="8" viewBox="0 0 10 8" aria-hidden="true"><path d="M1 4.2 3.7 6.8 9 1.2" fill="none" stroke="var(--paper)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <span class="cert-name"><span class="zh">甲級廢棄物處理專責人員</span><span class="en">Waste Disposal Technician (Class A)</span></span>
-          <span class="status"><span class="zh cjk">已取得</span><span class="en">Certified</span></span>
+          <span class="status"><span class="zh cjk">2026 取得</span><span class="en">Certified 2026</span></span>
         </li>
         <li>
           <span class="dot"></span>
@@ -808,7 +814,7 @@ button{font:inherit;color:inherit}
           <p class="role"><span class="zh">實驗室設備採購、資產維護與安全專員</span><span class="en">Lab Equipment Procurement &amp; Asset Maintenance Manager</span></p>
           <ul class="pts">
             <li><span class="zh"><b>設備採購與驗收（逾 200 萬元）：</b>主責手套箱 Oxygen Sensor、DSC 壓機組與年度維護合約、電池液壓打片機、真空幫浦、10 支 Eppendorf Pipette 及低溫水槽等設備之詢價、採購及點收建檔。</span><span class="en"><b>Procurement (&gt;NTD 2M):</b> Led procurement of glovebox O₂ sensors, a DSC press set with annual maintenance contract, a hydraulic electrode punch, vacuum pumps, 10 Eppendorf pipettes and low-temperature baths.</span></li>
-            <li><span class="zh"><b>跨系所 TGA 委測：</b>協助多個實驗室研究生進行 TGA 委託測試，包括化工系邱昱誠、葉旻鑫、顧洋、楊延齡教授，機械系郭俞麟教授，以及材料系陳詩芸教授實驗室。</span><span class="en"><b>TGA testing service:</b> Ran TGA measurements for graduate students from labs across NTUST — Chemical Engineering (Profs. Yu-Cheng Chiu, Min-Hsin Yeh, Young Ku and Yen-Ling Yang), Mechanical Engineering (Prof. Yu-Lin Kuo) and Materials Science &amp; Engineering (Prof. Shih-Yun Chen).</span></li>
+            <li><span class="zh"><b>跨系所 TGA 委測：</b>為化工、機械、材料 3 系所共 6 個實驗室的研究生提供 TGA 委託測試與數據判讀。</span><span class="en"><b>TGA testing service:</b> Ran TGA measurements and data interpretation for graduate students from 6 labs across Chemical, Mechanical and Materials Engineering at NTUST.</span></li>
             <li><span class="zh"><b>核心儀器維護與校正：</b>專責維護實驗室高階熱分析儀器 TGA Q500 與 DSC 2500，確保量測精度與高稼動率。</span><span class="en"><b>Instrument maintenance:</b> Responsible for maintenance and calibration of the key thermal analysis instruments, TGA Q500 and DSC 2500.</span></li>
             <li><span class="zh">與原廠代理商（Waters、TA Instruments、友和貿易）維修工程師建立緊密聯繫管道，故障發生時即時通報，多能於 <b>24 小時內</b>獲工程師到場處置，大幅縮短儀器停機時間。</span><span class="en">Maintained close, responsive contact with vendor engineers (Waters, TA Instruments, Uni-Onward), frequently securing on-site repair within <b>24 hours</b> of a fault report — significantly reducing instrument downtime.</span></li>
           </ul>
@@ -885,7 +891,7 @@ button{font:inherit;color:inherit}
           <p class="eyebrow"><span class="zh">Submission</span><span class="en cjk">期刊投稿</span></p>
           <p class="journal">Nature Energy</p>
           <p class="sub"><span class="zh">期刊投稿論文 — 電池熱穩定性研究</span><span class="en">Journal submission — battery thermal stability study</span></p>
-          <p class="ms-id"><span class="zh">稿件編號</span><span class="en">Manuscript no.</span> <b>NENERGY-26093605</b></p>
+          <p class="ms-id"><span class="zh">狀態</span><span class="en">Status</span> <b><span class="zh">審稿中</span><span class="en">Under review</span></b></p>
           <p class="coauthor"><span class="pill-on"><span class="zh">共同作者</span><span class="en">Co-author</span></span><span class="zh">負責 TGA 熱重分析量測</span><span class="en">Responsible for TGA thermal measurement</span></p>
           <p class="desc"><span class="zh">負責論文中電池材料樣品之 TGA 熱重分析前處理、量測參數設定與數據判讀，提供熱穩定性數據佐證研究結論。</span><span class="en">Performed TGA sample preparation, measurement setup and data interpretation for battery material samples, providing thermal stability data supporting the manuscript's conclusions.</span></p>
         </div>
@@ -1215,16 +1221,8 @@ button{font:inherit;color:inherit}
           <div><b>Aspen Dynamics</b><span class="d"><span class="zh">動態模擬與程序控制</span><span class="en">Dynamic simulation &amp; control</span></span></div>
         </li>
         <li class="app">
-          <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="12" fill="#185abd"/><text x="22" y="29" text-anchor="middle" font-family="Jost,Segoe UI,sans-serif" font-weight="600" font-size="19" fill="#fff">W</text></svg>
-          <div><b>Microsoft Word</b><span class="d"><span class="zh">技術文件與報告撰寫</span><span class="en">Technical documents &amp; reports</span></span></div>
-        </li>
-        <li class="app">
-          <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="12" fill="#107c41"/><text x="22" y="29" text-anchor="middle" font-family="Jost,Segoe UI,sans-serif" font-weight="600" font-size="19" fill="#fff">X</text></svg>
-          <div><b>Microsoft Excel</b><span class="d"><span class="zh">數據整理、圖表與分析</span><span class="en">Data processing &amp; charts</span></span></div>
-        </li>
-        <li class="app">
-          <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="12" fill="#c43e1c"/><text x="22" y="29" text-anchor="middle" font-family="Jost,Segoe UI,sans-serif" font-weight="600" font-size="19" fill="#fff">P</text></svg>
-          <div><b>Microsoft PowerPoint</b><span class="d"><span class="zh">簡報與成果發表</span><span class="en">Presentations</span></span></div>
+          <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="12" fill="#6b4232"/><g font-family="Jost,Segoe UI,sans-serif" font-weight="600" font-size="10" text-anchor="middle" fill="#fff"><rect x="6" y="14" width="10" height="16" rx="3" fill="#185abd"/><text x="11" y="25.5">W</text><rect x="17" y="14" width="10" height="16" rx="3" fill="#107c41"/><text x="22" y="25.5">X</text><rect x="28" y="14" width="10" height="16" rx="3" fill="#c43e1c"/><text x="33" y="25.5">P</text></g></svg>
+          <div><b>Microsoft Office</b><span class="d"><span class="zh">Word／Excel／PowerPoint：報告、數據整理與簡報</span><span class="en">Word / Excel / PowerPoint: reports, data &amp; presentations</span></span></div>
         </li>
         <li class="app">
           <svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="12" fill="#a94c2a"/><g fill="none" stroke="#fff7f1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 9v25h25"/><path d="M13 29c4 0 5-12 9-12s4 8 8 8 3-9 5-11"/></g><g fill="#fff7f1"><circle cx="17" cy="23" r="1.8"/><circle cx="22" cy="17" r="1.8"/><circle cx="30" cy="25" r="1.8"/></g></svg>
@@ -1252,13 +1250,23 @@ button{font:inherit;color:inherit}
     <ul class="train">
       <li>
         <span class="tag"><span class="zh">學術發表與會</span><span class="en">Presenter</span></span>
-        <h3><span class="zh">2026 台灣化學工程學會年會（TwIChE）</span><span class="en">2026 TwIChE Annual Meeting</span></h3>
+        <div>
+          <h3><span class="zh">2026 台灣化學工程學會年會（TwIChE）</span><span class="en">2026 TwIChE Annual Meeting</span></h3>
+          <p class="role"><span class="zh">發表題目：</span><span class="en">Title: </span><i lang="en">Weakly Solvating Allyl Ether Electrolytes for Subzero Li‖SPAN Batteries: Solvation Structure, Transport Properties, and Separator Wettability</i></p>
+        </div>
       </li>
       <li>
-        <span class="tag"><span class="zh">特邀培訓</span><span class="en">Invited training</span></span>
+        <span class="tag"><span class="zh">原廠研討會</span><span class="en">Vendor seminar</span></span>
         <div>
-          <h3><span class="zh">TA Waters 使用者研討會</span><span class="en">TA Waters User Seminar</span></h3>
-          <p class="role"><span class="zh">原廠儀器操作實作</span><span class="en">Hands-on instrument operation</span></p>
+          <h3><span class="zh">TA 儀器 ARES‑G3 新一代應變控制型流變儀發表與材料應用交流會</span><span class="en">TA Instruments ARES‑G3 launch &amp; applications forum</span></h3>
+          <p class="role">2026 / 07 / 17</p>
+        </div>
+      </li>
+      <li>
+        <span class="tag"><span class="zh">原廠講座</span><span class="en">Vendor lecture</span></span>
+        <div>
+          <h3><span class="zh">TA 儀器 TGA 講座（台灣場）</span><span class="en">TA Instruments TGA lecture, Taiwan</span></h3>
+          <p class="role">2026 / 06 / 03</p>
         </div>
       </li>
     </ul>
