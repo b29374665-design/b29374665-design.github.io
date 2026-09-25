@@ -563,11 +563,14 @@ button{font:inherit;color:inherit}
   .ph-seek{margin-top:1.2mm;display:flex;align-items:center;gap:2mm;font-size:9pt;font-weight:700;color:var(--accent-text);letter-spacing:.06em}
   .ph-seek b{background:var(--burnt);color:#fff;border-radius:1.2mm;padding:.2mm 1.8mm;font-size:7.6pt;font-weight:500;letter-spacing:.1em}
   .ph-contact{text-align:right;white-space:nowrap;font:500 8pt/1.6 var(--latin);color:var(--ink-2)}
-  .ph-contact .zh{font-family:var(--sans)}
+  .ph-contact span.zh{font-family:var(--sans)}
+  .ph-contact a{text-decoration:none}
 
   .print-sheet{display:grid!important;grid-template-columns:minmax(0,1fr) 61mm;gap:5.5mm;margin-top:3.2mm}
   .ps-side{border-left:.6pt solid var(--line);padding-left:4.5mm}
   .print-sheet .sec{display:block;padding:0;border:0;margin:0 0 3.4mm}
+  /* paint each section / entry as one unit, so the PDF text layer reads in visual order (ATS résumé parsers) */
+  .print-sheet .sec,.print-sheet .tl>li,.print-sheet .track li{position:relative;z-index:0}
   .print-sheet .sec:last-child{margin-bottom:0}
   .print-sheet .sec-head{position:static;margin-bottom:1.5mm;padding-bottom:.5mm;border-bottom:.8pt solid var(--burnt)}
   .print-sheet .sec-head h2{margin:0;font-size:9.8pt;line-height:1.3;letter-spacing:.18em;color:var(--accent-text)}
@@ -697,7 +700,7 @@ button{font:inherit;color:inherit}
     <p class="ph-role"><span class="zh">化學工程與材料科學研發工程師 ／ 電池技術專家</span><span class="en">Chemical &amp; Materials R&amp;D Engineer · Battery Specialist</span></p>
     <p class="ph-seek"><b><span class="zh">求職方向</span><span class="en">Seeking</span></b><span class="zh">環安衛工程師（EHS）</span><span class="en">EHS Engineer</span></p>
   </div>
-  <div class="ph-contact">b29374665@gmail.com<br>b29374665-design.github.io<br><span class="zh">新北市新莊區・可出差／外派／輪班</span><span class="en">Xinzhuang, New Taipei · Open to relocation / shifts</span></div>
+  <div class="ph-contact"><a href="mailto:b29374665@gmail.com">b29374665@gmail.com</a><br><a class="zh" href="https://b29374665-design.github.io/">b29374665-design.github.io</a><a class="en" href="https://b29374665-design.github.io/?lang=en">b29374665-design.github.io</a><br><span class="zh">新北市新莊區・可出差／外派／輪班</span><span class="en">Xinzhuang, New Taipei · Open to relocation / shifts</span></div>
 </header>
 <main class="wrap">
 
