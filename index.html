@@ -346,6 +346,8 @@ button{font:inherit;color:inherit}
 .fig-text i,.chips i,.readout i{font-size:1.12em;line-height:1}
 .eq sub,.eq sup{font-size:.7em;line-height:0}
 .eq sub sub,.eq sup sub{font-size:.85em}
+.eq-note{margin-top:2px;font:400 12.5px/1.6 var(--sans);color:var(--muted);letter-spacing:.02em;white-space:normal}
+.eq-note i{font-size:1.08em}
 .fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;margin:0 .12em}
 .fr>span{padding:0 .18em;line-height:1.3}
 .fr>span:first-child{border-bottom:1px solid currentColor}
@@ -896,10 +898,11 @@ button{font:inherit;color:inherit}
             <h3><span class="zh">阻抗頻譜與等效電路擬合</span><span class="en">Impedance spectra &amp; equivalent-circuit fitting</span></h3>
             <p><span class="zh">量測每顆電池的阻抗頻譜，以等效電路擬合出歐姆阻抗 <i>R</i><sub>s</sub>、鋰負極表面 LiCl 鈍化膜阻抗 <i>R</i><sub>SEI</sub>、電荷轉移阻抗 <i>R</i><sub>ct</sub> 與擴散阻抗 <i>R</i><sub>W</sub>。各參數再以同批電池的中位數正規化，比較批次間分散度，快速挑出阻抗偏高、弧形異常的電池。</span><span class="en">Each cell's spectrum is fitted to an equivalent circuit to extract the ohmic resistance <i>R</i><sub>s</sub>, the LiCl passivation-film resistance <i>R</i><sub>SEI</sub>, the charge-transfer resistance <i>R</i><sub>ct</sub> and the diffusion resistance <i>R</i><sub>W</sub>. Parameters are then normalized to the batch median to compare spread across batches and flag cells with high impedance or distorted arcs.</span></p>
             <div class="eq" aria-label="Impedance model">
-              <div class="eqr"><span class="m"><i>Z</i>(<i>ω</i>) = <i>R</i><sub>s</sub> + <i>Z</i><sub>SEI</sub> + <i>Z</i><sub>ct</sub></span><span class="no">(1)</span></div>
-              <div class="eqr"><span class="m"><i>Z</i><sub>SEI</sub> = <span class="fr"><span><i>R</i><sub>SEI</sub></span><span>1 + <i>R</i><sub>SEI</sub><i>Q</i><sub>1</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>1</sub></sup></span></span></span><span class="no">(2)</span></div>
-              <div class="eqr"><span class="m"><i>Z</i><sub>ct</sub> = <span class="fr"><span><i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub></span><span>1 + (<i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub>)<i>Q</i><sub>2</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>2</sub></sup></span></span></span><span class="no">(3)</span></div>
+              <div class="eqr"><span class="m"><i>Z</i>(<i>ω</i>) = <i>R</i><sub>s</sub> + <i>Z</i><sub>1</sub> + <i>Z</i><sub>2</sub></span><span class="no">(1)</span></div>
+              <div class="eqr"><span class="m"><i>Z</i><sub>1</sub> = <span class="fr"><span><i>R</i><sub>SEI</sub></span><span>1 + <i>R</i><sub>SEI</sub><i>Q</i><sub>1</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>1</sub></sup></span></span></span><span class="no">(2)</span></div>
+              <div class="eqr"><span class="m"><i>Z</i><sub>2</sub> = <span class="fr"><span><i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub></span><span>1 + (<i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub>)<i>Q</i><sub>2</sub>(<i>j</i><i>ω</i>)<sup><i>n</i><sub>2</sub></sup></span></span></span><span class="no">(3)</span></div>
               <div class="eqr"><span class="m"><i>Z</i><sub>W</sub> = <i>σ</i><i>ω</i><sup>−1/2</sup>(1 − <i>j</i>)</span><span class="no">(4)</span></div>
+              <p class="eq-note"><i>Z</i><sub>1</sub> = <i>R</i><sub>SEI</sub> ∥ CPE<sub>1</sub><span class="zh">，</span><span class="en">, </span><i>Z</i><sub>2</sub> = (<i>R</i><sub>ct</sub> + <i>Z</i><sub>W</sub>) ∥ CPE<sub>2</sub><span class="zh">；<i>σ</i> 即擬合參數 <i>R</i><sub>W</sub></span><span class="en">; <i>σ</i> is the fitted <i>R</i><sub>W</sub></span></p>
             </div>
             <ul class="chips">
               <li><i>R</i><sub>s</sub> · <i>R</i><sub>SEI</sub> · <i>R</i><sub>ct</sub> · <i>R</i><sub>W</sub></li><li>CPE</li><li>R / <i>R</i><sub>median</sub></li>
