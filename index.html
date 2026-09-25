@@ -548,7 +548,7 @@ button{font:inherit;color:inherit}
 /* ============ PRINT / PDF — one-page A4, built from the page's own sections ============ */
 .print-sheet{display:none}
 @media print{
-  @page{size:A4;margin:9mm 10mm}
+  @page{size:A4;margin:8mm 10mm}
   :root,:root[data-theme="dark"],:root:not([data-theme="light"]){color-scheme:light;--ground:#fff;--paper:#fff;--ink:#2b1c16;--ink-2:#584038;--muted:#8a6f62;--line:#e6d3c4;--apricot:#f3ae7e;--apricot-soft:#fbe3d1;--burnt:#c9603a;--accent-text:#a9492a;--cocoa:#56372b;--band:#fff;--on-block:#fff7f1;--sage:#5f7d43;--s1:#5a3a2e;--s2:#c9603a}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
   html,body{background:#fff!important}
@@ -578,7 +578,7 @@ button{font:inherit;color:inherit}
   .print-sheet .sec-head h2{margin:0;font-size:9.8pt;line-height:1.3;letter-spacing:.18em;color:var(--accent-text)}
   .print-sheet .sec-head h2 .en{font-size:9.8pt;letter-spacing:.04em}
   .print-sheet h2,.print-sheet h3,.print-sheet h4{break-after:avoid}
-  .print-sheet .eyebrow,.print-sheet .stats,.print-sheet .contact,.print-sheet .body-text,.print-sheet .note,.print-sheet .tga,.print-sheet .step-n,.print-sheet .copy,.print-sheet .k,.print-sheet .app .d,.print-sheet .edu p:not(.deg){display:none!important}
+  .print-sheet .eyebrow,.print-sheet .contact,.print-sheet .body-text,.print-sheet .note,.print-sheet .tga,.print-sheet .step-n,.print-sheet .copy,.print-sheet .k,.print-sheet .app .d{display:none!important}
 
   /* profile */
   .print-sheet .lead{font-size:8.9pt;font-weight:500;line-height:1.6;letter-spacing:.03em;max-width:none}
@@ -632,6 +632,18 @@ button{font:inherit;color:inherit}
   .print-sheet .edu .when{font-size:7.6pt;padding:0}
   .print-sheet .edu h3{margin:0;font-size:8.6pt;line-height:1.3}
   .print-sheet .edu .deg{margin:0;font-size:7.8pt}
+  .print-sheet .edu p:not(.deg){margin:.3mm 0 0;font-size:7pt;line-height:1.35;color:var(--ink-2)}
+  .print-sheet .edu p .en{line-height:1.35}
+  /* profile numbers as one compact strip */
+  .print-sheet .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 3mm;margin-top:1.6mm;padding:1.2mm 0;border-block:.5pt solid var(--line)}
+  .print-sheet .stat,.print-sheet .stat+.stat,.print-sheet .stat:first-child{padding:0;border:0}
+  .print-sheet .num{font-size:12pt;line-height:1.1}
+  .print-sheet .num small,.print-sheet .num sub{font-size:7pt}
+  .print-sheet .stat p{margin-top:.4mm;font-size:6.8pt;line-height:1.3;letter-spacing:.01em}
+  .print-sheet .stat p .en{line-height:1.3}
+  /* instruments (from the Methods section) as pills */
+  .print-sheet .ps-inst .pills li{font-size:7.1pt}
+  .print-sheet .ps-inst .pills li i{font-style:normal;color:var(--muted);margin-left:1mm;font-size:6.5pt}
   /* sidebar: skills + software */
   .print-sheet .skill-groups{display:grid;grid-template-columns:1fr;gap:1.6mm}
   .print-sheet .skill-groups h3{font-size:8.2pt;line-height:1.3}
@@ -653,6 +665,7 @@ button{font:inherit;color:inherit}
   .print-sheet .train .role i{margin:0}
   .print-sheet .ps-side .sec{margin-bottom:2mm}
   /* English runs longer: tighten it a little so the sheet stays on one A4 page */
+  #cv[data-lang="en"] .print-sheet{zoom:.93}
   #cv[data-lang="en"] .print-sheet :is(.pts,.pts .en,.steps p,.steps p .en,.paper p.desc,.paper p.desc .en){line-height:1.34}
 }</style>
 
@@ -1662,12 +1675,24 @@ button{font:inherit;color:inherit}
   var main=document.querySelector('main.wrap');if(!main)return;
   var sheet=document.createElement('div'),L=document.createElement('div'),R=document.createElement('div');
   sheet.className='print-sheet';sheet.setAttribute('aria-hidden','true');L.className='ps-main';R.className='ps-side';
-  [['about',L],['work',L],['research',L],['licenses',R],['edu',R],['skills',R],['training',R]].forEach(function(p){
+  [['about',L],['work',L],['research',L],['training',L],['licenses',R],['edu',R],['skills',R]].forEach(function(p){
     var s=document.getElementById(p[0]);if(!s)return;
     var c=s.cloneNode(true);c.removeAttribute('id');
     [].forEach.call(c.querySelectorAll('[id]'),function(e){e.removeAttribute('id')});
     p[1].appendChild(c);
   });
+  // instruments from the Methods section, as a compact sidebar list
+  var inst=document.querySelectorAll('#methods .inst li');
+  if(inst.length){
+    var sec=document.createElement('section');sec.className='sec ps-inst';
+    sec.innerHTML='<div class="sec-head"><h2><span class="zh">儀器設備</span><span class="en">Instruments</span></h2></div><ul class="pills"></ul>';
+    var ul=sec.querySelector('ul');
+    [].forEach.call(inst,function(li){
+      var n=li.querySelector('b'),r=li.querySelector('.role-t'),it=document.createElement('li');
+      it.innerHTML=n.innerHTML+(r?'<i>'+r.innerHTML+'</i>':'');ul.appendChild(it);
+    });
+    R.appendChild(sec);
+  }
   sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);
 })();
 </script>
