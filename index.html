@@ -540,8 +540,15 @@ button{font:inherit;color:inherit}
 .seek{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:14px;font-weight:500;letter-spacing:.12em}
 .seek b{background:var(--burnt-deep);border-radius:999px;padding:2px 11px;font-size:11.5px;font-weight:500;letter-spacing:.14em}
 .seek .en,.seek b .en{letter-spacing:.04em}
-.pdf-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:999px;background:var(--apricot-soft);color:var(--accent-text);font:600 12px/1 var(--latin);letter-spacing:.1em;text-decoration:none}
-.pdf-btn:hover{background:var(--apricot);color:#3b1f14}
+.pdf-btn{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 15px;border-radius:999px;background:var(--burnt-deep);color:var(--on-block);font:600 12.5px/1 var(--sans);letter-spacing:.08em;text-decoration:none;white-space:nowrap}
+.pdf-btn .en{font-family:var(--latin)}
+.pdf-btn:hover{background:var(--cocoa)}
+.hero-dl{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:11px 20px;border-radius:999px;background:var(--apricot);color:#3b1f14;font:700 14px/1 var(--sans);letter-spacing:.08em;text-decoration:none;box-shadow:0 10px 24px -14px rgba(0,0,0,.55);transition:transform .2s,background .2s}
+.hero-dl .en{font-family:var(--latin);letter-spacing:.03em}
+.hero-dl small{font:500 11px var(--latin);letter-spacing:.06em;opacity:.7;margin-left:2px}
+.hero-dl:hover{background:#fff7f1;transform:translateY(-1px)}
+.hero-dl[hidden]{display:none}
+@media (max-width:370px){.pdf-btn span{display:none}.pdf-btn{padding:0 12px}}
 .pdf-dl{display:inline-flex;align-items:center;gap:6px;text-decoration:none}
 .print-head{display:none}
 
@@ -715,6 +722,7 @@ button{font:inherit;color:inherit}
     <p class="small"><span class="zh">KUO, CHEN CHIH</span><span class="en cjk">郭晨志</span></p>
     <p class="hero-role"><span class="zh"><span class="r1">化學工程與材料科學研發工程師</span><span class="rs"> ／ </span><span class="r1">電池技術專家</span></span><span class="en"><span class="r1">Chemical &amp; Materials R&amp;D Engineer</span><span class="rs"> · </span><span class="r1">Battery Specialist</span></span></p>
     <p class="seek"><b><span class="zh">求職方向</span><span class="en">Seeking</span></b><span class="zh">環安衛工程師（EHS）</span><span class="en">EHS Engineer</span></p>
+    <a class="hero-dl" data-pdf href="resume-zh.pdf" download hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載履歷 PDF</span><span class="en">Download résumé (PDF)</span><small>A4・1 page</small></a>
   </div>
 </header>
 
@@ -1334,7 +1342,7 @@ button{font:inherit;color:inherit}
     <span class="nm zh">郭晨志</span><span class="nm en">KUO CHEN CHIH</span>
     <span class="sub"><span class="zh">國立臺灣科技大學 化學工程研究所<br>電池・電解液研究</span><span class="en">M.S. Chemical Engineering, NTUST<br>Battery &amp; electrolyte research</span></span>
   </a>
-  <a class="pdf-btn" data-pdf href="resume-zh.pdf" download hidden aria-label="Download PDF"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PDF</span></a>
+  <a class="pdf-btn" data-pdf href="resume-zh.pdf" download hidden aria-label="Download résumé PDF"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載履歷</span><span class="en">Résumé</span></a>
   <div class="lang" role="group" aria-label="Language">
     <button type="button" id="lang-zh" data-lang-set="zh" aria-pressed="true">中</button>
     <button type="button" id="lang-en" data-lang-set="en" aria-pressed="false">EN</button>
