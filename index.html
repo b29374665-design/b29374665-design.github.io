@@ -108,6 +108,9 @@ main.wrap{display:flex;flex-direction:column}
 #cv.methods-open .methods-toggle .t-close{display:inline}
 .law{display:block;margin-top:2px;font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted)}
 .law .en{letter-spacing:.01em}
+.ehs-use{margin-top:10px;padding:8px 12px;border-radius:12px;background:var(--apricot-soft);font-size:13px;line-height:1.75;color:var(--ink)}
+.ehs-use b{margin-right:8px;color:var(--sage);font-weight:700;letter-spacing:.06em}
+.ehs-use .en{letter-spacing:.01em}
 .ehs-link{margin-top:22px;padding:18px 22px;border-radius:20px;background:var(--paper);box-shadow:0 0 0 1px var(--line)}
 .ehs-link h4{font-size:14.5px;font-weight:700;letter-spacing:.1em;color:var(--accent-text)}
 .ehs-link h4 .en{letter-spacing:.02em}
@@ -391,7 +394,7 @@ main.wrap{display:flex;flex-direction:column}
 .plot .ring{fill:none;stroke:var(--ink);stroke-width:1.5}
 .fig-text h3{font-size:18px;font-weight:700;letter-spacing:.1em;line-height:1.55;margin-top:8px}
 .fig-text h3 .en{letter-spacing:.02em}
-.fig-text>p:not(.eyebrow){margin-top:12px;font-size:14px;line-height:1.95;color:var(--ink-2)}
+.fig-text>p:not(.eyebrow):not(.ehs-use){margin-top:12px;font-size:14px;line-height:1.95;color:var(--ink-2)}
 .fig-text>p .en{line-height:1.75;letter-spacing:.02em}
 .chips{list-style:none;padding:0;margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
 .chips li{font:500 11.5px/1.6 var(--latin);letter-spacing:.05em;padding:2px 11px;border-radius:10px;background:var(--apricot-soft);color:var(--accent-text)}
@@ -1023,6 +1026,7 @@ main.wrap{display:flex;flex-direction:column}
           </div>
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 1 · EIS</p>
+            <p class="ehs-use ehs-only"><b><span class="zh">EHS 應用</span><span class="en">EHS use</span></b><span class="zh">以阻抗變化提早辨識異常、可能失效的電池，降低儲存與使用風險。</span><span class="en">Impedance changes flag abnormal cells that may fail, before they become a storage or use risk.</span></p>
             <h3><span class="zh">阻抗頻譜與等效電路擬合</span><span class="en">Impedance spectra &amp; equivalent-circuit fitting</span></h3>
             <p><span class="zh">量測每顆電池的阻抗頻譜，以等效電路擬合出歐姆阻抗 <i>R</i><sub>s</sub>、鋰負極表面 LiCl 鈍化膜阻抗 <i>R</i><sub>SEI</sub>、電荷轉移阻抗 <i>R</i><sub>ct</sub> 與擴散阻抗 <i>R</i><sub>W</sub>。各參數再以同批電池的中位數正規化，比較批次間分散度，快速挑出阻抗偏高、弧形異常的電池。</span><span class="en">Each cell's spectrum is fitted to an equivalent circuit to extract the ohmic resistance <i>R</i><sub>s</sub>, the LiCl passivation-film resistance <i>R</i><sub>SEI</sub>, the charge-transfer resistance <i>R</i><sub>ct</sub> and the diffusion resistance <i>R</i><sub>W</sub>. Parameters are then normalized to the batch median to compare spread across batches and flag cells with high impedance or distorted arcs.</span></p>
             <div class="eq" aria-label="Impedance model">
@@ -1053,6 +1057,7 @@ main.wrap{display:flex;flex-direction:column}
           </div>
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 2 · OCV Drip</p>
+            <p class="ehs-use ehs-only"><b><span class="zh">EHS 應用</span><span class="en">EHS use</span></b><span class="zh">評估電池長期可靠度與自放電，作為庫存管理與汰換的判斷依據。</span><span class="en">Long-term reliability and self-discharge data support inventory and replacement decisions.</span></p>
             <h3><span class="zh">脈衝放電的電壓響應</span><span class="en">Voltage response to pulsed discharge</span></h3>
             <p><span class="zh">以 1、10、50、100 mA 定電流放電並記錄電壓變化。Li–SOCl₂ 電池的 LiCl 鈍化膜會使放電初期電壓先下探再回升（電壓延遲），穩定後的壓降 ΔV 隨電流增大；比較加速老化前後的 ΔV 與靜置回復電壓，評估電池長期可靠度。</span><span class="en">Cells are discharged at 1, 10, 50 and 100 mA while voltage is logged. The LiCl passivation film makes the voltage dip and then recover at the start of discharge (voltage delay), and the steady drop ΔV grows with current. Comparing ΔV and rest-recovery voltage before and after accelerated aging gauges long-term reliability.</span></p>
             <div class="eq" aria-label="Voltage model">
@@ -1109,6 +1114,7 @@ main.wrap{display:flex;flex-direction:column}
           </div>
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 3 · X-ray CT</p>
+            <p class="ehs-use ehs-only"><b><span class="zh">EHS 應用</span><span class="en">EHS use</span></b><span class="zh">不需拆解高活性電池，即可非破壞檢查內部缺陷、追溯失效原因。</span><span class="en">Finds internal defects and failure causes without opening a reactive cell.</span></p>
             <h3><span class="zh">內部結構非破壞檢查</span><span class="en">Non-destructive internal inspection</span></h3>
             <p><span class="zh">以 X-ray CT 逐層掃描線軸式（bobbin）電池內部，檢查碳正極填充均勻度、集電棒位置、鋰負極與隔離膜完整性，並對照 EIS 與 OCV Drip 的異常訊號，追溯電池失效的結構成因。</span><span class="en">X-ray CT slices through bobbin-type cells to check carbon-cathode packing, current-collector alignment and the integrity of the Li anode and separator — tracing the structural cause behind abnormal EIS and OCV-drip signals.</span></p>
             <ul class="chips">
@@ -1133,6 +1139,7 @@ main.wrap{display:flex;flex-direction:column}
           </div>
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 4 · DSC</p>
+            <p class="ehs-use ehs-only"><b><span class="zh">EHS 應用</span><span class="en">EHS use</span></b><span class="zh">量測相變與吸放熱，了解化學品在低溫或升溫時的狀態變化與熱行為。</span><span class="en">Phase changes and heat flow show how a chemical behaves as it is cooled or heated.</span></p>
             <h3><span class="zh">電解液的低溫相變化</span><span class="en">Low-temperature phase behaviour of an electrolyte</span></h3>
             <p><span class="zh">以 10 °C/min 升溫掃描，讀出玻璃轉移 <i>T</i><sub>g</sub>（含焓鬆弛）、冷結晶放熱峰 <i>T</i><sub>c</sub> 與熔融吸熱峰；以切線法求熔融起始溫度 <i>T</i><sub>m,onset</sub>，積分峰面積得熔融焓 Δ<i>H</i><sub>m</sub>，判斷電解液在低溫下能否維持液態。負責維護實驗室 DSC 2500。</span><span class="en">A 10 °C/min heating scan shows the glass transition <i>T</i><sub>g</sub> (with enthalpy relaxation), the cold-crystallization exotherm <i>T</i><sub>c</sub> and the melting endotherm. The tangent method gives the melting onset <i>T</i><sub>m,onset</sub> and peak integration gives Δ<i>H</i><sub>m</sub> — telling whether an electrolyte stays liquid at low temperature. I maintain the lab's DSC 2500.</span></p>
             <div class="eq" aria-label="DSC model">
@@ -1158,6 +1165,7 @@ main.wrap{display:flex;flex-direction:column}
           </div>
           <figcaption class="fig-text">
             <p class="eyebrow">Fig. 5 · TGA</p>
+            <p class="ehs-use ehs-only"><b><span class="zh">EHS 應用</span><span class="en">EHS use</span></b><span class="zh">分解起始溫度與失重量，是評估化學品熱穩定性與熱危害的基礎數據。</span><span class="en">Decomposition onset and mass loss are the basic data for chemical thermal-stability and hazard assessment.</span></p>
             <h3><span class="zh">TG 與 DTG 曲線</span><span class="en">TG and DTG curves</span></h3>
             <p><span class="zh">兩段一級反應以 Arrhenius 動力學在 10 °C/min 下積分：TG 記錄質量變化，DTG 為其一階導數，峰值 <i>T</i><sub>p</sub> 即最大失重速率；以切線法求分解起始溫度 <i>T</i><sub>onset</sub>。於 Nature Energy 投稿論文中負責電池材料的 TGA 量測與數據判讀，並負責維護 TGA Q500。</span><span class="en">Two first-order steps integrated with Arrhenius kinetics at 10 °C/min: TG tracks mass, DTG is its first derivative whose peak <i>T</i><sub>p</sub> marks the fastest mass loss, and the tangent method gives the decomposition onset <i>T</i><sub>onset</sub>. I ran the TGA measurements and data interpretation for battery materials in the Nature Energy submission, and maintain the lab's TGA Q500.</span></p>
             <div class="eq" aria-label="TGA model">
