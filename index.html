@@ -1768,7 +1768,9 @@ main.wrap{display:flex;flex-direction:column}
   var cv=document.getElementById('cv'),links=[].slice.call(document.querySelectorAll('[data-pdf]')),top=true;
   try{top=window.self===window.top}catch(e){top=false}
   if(!top)return;                       // inside an embed (e.g. preview frames) downloads are blocked
-  function sync(){var en=cv.getAttribute('data-lang')==='en',rd=cv.getAttribute('data-role')==='rd',f='resume-'+(rd?'rd-':'')+(en?'en':'zh')+'.pdf',n='KUO_CHEN_CHIH_Resume_'+(rd?'RD_':'')+(en?'EN':'ZH')+'.pdf';links.forEach(function(l){l.hidden=false;l.href=f;l.setAttribute('download',n)})}
+  /* ?v= changes every hour so phones and browsers never reuse a stale copy of the PDF */
+  var v='?v='+Math.floor(Date.now()/36e5);
+  function sync(){var en=cv.getAttribute('data-lang')==='en',rd=cv.getAttribute('data-role')==='rd',f='resume-'+(rd?'rd-':'')+(en?'en':'zh')+'.pdf',n='KUO_CHEN_CHIH_Resume_'+(rd?'RD_':'')+(en?'EN':'ZH')+'.pdf';links.forEach(function(l){l.hidden=false;l.href=f+v;l.setAttribute('download',n)})}
   sync();new MutationObserver(sync).observe(cv,{attributes:true,attributeFilter:['data-lang']});
 })();
 </script>
