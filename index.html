@@ -217,18 +217,20 @@ button{font:inherit;color:inherit}
 .steps p{font-size:13.5px;line-height:1.9;color:var(--ink-2)}
 .steps p .en{line-height:1.7;letter-spacing:.02em}
 
-.paper{margin-top:20px;background:var(--band);color:var(--on-block);border-radius:30px;padding:clamp(24px,3.6vw,46px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:40px;align-items:center}
-.paper .eyebrow{color:var(--apricot)}
+.paper{position:relative;overflow:hidden;margin-top:20px;background:var(--apricot-soft);color:var(--ink);border-radius:30px;padding:clamp(24px,3.6vw,46px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:28px;align-items:center}
+.paper>*:not(.field){position:relative}
+.paper .eyebrow{color:var(--accent-text)}
 .journal{font:500 clamp(34px,4.4vw,48px)/1.1 var(--latin);letter-spacing:-.005em;margin-top:12px}
-.paper .sub{font-size:13.5px;letter-spacing:.1em;opacity:.85;margin-top:8px}
+.paper .sub{font-size:13.5px;letter-spacing:.1em;color:var(--ink-2);margin-top:8px}
+.paper .coauthor{margin-top:18px}
+.ms-id{margin-top:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:12.5px;letter-spacing:.1em;color:var(--ink-2)}
+.ms-id .en{letter-spacing:.04em}
+.ms-id b{font:500 13px var(--latin);letter-spacing:.06em;color:var(--accent-text);user-select:all}
 .paper .sub .en{letter-spacing:.02em}
-.tga{margin-top:22px;max-width:280px}
-.tga svg{display:block;width:100%;height:auto}
-.tga text{font:500 9px var(--latin);letter-spacing:.08em;fill:var(--on-block);fill-opacity:.6}
 .coauthor{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:14px;letter-spacing:.08em}
 .coauthor .en{letter-spacing:.02em}
 .pill-on{background:var(--apricot);color:#3b1f14;font-weight:700;border-radius:999px;padding:3px 14px}
-.paper p.desc{margin-top:16px;font-size:14.5px;line-height:2;opacity:.92}
+.paper p.desc{margin-top:12px;font-size:14.5px;line-height:2;color:var(--ink-2)}
 .paper p.desc .en{line-height:1.8;letter-spacing:.02em}
 
 /* education */
@@ -294,6 +296,20 @@ button{font:inherit;color:inherit}
 .illu{display:block;width:100%;max-width:200px;margin:28px 0 0;color:var(--burnt)}
 .illu svg{display:block;width:100%;height:auto}
 @media (max-width:900px){.illu{max-width:230px;margin-top:14px}}
+
+/* line illustrations (Iyoki-style) */
+.illu-card,.illu-side,.illu-band{margin:0;color:var(--burnt)}
+.illu-card svg,.illu-side svg,.illu-band svg{display:block;width:100%;height:auto}
+.illu-side .bg,.illu-band .bg{fill:var(--ground)}
+.illu-card .bg{fill:var(--apricot-soft)}
+.illu-card{justify-self:end;width:100%;max-width:300px}
+.intro-row{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:36px;align-items:center;margin-bottom:28px}
+.intro-row .intro-note{margin-bottom:0}
+.intro-row+.sub-h{margin-top:0}
+.illu-side{justify-self:end;width:100%}
+.illu-band{grid-column:1/-1;margin-top:56px}
+.illu-card:empty,.illu-side:empty,.illu-band:empty{display:none}
+.paper:has(.illu-card:empty),.intro-row:has(.illu-side:empty){grid-template-columns:minmax(0,1fr)}
 
 /* methods: figures */
 .intro-note{font-size:14.5px;line-height:2;color:var(--ink-2);max-width:42em;margin-bottom:28px}
@@ -418,6 +434,8 @@ button{font:inherit;color:inherit}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:1180px){
+  .intro-row{grid-template-columns:1fr;gap:10px}
+  .illu-side{max-width:290px}
   .fig{grid-template-columns:1fr}
   .apps{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -427,7 +445,8 @@ button{font:inherit;color:inherit}
 @media (max-width:900px){
   .sec{grid-template-columns:1fr;gap:28px;padding-block:72px}
   .sec-head{position:static}
-  .paper{grid-template-columns:1fr;gap:24px}
+  .paper{grid-template-columns:1fr;gap:12px}
+  .illu-card{max-width:280px}
   .skill-groups{grid-template-columns:1fr 1fr}
   .brand .sub{display:none}
 }
@@ -459,6 +478,9 @@ button{font:inherit;color:inherit}
   .app{grid-template-columns:44px minmax(0,1fr);align-items:center;gap:16px;padding:14px 16px}
   .fig{border-radius:24px}
   .inst{grid-template-columns:1fr;gap:10px}
+  .illu-side,.illu-card{max-width:250px}
+  .illu-band{overflow:hidden;margin-top:36px}
+  .illu-band svg{width:170%;margin-left:-35%}
   .inst li{grid-template-columns:52px minmax(0,1fr);padding:14px 16px}
   .inst svg{width:52px;height:52px}
   .eq{font-size:15.5px;line-height:1.5;padding:14px 14px;gap:14px}
@@ -507,7 +529,7 @@ button{font:inherit;color:inherit}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
   html,body{background:#fff!important}
   body{font-size:8.4pt;line-height:1.45;letter-spacing:.01em}
-  .hero,.bar,.menu,main.wrap,.foot,.illu{display:none!important}
+  .hero,.bar,.menu,main.wrap,.foot,.illu-card,.illu-side,.illu-band,.field{display:none!important}
 
   .print-head{display:flex!important;justify-content:space-between;align-items:flex-end;gap:6mm;padding-bottom:2.6mm;border-bottom:1.4pt solid var(--burnt)}
   .print-head>div:first-child{flex:1;min-width:0}
@@ -563,6 +585,9 @@ button{font:inherit;color:inherit}
   .print-sheet .journal{display:inline;font-size:10pt;margin:0}
   .print-sheet .paper .sub{display:inline;margin-left:2mm;font-size:7.8pt;opacity:1;color:var(--ink-2)}
   .print-sheet .coauthor{margin-top:.6mm;font-size:7.9pt}
+  .print-sheet span.en,.print-sheet span.zh{line-height:inherit}
+  .print-sheet .ms-id{display:inline-flex;margin:0 0 0 2mm;font-size:7.6pt;gap:1mm}
+  .print-sheet .ms-id b{font-size:7.8pt}
   .print-sheet .paper p.desc{margin-top:.4mm;font-size:7.8pt;line-height:1.4;opacity:1}
 
   /* sidebar: licences */
@@ -659,33 +684,6 @@ button{font:inherit;color:inherit}
     <div class="sec-head">
       <p class="eyebrow"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><rect y="2" width="8" height="11" rx="2" fill="currentColor"/><rect x="2.5" width="3" height="2.5" rx=".8" fill="currentColor"/></svg><span class="zh">Profile</span><span class="en cjk">簡介</span></p>
       <h2><span class="zh">簡介</span><span class="en">Profile</span></h2>
-      <figure class="illu"><svg viewBox="0 0 240 220" role="img" aria-label="Researcher working at a laptop"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-<path d="M8 200.5C60 199 170 201.5 232 200"/>
-<path d="M85 155L85 178M85 179L62 189M85 179L106 189M85 179L85 190"/>
-<circle cx="60" cy="194.5" r="4.5"/><circle cx="107" cy="194.5" r="4.5"/><circle cx="85" cy="194.5" r="4.5"/>
-<path d="M73 128C71 138 70 143 72 149"/>
-<path d="M66 84C64 100 64 116 67 128C72 131 78 131 81 128C83 114 82 98 80 85C76 81 69 81 66 84Z" fill="var(--ground)"/>
-<path d="M60 147C75 145 95 145 108 147C110 150 109 154 106 155C90 156 74 156 62 155C58 153 58 149 60 147Z" fill="var(--ground)"/>
-<path d="M118 121.5C150 120.5 200 121 234 121.5L234 127C200 127.5 150 127 118 127Z" fill="var(--ground)"/>
-<path d="M151 127.5C150 150 149 180 149 200M219 127.5C220 150 221 180 222 200"/>
-<path d="M146 116.5L196 116L196.5 121M146 116.5L146 121"/>
-<path d="M195 119L204 81.5L208.5 82.5L199.5 119.5"/>
-<path d="M212 104C212 110 212 116 213.5 121M226 104C226 110 226 116 224.5 121M212 104L226 104M226 108C232 108 232 116 225.5 116"/>
-<path d="M216 99C213 95 219 92 216 87M222 99C219 95 225 92 222 87"/>
-<path d="M92 78C81 88 76 112 79 142L103 142C104 121 108 105 112 93C113 84 108 78 100 76Z" fill="var(--ground)"/>
-<path d="M99 76L104 85L108 79"/>
-<path d="M83 129C100 127 117 128 128 131C133 135 132 144 126 146L86 147C80 145 79 133 83 129Z" fill="var(--ground)"/>
-<path d="M118 146C117 160 116 172 116 187M128.5 142C128 156 127.5 170 127.5 187"/>
-<path d="M115 187C114 192 114 196 115 199L140 199C142 193 136 189 128 187Z" fill="var(--ground)"/>
-<path d="M100 69L100 77M106 70L106 77"/>
-<path d="M96 57C96 44 109 40 115 47C117 50 117.5 54 119.5 58.5L117 60C117 65 115 69 110 70C103 71 97 67 96 57Z" fill="var(--ground)"/>
-<path d="M94.5 61C90 50 97 39 108 39.5C114 40 118 43 117.5 48C111 45 104 47 100.5 55L99 61Z" fill="var(--ground)"/>
-<circle cx="113" cy="55.5" r="4.3"/><path d="M108.7 55L103 55.5"/>
-<path d="M100.5 57C98 58 98.5 62 101 62.5"/>
-<path d="M112 65.5L115.5 65M114 55.8L114 55.9"/>
-<path d="M93 86C92 79 104 78 108 86C111 93 112 101 113 109C121 110 131 110 141 110L141 118C130 118 118 118 105 117C101 107 97 97 93 86Z" fill="var(--ground)"/>
-<path d="M141 109.5C147 108.5 152 110 156 114.5C155 117 150 117.5 141 118" fill="var(--ground)"/>
-</g></svg></figure>
     </div>
     <div>
       <p class="lead">
@@ -776,31 +774,6 @@ button{font:inherit;color:inherit}
     <div class="sec-head">
       <p class="eyebrow"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><rect y="2" width="8" height="11" rx="2" fill="currentColor"/><rect x="2.5" width="3" height="2.5" rx=".8" fill="currentColor"/></svg><span class="zh">Experience</span><span class="en cjk">經歷</span></p>
       <h2><span class="zh">經歷</span><span class="en">Experience</span></h2>
-      <figure class="illu"><svg viewBox="0 0 260 220" role="img" aria-label="Researcher loading a sample into a TGA instrument"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-<path d="M6 204.5C70 203 180 205.5 254 204"/>
-<path d="M14 26L58 25.5L58.5 96L14.5 96.5ZM36 26L36 96M14.5 61L58 60.5"/>
-<path d="M120 120.5C160 119.5 210 120 254 120.5L254 126.5L120 126.5Z" fill="var(--ground)"/>
-<path d="M128 127L128 204M246 127L246 204M187 131L187 200M180 150L180 160M194 150L194 160"/>
-<path d="M167 64C166 80 166 100 167 120L223 120C224 100 224 80 223 64C205 62.5 185 62.5 167 64Z" fill="var(--ground)"/>
-<path d="M177 64L177 42C177 28 213 28 213 42L213 64M177 50L213 50"/>
-<path d="M177 73L204 73L204 92L177 92Z"/>
-<path d="M181 78L188 78C192 78 192 87 196 87L200 87"/>
-<path d="M213 77L213 77.1M213 85L213 85.1M175 108L215 108"/>
-<path d="M232 100C232 107 232.5 114 233 120L245 120C245.5 114 246 107 246 100M233 110L245 110"/>
-<path d="M80 196C80 184 79 168 78 150M91 196C91 180 91 166 91 150M93 150C95 166 97 180 98 196M104 148C106 164 108 180 109 196"/>
-<path d="M79 196C78 200 78 203 79 204L95 204C96 200 93 197 90 196ZM97 196C96 200 96 203 97 204L114 204C115 200 112 197 109 196Z" fill="var(--ground)"/>
-<path d="M82 68C72 82 70 120 69 152C82 154 96 154 107 152C106 125 106 100 104 84C103 75 99 69 94 67Z" fill="var(--ground)"/>
-<path d="M92 66L99 84L103 72M75 118L88 118L88 130L75 130"/>
-<path d="M89 60L89 67M96 60L96 67"/>
-<path d="M85 46C85 34 98 30 104 37C106 40 106.5 44 108.5 48.5L106 50C106 55 104 59 99 60C92 61 86 57 85 46Z" fill="var(--ground)"/>
-<path d="M84 51C80 41 86 30 97 30.5C103 31 107 34 106.5 39C100 36 94 38 90 46L88 51Z" fill="var(--ground)"/>
-<path d="M90 47C87.5 48 88 52 90.5 52.5"/>
-<path d="M101 55.5L104.5 55M102.5 45L102.5 45.1"/>
-<path d="M85 76C84 68 96 66 99 73C101 80 103 87 106 95C118 86 130 74 140 66L146 72C136 82 122 94 110 104C108 108 104 110 99 107C94 98 89 87 85 76Z" fill="var(--ground)"/>
-<path d="M140 66C144 63 150 64 152 67C153 71 150 74 146 73" fill="var(--ground)"/>
-<path d="M150 66L169 57.5M151 70L169.5 58.5"/>
-<path d="M167 55L176 55L175 59.5L168 59.5Z"/>
-</g></svg></figure>
     </div>
     <ol class="tl">
       <li>
@@ -837,6 +810,7 @@ button{font:inherit;color:inherit}
         </div>
       </li>
     </ol>
+    <figure class="illu-band"><!--ILLU_TEAM--></figure>
   </section>
 
   <!-- ============ RESEARCH ============ -->
@@ -881,26 +855,16 @@ button{font:inherit;color:inherit}
       </article>
 
       <article class="paper">
-        <div>
+        <svg class="field" aria-hidden="true"><rect width="100%" height="100%" fill="url(#motif-l)"/></svg>
+        <div class="paper-text">
           <p class="eyebrow"><span class="zh">Submission</span><span class="en cjk">期刊投稿</span></p>
           <p class="journal">Nature Energy</p>
           <p class="sub"><span class="zh">期刊投稿論文 — 電池熱穩定性研究</span><span class="en">Journal submission — battery thermal stability study</span></p>
-          <figure class="tga" aria-hidden="true">
-            <svg viewBox="0 0 280 112">
-              <line x1="26" y1="92" x2="272" y2="92" stroke="currentColor" stroke-opacity=".3"/>
-              <line x1="26" y1="14" x2="26" y2="92" stroke="currentColor" stroke-opacity=".3"/>
-              <path d="M26 24 H104 C132 24 136 66 158 72 S214 78 272 79" fill="none" stroke="var(--apricot)" stroke-width="2.4" stroke-linecap="round"/>
-              <circle cx="140" cy="50" r="3.2" fill="var(--apricot)"/>
-              <text x="32" y="12">MASS / %</text>
-              <text x="272" y="108" text-anchor="end">T / °C</text>
-              <text x="148" y="46">TGA</text>
-            </svg>
-          </figure>
-        </div>
-        <div>
+          <p class="ms-id"><span class="zh">稿件編號</span><span class="en">Manuscript no.</span> <b>NENERGY-26093605</b></p>
           <p class="coauthor"><span class="pill-on"><span class="zh">共同作者</span><span class="en">Co-author</span></span><span class="zh">負責 TGA 熱重分析量測</span><span class="en">Responsible for TGA thermal measurement</span></p>
           <p class="desc"><span class="zh">負責論文中電池材料樣品之 TGA 熱重分析前處理、量測參數設定與數據判讀，提供熱穩定性數據佐證研究結論。</span><span class="en">Performed TGA sample preparation, measurement setup and data interpretation for battery material samples, providing thermal stability data supporting the manuscript's conclusions.</span></p>
         </div>
+        <figure class="illu-card"><!--ILLU_DESK--></figure>
       </article>
     </div>
   </section>
@@ -912,7 +876,10 @@ button{font:inherit;color:inherit}
       <h2><span class="zh">分析方法與儀器</span><span class="en">Methods &amp; Instruments</span></h2>
     </div>
     <div>
-      <p class="intro-note"><span class="zh">產學計畫中的三項電池分析技術、兩項材料熱分析，以及實際維護與採購的儀器設備。圖中曲線皆以下方公式的物理模型計算而成，屬於示意圖，並非計畫實測數據；將游標移到圖上（手機可點按）即可讀取數值。</span><span class="en">The three battery-analysis techniques from the industry project, two thermal-analysis methods, and the instruments I maintain and procured. Every curve is computed from the physical model shown beneath it — illustrative, not project data. Hover over a chart (or tap on mobile) to read values.</span></p>
+      <div class="intro-row">
+        <p class="intro-note"><span class="zh">產學計畫中的三項電池分析技術、兩項材料熱分析，以及實際維護與採購的儀器設備。圖中曲線皆以下方公式的物理模型計算而成，屬於示意圖，並非計畫實測數據；將游標移到圖上（手機可點按）即可讀取數值。</span><span class="en">The three battery-analysis techniques from the industry project, two thermal-analysis methods, and the instruments I maintain and procured. Every curve is computed from the physical model shown beneath it — illustrative, not project data. Hover over a chart (or tap on mobile) to read values.</span></p>
+        <figure class="illu-side"><!--ILLU_LAB--></figure>
+      </div>
 
       <!-- ===== Group A: industry project ===== -->
       <div class="sub-h">
