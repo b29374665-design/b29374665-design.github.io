@@ -290,6 +290,11 @@ button{font:inherit;color:inherit}
 .foot-meta .latin{letter-spacing:.06em}
 .copyright{position:relative;margin-top:56px;padding-top:18px;border-top:1px solid rgba(255,247,241,.2);font:500 11px var(--latin);letter-spacing:.24em;opacity:.7}
 
+/* line illustrations */
+.illu{display:block;width:100%;max-width:200px;margin:28px 0 0;color:var(--burnt)}
+.illu svg{display:block;width:100%;height:auto}
+@media (max-width:900px){.illu{max-width:230px;margin-top:14px}}
+
 /* methods: figures */
 .intro-note{font-size:14.5px;line-height:2;color:var(--ink-2);max-width:42em;margin-bottom:28px}
 .intro-note .en{line-height:1.8;letter-spacing:.02em}
@@ -502,7 +507,7 @@ button{font:inherit;color:inherit}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
   html,body{background:#fff!important}
   body{font-size:8.4pt;line-height:1.45;letter-spacing:.01em}
-  .hero,.bar,.menu,main.wrap,.foot{display:none!important}
+  .hero,.bar,.menu,main.wrap,.foot,.illu{display:none!important}
 
   .print-head{display:flex!important;justify-content:space-between;align-items:flex-end;gap:6mm;padding-bottom:2.6mm;border-bottom:1.4pt solid var(--burnt)}
   .print-head>div:first-child{flex:1;min-width:0}
@@ -654,6 +659,33 @@ button{font:inherit;color:inherit}
     <div class="sec-head">
       <p class="eyebrow"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><rect y="2" width="8" height="11" rx="2" fill="currentColor"/><rect x="2.5" width="3" height="2.5" rx=".8" fill="currentColor"/></svg><span class="zh">Profile</span><span class="en cjk">簡介</span></p>
       <h2><span class="zh">簡介</span><span class="en">Profile</span></h2>
+      <figure class="illu"><svg viewBox="0 0 240 220" role="img" aria-label="Researcher working at a laptop"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M8 200.5C60 199 170 201.5 232 200"/>
+<path d="M85 155L85 178M85 179L62 189M85 179L106 189M85 179L85 190"/>
+<circle cx="60" cy="194.5" r="4.5"/><circle cx="107" cy="194.5" r="4.5"/><circle cx="85" cy="194.5" r="4.5"/>
+<path d="M73 128C71 138 70 143 72 149"/>
+<path d="M66 84C64 100 64 116 67 128C72 131 78 131 81 128C83 114 82 98 80 85C76 81 69 81 66 84Z" fill="var(--ground)"/>
+<path d="M60 147C75 145 95 145 108 147C110 150 109 154 106 155C90 156 74 156 62 155C58 153 58 149 60 147Z" fill="var(--ground)"/>
+<path d="M118 121.5C150 120.5 200 121 234 121.5L234 127C200 127.5 150 127 118 127Z" fill="var(--ground)"/>
+<path d="M151 127.5C150 150 149 180 149 200M219 127.5C220 150 221 180 222 200"/>
+<path d="M146 116.5L196 116L196.5 121M146 116.5L146 121"/>
+<path d="M195 119L204 81.5L208.5 82.5L199.5 119.5"/>
+<path d="M212 104C212 110 212 116 213.5 121M226 104C226 110 226 116 224.5 121M212 104L226 104M226 108C232 108 232 116 225.5 116"/>
+<path d="M216 99C213 95 219 92 216 87M222 99C219 95 225 92 222 87"/>
+<path d="M92 78C81 88 76 112 79 142L103 142C104 121 108 105 112 93C113 84 108 78 100 76Z" fill="var(--ground)"/>
+<path d="M99 76L104 85L108 79"/>
+<path d="M83 129C100 127 117 128 128 131C133 135 132 144 126 146L86 147C80 145 79 133 83 129Z" fill="var(--ground)"/>
+<path d="M118 146C117 160 116 172 116 187M128.5 142C128 156 127.5 170 127.5 187"/>
+<path d="M115 187C114 192 114 196 115 199L140 199C142 193 136 189 128 187Z" fill="var(--ground)"/>
+<path d="M100 69L100 77M106 70L106 77"/>
+<path d="M96 57C96 44 109 40 115 47C117 50 117.5 54 119.5 58.5L117 60C117 65 115 69 110 70C103 71 97 67 96 57Z" fill="var(--ground)"/>
+<path d="M94.5 61C90 50 97 39 108 39.5C114 40 118 43 117.5 48C111 45 104 47 100.5 55L99 61Z" fill="var(--ground)"/>
+<circle cx="113" cy="55.5" r="4.3"/><path d="M108.7 55L103 55.5"/>
+<path d="M100.5 57C98 58 98.5 62 101 62.5"/>
+<path d="M112 65.5L115.5 65M114 55.8L114 55.9"/>
+<path d="M93 86C92 79 104 78 108 86C111 93 112 101 113 109C121 110 131 110 141 110L141 118C130 118 118 118 105 117C101 107 97 97 93 86Z" fill="var(--ground)"/>
+<path d="M141 109.5C147 108.5 152 110 156 114.5C155 117 150 117.5 141 118" fill="var(--ground)"/>
+</g></svg></figure>
     </div>
     <div>
       <p class="lead">
@@ -744,6 +776,31 @@ button{font:inherit;color:inherit}
     <div class="sec-head">
       <p class="eyebrow"><svg width="8" height="13" viewBox="0 0 8 13" aria-hidden="true"><rect y="2" width="8" height="11" rx="2" fill="currentColor"/><rect x="2.5" width="3" height="2.5" rx=".8" fill="currentColor"/></svg><span class="zh">Experience</span><span class="en cjk">經歷</span></p>
       <h2><span class="zh">經歷</span><span class="en">Experience</span></h2>
+      <figure class="illu"><svg viewBox="0 0 260 220" role="img" aria-label="Researcher loading a sample into a TGA instrument"><g fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+<path d="M6 204.5C70 203 180 205.5 254 204"/>
+<path d="M14 26L58 25.5L58.5 96L14.5 96.5ZM36 26L36 96M14.5 61L58 60.5"/>
+<path d="M120 120.5C160 119.5 210 120 254 120.5L254 126.5L120 126.5Z" fill="var(--ground)"/>
+<path d="M128 127L128 204M246 127L246 204M187 131L187 200M180 150L180 160M194 150L194 160"/>
+<path d="M167 64C166 80 166 100 167 120L223 120C224 100 224 80 223 64C205 62.5 185 62.5 167 64Z" fill="var(--ground)"/>
+<path d="M177 64L177 42C177 28 213 28 213 42L213 64M177 50L213 50"/>
+<path d="M177 73L204 73L204 92L177 92Z"/>
+<path d="M181 78L188 78C192 78 192 87 196 87L200 87"/>
+<path d="M213 77L213 77.1M213 85L213 85.1M175 108L215 108"/>
+<path d="M232 100C232 107 232.5 114 233 120L245 120C245.5 114 246 107 246 100M233 110L245 110"/>
+<path d="M80 196C80 184 79 168 78 150M91 196C91 180 91 166 91 150M93 150C95 166 97 180 98 196M104 148C106 164 108 180 109 196"/>
+<path d="M79 196C78 200 78 203 79 204L95 204C96 200 93 197 90 196ZM97 196C96 200 96 203 97 204L114 204C115 200 112 197 109 196Z" fill="var(--ground)"/>
+<path d="M82 68C72 82 70 120 69 152C82 154 96 154 107 152C106 125 106 100 104 84C103 75 99 69 94 67Z" fill="var(--ground)"/>
+<path d="M92 66L99 84L103 72M75 118L88 118L88 130L75 130"/>
+<path d="M89 60L89 67M96 60L96 67"/>
+<path d="M85 46C85 34 98 30 104 37C106 40 106.5 44 108.5 48.5L106 50C106 55 104 59 99 60C92 61 86 57 85 46Z" fill="var(--ground)"/>
+<path d="M84 51C80 41 86 30 97 30.5C103 31 107 34 106.5 39C100 36 94 38 90 46L88 51Z" fill="var(--ground)"/>
+<path d="M90 47C87.5 48 88 52 90.5 52.5"/>
+<path d="M101 55.5L104.5 55M102.5 45L102.5 45.1"/>
+<path d="M85 76C84 68 96 66 99 73C101 80 103 87 106 95C118 86 130 74 140 66L146 72C136 82 122 94 110 104C108 108 104 110 99 107C94 98 89 87 85 76Z" fill="var(--ground)"/>
+<path d="M140 66C144 63 150 64 152 67C153 71 150 74 146 73" fill="var(--ground)"/>
+<path d="M150 66L169 57.5M151 70L169.5 58.5"/>
+<path d="M167 55L176 55L175 59.5L168 59.5Z"/>
+</g></svg></figure>
     </div>
     <ol class="tl">
       <li>
@@ -753,6 +810,7 @@ button{font:inherit;color:inherit}
           <p class="role"><span class="zh">實驗室設備採購、資產維護與安全專員</span><span class="en">Lab Equipment Procurement &amp; Asset Maintenance Manager</span></p>
           <ul class="pts">
             <li><span class="zh"><b>設備採購與驗收（逾 200 萬元）：</b>主責手套箱 Oxygen Sensor、DSC 壓機組與年度維護合約、電池液壓打片機、真空幫浦、10 支 Eppendorf Pipette 及低溫水槽等設備之詢價、採購及點收建檔。</span><span class="en"><b>Procurement (&gt;NTD 2M):</b> Led procurement of glovebox O₂ sensors, a DSC press set with annual maintenance contract, a hydraulic electrode punch, vacuum pumps, 10 Eppendorf pipettes and low-temperature baths.</span></li>
+            <li><span class="zh"><b>跨系所 TGA 委測：</b>協助多個實驗室研究生進行 TGA 委託測試，包括化工系邱昱誠、葉旻鑫、顧洋、楊延齡教授，機械系郭俞麟教授，以及材料系陳詩芸教授實驗室。</span><span class="en"><b>TGA testing service:</b> Ran TGA measurements for graduate students from labs across NTUST — Chemical Engineering (Profs. Yu-Cheng Chiu, Min-Hsin Yeh, Young Ku and Yen-Ling Yang), Mechanical Engineering (Prof. Yu-Lin Kuo) and Materials Science &amp; Engineering (Prof. Shih-Yun Chen).</span></li>
             <li><span class="zh"><b>核心儀器維護與校正：</b>專責維護實驗室高階熱分析儀器 TGA Q500 與 DSC 2500，確保量測精度與高稼動率。</span><span class="en"><b>Instrument maintenance:</b> Responsible for maintenance and calibration of the key thermal analysis instruments, TGA Q500 and DSC 2500.</span></li>
             <li><span class="zh">與原廠代理商（Waters、TA Instruments、友和貿易）維修工程師建立緊密聯繫管道，故障發生時即時通報，多能於 <b>24 小時內</b>獲工程師到場處置，大幅縮短儀器停機時間。</span><span class="en">Maintained close, responsive contact with vendor engineers (Waters, TA Instruments, Uni-Onward), frequently securing on-site repair within <b>24 hours</b> of a fault report — significantly reducing instrument downtime.</span></li>
           </ul>
