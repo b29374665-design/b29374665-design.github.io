@@ -18,7 +18,9 @@
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style><title>郭晨志 履歷</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&family=STIX+Two+Text:ital@0;1&display=swap">
+<!-- Web fonts never block the first paint. Noto Sans TC is requested at the end of <body> with only the characters this page uses. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=STIX+Two+Text:ital@0;1&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&family=STIX+Two+Text:ital@0;1&display=swap"></noscript>
 <style>
 :root{
   --ground:#fbf2ea;
@@ -1626,6 +1628,17 @@ button{font:inherit;color:inherit}
     p[1].appendChild(c);
   });
   sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);
+})();
+</script>
+<script>
+/* Noto Sans TC: ask Google Fonts for just the characters on this page (text= subset, ~0.2 MB instead of ~1.6 MB).
+   Runs last, so both languages, SVG labels and the chart strings above are all counted. */
+(function(){
+  var base='https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap',seen={},chars='';
+  Array.from(' \u00a0\u2002\u3000'+document.documentElement.textContent).forEach(function(c){if(c>=' '&&!seen[c]){seen[c]=1;chars+=c}});
+  var href=base+'&text='+encodeURIComponent(chars),link=document.createElement('link');
+  link.rel='stylesheet';link.href=href.length<8000?href:base;
+  document.head.appendChild(link);
 })();
 </script>
 
