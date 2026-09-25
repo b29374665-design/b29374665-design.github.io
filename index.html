@@ -716,6 +716,8 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .train h3{font-size:7.6pt;line-height:1.35;letter-spacing:.03em}
   .print-sheet .train .role,.print-sheet .train .role i{display:inline;margin-left:1.4mm;font-size:6.8pt;line-height:1.35}
   .print-sheet .train .role i{margin:0}
+  .print-sheet .train .role.ptitle{margin-left:0}
+  .print-sheet .train .role.ptitle::before{content:"\A";white-space:pre}
   .print-sheet .ps-side .sec{margin-bottom:2mm}
   /* English runs longer: tighten it a little so the sheet stays on one A4 page */
   #cv[data-lang="en"] .print-sheet{zoom:.92}
@@ -1365,7 +1367,7 @@ main.wrap{display:flex;flex-direction:column}
       <li>
         <span class="tag"><span class="zh">原廠研討會</span><span class="en">Vendor seminar</span></span>
         <div>
-          <h3><span class="zh">TA Waters ARES‑G3 新一代應變控制型流變儀發表與材料應用交流會</span><span class="en">TA Instruments ARES‑G3 launch &amp; applications forum</span></h3>
+          <h3><span class="zh">TA Waters ARES‑G3 新一代應變控制型流變儀發表與材料應用交流會</span><span class="en">TA Instruments ARES‑G3 launch forum</span></h3>
           <p class="role date">2026/07/17<span class="zh">・臺灣大學</span><span class="en"> · National Taiwan University</span></p>
         </div>
       </li>
