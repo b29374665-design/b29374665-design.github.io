@@ -599,7 +599,7 @@ main.wrap{display:flex;flex-direction:column}
 /* ============ PRINT / PDF — one-page A4, built from the page's own sections ============ */
 .print-sheet{display:none}
 @media print{
-  @page{size:A4;margin:8mm 10mm}
+  @page{size:A4;margin:7mm 10mm}
   :root,:root[data-theme="dark"],:root:not([data-theme="light"]){color-scheme:light;--ground:#fff;--paper:#fff;--ink:#2b1c16;--ink-2:#584038;--muted:#8a6f62;--line:#e6d3c4;--apricot:#f3ae7e;--apricot-soft:#fbe3d1;--burnt:#c9603a;--accent-text:#a9492a;--cocoa:#56372b;--band:#fff;--on-block:#fff7f1;--sage:#5f7d43;--s1:#5a3a2e;--s2:#c9603a}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact;animation:none!important;transition:none!important}
   html,body{background:#fff!important}
@@ -626,7 +626,7 @@ main.wrap{display:flex;flex-direction:column}
 
   .print-sheet{display:grid!important;grid-template-columns:minmax(0,1fr) 61mm;gap:5.5mm;margin-top:3.2mm}
   .ps-side{border-left:.6pt solid var(--line);padding-left:4.5mm}
-  .print-sheet .sec{display:block;padding:0;border:0;margin:0 0 3.4mm}
+  .print-sheet .sec{display:block;padding:0;border:0;margin:0 0 2.8mm}
   /* paint each section / entry as one unit, so the PDF text layer reads in visual order (ATS résumé parsers) */
   .print-sheet .sec,.print-sheet .tl>li,.print-sheet .track li{position:relative;z-index:0}
   .print-sheet .sec:last-child{margin-bottom:0}
@@ -637,19 +637,19 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .eyebrow,.print-sheet .contact,.print-sheet .body-text,.print-sheet .note,.print-sheet .tga,.print-sheet .step-n,.print-sheet .copy,.print-sheet .k,.print-sheet .app .d{display:none!important}
 
   /* profile */
-  .print-sheet .lead{font-size:8.9pt;font-weight:500;line-height:1.6;letter-spacing:.03em;max-width:none}
+  .print-sheet .lead{font-size:8.9pt;font-weight:500;line-height:1.55;letter-spacing:.03em;max-width:none}
   .print-sheet .lead .en{letter-spacing:.01em}
   .print-sheet .lead mark{background:none;font-weight:700;color:var(--ink)}
 
   /* experience */
   .print-sheet .tl>li{display:grid;grid-template-columns:18mm minmax(0,1fr);gap:2.4mm;break-inside:avoid}
-  .print-sheet .tl-body{padding:0 0 2mm}
+  .print-sheet .tl-body{padding:0 0 1.5mm}
   .print-sheet .tl>li:last-child .tl-body{padding-bottom:0}
   .print-sheet .tl-body::before,.print-sheet .tl-body::after{display:none}
   .print-sheet .when{font-size:7.8pt;line-height:1.4;padding-top:.4mm;white-space:normal}
   .print-sheet .tl h3{font-size:9.2pt;letter-spacing:.04em;line-height:1.35}
   .print-sheet .role{font-size:8pt;margin-top:.2mm;letter-spacing:.02em}
-  .print-sheet .pts{margin-top:.6mm;gap:.35mm;font-size:8.1pt;line-height:1.45}
+  .print-sheet .pts{margin-top:.6mm;gap:.35mm;font-size:8.1pt;line-height:1.4}
   .print-sheet .pts li{padding-left:2.6mm}
   .print-sheet .pts li::before{top:.6em;left:0;width:1.1mm;height:1.1mm}
 
@@ -729,7 +729,7 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .train .role.ptitle::before,.print-sheet .train .role.date::before{content:"\A";white-space:pre}
   .print-sheet .ps-side .sec{margin-bottom:2mm}
   /* English runs longer: tighten it a little so the sheet stays on one A4 page */
-  #cv[data-lang="en"] .print-sheet{zoom:.92}
+  #cv[data-lang="en"] .print-sheet{zoom:.91}
   #cv[data-lang="en"] .print-sheet :is(.pts,.pts .en,.steps p,.steps p .en,.paper p.desc,.paper p.desc .en){line-height:1.34}
 }</style>
 
@@ -905,7 +905,9 @@ main.wrap{display:flex;flex-direction:column}
           <ul class="pts">
             <li><span class="zh"><b>設備採購與驗收（逾 200 萬元）：</b>負責手套箱氧氣感測器、DSC 壓機組與年度維護合約、電池液壓打片機、真空幫浦、Eppendorf 微量移液器（10 支）、低溫水槽及 TGA 白金盤等設備與耗材的詢價、採購與點收建檔，並負責設備耗材更換。</span><span class="en"><b>Procurement (&gt;NTD 2M):</b> Led procurement of glovebox O₂ sensors, a DSC press set with annual maintenance contract, a hydraulic electrode punch, vacuum pumps, 10 Eppendorf pipettes, low-temperature baths and TGA platinum pans; also replace instrument consumables.</span></li>
             <li><span class="zh"><b>實驗室安全管理：</b>監控手套箱氧氣／水分濃度並處理感測器異常，執行鋼瓶管理與實驗室安全巡檢，並為新進成員進行安全說明；曾協助處理藥品瓶破裂割傷、手套箱觸媒罐洩漏等突發狀況的現場應變。</span><span class="en"><b>Lab safety:</b> monitor glovebox O₂ / moisture levels and handle sensor faults; manage and inspect gas cylinders, run lab safety walk-throughs and brief newcomers on safety; helped with on-site response to incidents such as a cut from broken glassware and a glovebox catalyst-canister leak.</span></li>
+            <li class="ehs-only"><span class="zh">曾著無塵衣於電池乾燥室（Dry Room）內組裝電池與製作極片，依潔淨區著裝與進出程序作業。</span><span class="en">Assembled cells and prepared electrodes in a battery dry room, working in cleanroom garments under clean-area gowning and entry procedures.</span></li>
             <li><span class="zh"><b>危害性化學品操作：</b>於手套箱內處理鋰金屬並組裝鈕扣電池，配製醚類／碳酸酯類有機溶劑電解液，以及 Li–SOCl₂ 電池的拆解與異常品處理。</span><span class="en"><b>Hazardous materials:</b> handle lithium metal and assemble coin cells in a glovebox, prepare ether / carbonate organic-solvent electrolytes, and dismantle and handle faulty Li–SOCl₂ cells.</span></li>
+            <li class="rd-only"><span class="zh">曾著無塵衣於電池乾燥室（Dry Room）內組裝電池與製作極片，依潔淨區著裝與進出程序作業。</span><span class="en">Assembled cells and prepared electrodes in a battery dry room, working in cleanroom garments under clean-area gowning and entry procedures.</span></li>
             <li><span class="zh"><b>跨系所 TGA 委測：</b>為化工、機械、材料 3 系所共 6 個實驗室的研究生提供 TGA 委託測試與數據判讀。</span><span class="en"><b>TGA testing service:</b> Ran TGA measurements and data interpretation for graduate students from 6 labs across Chemical, Mechanical and Materials Engineering at NTUST.</span></li>
             <li><span class="zh"><b>儀器維護與校正：</b>負責熱分析儀器 TGA Q500 與 DSC 2500 的日常維護與定期校正，確保量測準確、儀器穩定運作。</span><span class="en"><b>Instrument maintenance:</b> Responsible for maintenance and calibration of the key thermal analysis instruments, TGA Q500 and DSC 2500.</span></li>
             <li class="web-only"><span class="zh">與原廠及代理商（TA Waters、友和貿易）維修工程師保持聯繫，儀器故障時即時通報，多數能在 <b>24 小時內</b>安排工程師到場處理，縮短停機時間。</span><span class="en">Maintained close, responsive contact with vendor engineers (TA Instruments, Uni-Onward), frequently securing on-site repair within <b>24 hours</b> of a fault report — significantly reducing instrument downtime.</span></li>
