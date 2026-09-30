@@ -18,7 +18,7 @@
 - 單一檔案 `index.html`（CSS、JS、SVG 插圖都寫在裡面），中英雙語用 `.zh` / `.en` 切換；`?lang=en` 直接開英文版。
 - **不要**依瀏覽器語言自動切成英文（會影響 Google 中文搜尋）。
 - 流量統計：GoatCounter，帳號代碼 `kuochenchih`（https://kuochenchih.goatcounter.com）。
-  - 頁尾顯示「今日訪客・累計」：讀 GoatCounter 公開計數（`/counter/TOTAL.json`，今日用台灣日期）。需在 GoatCounter 設定勾選「Allow adding visitor counts on your website」；沒開或被擋時自動隱藏。
+  - 訪客人數**不要**顯示在網站上（對主管／HR 沒幫助，人數少反而扣分）；使用者自己到 GoatCounter 後台看。
 
 ## PDF 履歷（4 份：resume-zh / resume-en = EHS 版，resume-rd-zh / resume-rd-en = 研發版）
 - 由網頁的列印樣式產生，**4 份都必須維持 A4 一頁**。
@@ -39,5 +39,6 @@
 - 英文的下載按鈕與分頁標題用「Download CV (PDF)」「CV」，不要用帶重音的「Résumé」（使用者覺得像怪字）。
 - 儀器原廠名稱：中文寫「TA Waters」（台灣的稱呼），英文寫「TA Instruments」。
 - 化學品安全：使用者只懂基礎（標示法規、爆炸上下限、容許濃度、通風換氣），不要寫成「化學品安全」專長；標題類文字用「實驗室安全」。實際操作經驗（手套箱鋰金屬、有機溶劑電解液等）可以照實寫。
+- TGA 預約系統（Google 日曆預約頁）的連結**不要**放上網站（任何人都能預約實驗室時段）。
 - 不列出教授姓名（改用「3 系所 6 個實驗室」這類數字）。
 - 有日期的資訊要記得更新：職安證照考試（2026/11、2027/03）、研討會（2026 化工年會 12/5–6 逢甲大學發表後，可改成「已發表」）。
