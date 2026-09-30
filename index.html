@@ -682,6 +682,13 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .ms-id{display:inline-flex;margin:0 0 0 2mm;font-size:7.6pt;gap:1mm}
   .print-sheet .ms-id b{font-size:7.8pt}
   .print-sheet .paper p.desc{margin-top:.4mm;font-size:7.8pt;line-height:1.4;opacity:1}
+  /* EHS sheet: the co-author line above already says what the TGA role was */
+  #cv:not([data-role="rd"]) .print-sheet .paper p.desc{display:none}
+  /* EHS sheet carries the extra TGA-workflow bullet: a hair less air so it still fits one page */
+  #cv:not([data-role="rd"]) .print-sheet{margin-top:2.6mm}
+  #cv:not([data-role="rd"]) .print-sheet .ps-main .sec:not(:last-child){margin-bottom:2.5mm}
+  #cv:not([data-role="rd"]) .print-sheet .pts{gap:.25mm}
+  #cv:not([data-role="rd"]) .print-sheet .train li{padding:.1mm 0}
 
   /* sidebar: licences */
   .print-sheet .track{margin:0;max-width:none}
@@ -788,7 +795,7 @@ main.wrap{display:flex;flex-direction:column}
     <p class="small"><span class="zh">KUO, CHEN CHIH</span><span class="en cjk">郭晨志</span></p>
     <p class="hero-role"><span class="ehs-only"><span class="zh"><span class="r1">化工碩士生</span><span class="rs"> ／ </span><span class="r1">環保專責人員（廢水・廢棄物・室內空品）</span></span><span class="en"><span class="r1">M.S. in Chemical Engineering</span><span class="rs"> · </span><span class="r1">Licensed environmental specialist</span></span></span><span class="rd-only"><span class="zh"><span class="r1">化學工程與材料科學研發工程師</span><span class="rs"> ／ </span><span class="r1">電池技術專家</span></span><span class="en"><span class="r1">Chemical &amp; Materials R&amp;D Engineer</span><span class="rs"> · </span><span class="r1">Battery Specialist</span></span></span></p>
     <p class="seek"><b><span class="zh">求職方向</span><span class="en">Seeking</span></b><span class="ehs-only"><span class="zh">環安衛工程師（EHS）</span><span class="en">EHS Engineer</span></span><span class="rd-only"><span class="zh">電池／材料研發工程師</span><span class="en">R&amp;D Engineer, batteries &amp; materials</span></span></p>
-    <a class="hero-dl" data-pdf href="resume-zh.pdf" download hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載履歷 PDF</span><span class="en">Download résumé (PDF)</span><small>A4・1 page</small></a>
+    <a class="hero-dl" data-pdf href="resume-zh.pdf" download hidden><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載履歷 PDF</span><span class="en">Download CV (PDF)</span><small>A4・1 page</small></a>
   </div>
 </header>
 
@@ -919,6 +926,7 @@ main.wrap{display:flex;flex-direction:column}
             <li><span class="zh"><b>危害性化學品操作：</b>於手套箱內處理鋰金屬並組裝鈕扣電池，配製醚類／碳酸酯類有機溶劑電解液，以及 Li–SOCl₂ 電池的拆解與異常品處理。</span><span class="en"><b>Hazardous materials:</b> handle lithium metal and assemble coin cells in a glovebox, prepare ether / carbonate organic-solvent electrolytes, and dismantle and handle faulty Li–SOCl₂ cells.</span></li>
             <li class="rd-only"><span class="zh">曾著無塵衣於電池乾燥室（Dry Room）內組裝電池與製作極片，依潔淨區著裝與進出程序作業。</span><span class="en">Assembled cells and prepared electrodes in a battery dry room, working in cleanroom garments under clean-area gowning and entry procedures.</span></li>
             <li><span class="zh"><b>跨系所 TGA 委測：</b>為化工、機械、材料 3 系所共 6 個實驗室的研究生提供 TGA 委託測試與數據判讀；連同本實驗室樣品，累計量測 600 件以上。</span><span class="en"><b>TGA testing service:</b> Ran TGA measurements and data interpretation for graduate students from 6 labs across Chemical, Mechanical and Materials Engineering at NTUST — over 600 samples in total, including my own lab's.</span></li>
+            <li class="ehs-only"><span class="zh"><b>TGA 流程優化：</b>改變製備樣品模式，提高樣品量與量測精準度，減少白金盤汙染、並延長使用壽命；同時導入原廠液體樣品量測流程，並制定個人防護具配戴、通風換氣與預約規範。</span><span class="en"><b>TGA workflow:</b> changed how samples are prepared, raising sample mass and precision, reducing platinum-pan contamination and extending pan life; adopted the vendor's liquid-sample method and set PPE, ventilation and booking rules.</span></li>
             <li><span class="zh"><b>儀器維護與校正：</b>負責熱分析儀器 TGA Q500 與 DSC 2500 的日常維護與定期校正，確保量測準確、儀器穩定運作。</span><span class="en"><b>Instrument maintenance:</b> Responsible for maintenance and calibration of the key thermal analysis instruments, TGA Q500 and DSC 2500.</span></li>
             <li class="web-only"><span class="zh">與原廠及代理商（TA Waters、友和貿易）維修工程師保持聯繫，儀器故障時即時通報，多數能在 <b>24 小時內</b>安排工程師到場處理，縮短停機時間。</span><span class="en">Maintained close, responsive contact with vendor engineers (TA Instruments, Uni-Onward), frequently securing on-site repair within <b>24 hours</b> of a fault report — significantly reducing instrument downtime.</span></li>
           </ul>
@@ -1424,7 +1432,7 @@ main.wrap{display:flex;flex-direction:column}
       <div>
         <p class="eyebrow"><span class="zh">Contact</span><span class="en cjk">聯絡方式</span></p>
         <h2><span class="zh">聯絡方式</span><span class="en">Get in touch</span></h2>
-        <div class="mail"><a class="mail-link" href="mailto:b29374665@gmail.com"><b id="email-f">b29374665@gmail.com</b></a><button class="copy" type="button" data-copy="email-f"><span class="c-idle"><span class="zh">複製 Email</span><span class="en">Copy email</span></span><span class="c-done"><span class="zh">已複製</span><span class="en">Copied</span></span></button><a class="copy pdf-dl" data-pdf href="resume-zh.pdf" download hidden><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載 PDF 履歷</span><span class="en">Download PDF résumé</span></a></div>
+        <div class="mail"><a class="mail-link" href="mailto:b29374665@gmail.com"><b id="email-f">b29374665@gmail.com</b></a><button class="copy" type="button" data-copy="email-f"><span class="c-idle"><span class="zh">複製 Email</span><span class="en">Copy email</span></span><span class="c-done"><span class="zh">已複製</span><span class="en">Copied</span></span></button><a class="copy pdf-dl" data-pdf href="resume-zh.pdf" download hidden><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載 PDF 履歷</span><span class="en">Download CV (PDF)</span></a></div>
       </div>
       <div class="foot-meta">
         <div><span class="zh">新北市新莊區・可接受出差／外派／輪班</span><span class="en">Xinzhuang, New Taipei · Open to relocation</span></div>
@@ -1459,7 +1467,7 @@ main.wrap{display:flex;flex-direction:column}
     <span class="nm zh">郭晨志</span><span class="nm en">KUO <span class="nm2">CHEN CHIH</span></span>
     <span class="sub"><span class="zh">國立臺灣科技大學 化學工程研究所<br><span class="ehs-only">環安衛・實驗室安全</span><span class="rd-only">電池・電解液研究</span></span><span class="en">M.S. Chemical Engineering, NTUST<br><span class="ehs-only">EHS &amp; lab safety</span><span class="rd-only">Battery &amp; electrolyte research</span></span></span>
   </a>
-  <a class="pdf-btn" data-pdf href="resume-zh.pdf" download hidden aria-label="Download résumé PDF"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載履歷</span><span class="en">Download</span></a>
+  <a class="pdf-btn" data-pdf href="resume-zh.pdf" download hidden aria-label="Download CV (PDF)"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.8 8 10.3l3.5-3.5M3 13.5h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="zh">下載履歷</span><span class="en">Download</span></a>
   <div class="lang" role="group" aria-label="Language">
     <button type="button" id="lang-zh" data-lang-set="zh" aria-pressed="true">中</button>
     <button type="button" id="lang-en" data-lang-set="en" aria-pressed="false">EN</button>
@@ -1476,7 +1484,7 @@ main.wrap{display:flex;flex-direction:column}
 (function(){
   var cv=document.getElementById('cv');
 
-  var TITLE={zh:'郭晨志 KUO CHEN CHIH｜履歷',en:'KUO CHEN CHIH 郭晨志 | Résumé'};
+  var TITLE={zh:'郭晨志 KUO CHEN CHIH｜履歷',en:'KUO CHEN CHIH 郭晨志 | CV'};
   function setLang(l,save){
     cv.setAttribute('data-lang',l);
     document.documentElement.lang = l==='en' ? 'en' : 'zh-Hant';
