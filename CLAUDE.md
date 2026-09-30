@@ -18,10 +18,12 @@
 - 單一檔案 `index.html`（CSS、JS、SVG 插圖都寫在裡面），中英雙語用 `.zh` / `.en` 切換；`?lang=en` 直接開英文版。
 - **不要**依瀏覽器語言自動切成英文（會影響 Google 中文搜尋）。
 - 流量統計：GoatCounter，帳號代碼 `kuochenchih`（https://kuochenchih.goatcounter.com）。
+  - 頁尾顯示「今日訪客・累計」：讀 GoatCounter 公開計數（`/counter/TOTAL.json`，今日用台灣日期）。需在 GoatCounter 設定勾選「Allow adding visitor counts on your website」；沒開或被擋時自動隱藏。
 
 ## PDF 履歷（4 份：resume-zh / resume-en = EHS 版，resume-rd-zh / resume-rd-en = 研發版）
 - 由網頁的列印樣式產生，**4 份都必須維持 A4 一頁**。
 - `.github/workflows/pdf.yml` 會在 `index.html` 變更後自動重新產生並提交 PDF；超過一頁會失敗、保留舊檔。
+- EHS 版 PDF 不顯示 Nature Energy 下方的說明段落（和「共同作者：負責 TGA 熱重分析量測」重複），網站與研發版照常顯示。
 - 改內容後在本機先確認兩種語言都是一頁（英文版較長，列印時縮到 91%；版面已很滿，加內容前先量剩餘空間）。
 
 ## 設計偏好
@@ -34,6 +36,7 @@
 ## 內容注意
 - 求職方向：EHS 版投環安衛工程師；研發版投電池／材料研發工程師。
 - Nature Energy 投稿：不公開稿件編號，顯示「審稿中」。
+- 英文的下載按鈕與分頁標題用「Download CV (PDF)」「CV」，不要用帶重音的「Résumé」（使用者覺得像怪字）。
 - 儀器原廠名稱：中文寫「TA Waters」（台灣的稱呼），英文寫「TA Instruments」。
 - 化學品安全：使用者只懂基礎（標示法規、爆炸上下限、容許濃度、通風換氣），不要寫成「化學品安全」專長；標題類文字用「實驗室安全」。實際操作經驗（手套箱鋰金屬、有機溶劑電解液等）可以照實寫。
 - 不列出教授姓名（改用「3 系所 6 個實驗室」這類數字）。
