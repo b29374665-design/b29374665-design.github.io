@@ -724,6 +724,14 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .ps-inst .ig-k{margin:.9mm 0 0;font-size:6.8pt;font-weight:700;letter-spacing:.06em;color:var(--muted)}
   .print-sheet .ps-inst .ig-k:first-of-type{margin-top:0}
   .print-sheet .ps-inst .ps-extra{display:inline}
+  .print-sheet .ps-sync{display:none}
+  #cv:not([data-role="rd"]):not([data-lang="en"]) .print-sheet .ps-side{display:flex;flex-direction:column}
+  #cv:not([data-role="rd"]):not([data-lang="en"]) .print-sheet .ps-sync{display:grid;grid-template-columns:10.5mm minmax(0,1fr);gap:2.2mm;align-items:center;margin:auto 0 0;padding:2mm 2.4mm;border:.6pt solid var(--line);border-radius:1.6mm;break-inside:avoid}
+  .print-sheet .ps-sync svg{width:10.5mm;height:10.5mm;display:block}
+  .print-sheet .ps-sync-t{font-size:8.6pt;font-weight:700;line-height:1.3;letter-spacing:.06em;color:var(--ink)}
+  .print-sheet .ps-sync-d{margin-top:.5mm;font-size:7.2pt;line-height:1.45;color:var(--ink-2)}
+  /* the Chinese EHS sheet shows the card instead of the instruments-list tag */
+  #cv:not([data-lang="en"]) .print-sheet .ps-inst li.sync-pill{display:none}
   .print-sheet .ps-inst .pills{margin-top:.4mm}
   /* sidebar: skills + software */
   .print-sheet .skill-groups{display:grid;grid-template-columns:1fr;gap:1.6mm}
@@ -1256,10 +1264,6 @@ main.wrap{display:flex;flex-direction:column}
           <svg viewBox="0 0 72 72" aria-hidden="true"><g class="ic"><rect x="8" y="22" width="56" height="40" rx="5"/><rect x="14" y="28" width="18" height="12" rx="1.5" class="ic-accent"/><path d="M40 56 58 28"/><path d="M43 57.5 61 29.5"/><circle cx="52" cy="38" r="2.6" class="ic-soft"/><path d="M14 48h18M14 54h12M8 62h56"/><rect x="18" y="12" width="36" height="10" rx="3" class="ic-soft"/></g></svg>
           <div><b>Anton Paar DMA 5002</b><span class="d"><span class="zh">落球黏度密度計</span><span class="en">Falling-ball viscometer &amp; densimeter</span></span><span class="role-t o"><span class="zh">儀器操作</span><span class="en">Operation</span></span></div>
         </li>
-        <li data-ps="ehs-only">
-          <svg viewBox="0 0 72 72" aria-hidden="true"><g class="ic"><path d="M28 18a19 19 0 1 0 0.01 0zM28 25a12 12 0 1 1-0.01 0z" fill-rule="evenodd" class="ic-soft"/><circle cx="28" cy="37" r="19"/><circle cx="28" cy="37" r="12"/><circle cx="28" cy="18" r="2.6" class="ic-accent"/><path d="M41.5 23.5 57 13"/><rect x="55" y="5" width="12" height="11" rx="2" class="ic-accent"/><path d="M14 62h44"/></g></svg>
-          <div><b><span class="zh">同步輻射<span class="ps-extra"> <span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span></span></span><span class="en">Synchrotron<span class="ps-extra"> <span style="white-space:nowrap">(TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A)</span></span></span></b><span class="d"><span class="zh"><span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span> 光束線</span><span class="en">Beamlines <span style="white-space:nowrap">TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A</span></span></span><span class="role-t o"><span class="zh">光束線實驗</span><span class="en">Beamline work</span></span></div>
-        </li>
         <li>
           <svg viewBox="0 0 72 72" aria-hidden="true"><g class="ic"><rect x="5" y="14" width="62" height="40" rx="5"/><rect x="11" y="19" width="50" height="13" rx="2" class="ic-soft"/><circle cx="24" cy="42" r="6"/><circle cx="48" cy="42" r="6"/><path d="M22 48c-1 4 0 7 2 9M26 48c1 4 0 7-2 9M46 48c-1 4 0 7 2 9M50 48c1 4 0 7-2 9" class="ic-accent-l"/><path d="M12 54v9M60 54v9M8 63h56"/></g></svg>
           <div><b><span class="zh">手套箱</span><span class="en">Glovebox</span></b><span class="d"><span class="zh">鋰金屬操作與電池組裝，氧氣／水分監控</span><span class="en">Lithium handling &amp; cell assembly; O₂ / H₂O monitoring</span></span><span class="role-t o"><span class="zh">日常操作・監控</span><span class="en">Operation</span></span></div>
@@ -1287,6 +1291,10 @@ main.wrap{display:flex;flex-direction:column}
         <li>
           <svg viewBox="0 0 72 72" aria-hidden="true"><g class="ic"><rect x="14" y="12" width="32" height="18" rx="4"/><rect x="18" y="16" width="16" height="9" rx="1.5" class="ic-accent"/><rect x="7" y="30" width="58" height="32" rx="5"/><rect x="10" y="40" width="52" height="19" rx="2" class="ic-soft"/><path d="M20 44c3 3 6 3 9 0s6-3 9 0 6 3 9 0M20 51c3 3 6 3 9 0s6-3 9 0 6 3 9 0"/><path d="M57 11v14M50 18h14M52 13l10 10M62 13 52 23"/></g></svg>
           <div><b><span class="zh">低溫水槽</span><span class="en">Low-temperature bath</span></b><span class="d"><span class="zh">低溫恆溫循環</span><span class="en">Refrigerated circulator</span></span><span class="role-t p"><span class="zh">採購・驗收</span><span class="en">Procurement</span></span></div>
+        </li>
+        <li class="sync" data-ps="ehs-only sync-pill">
+          <svg viewBox="0 0 72 72" aria-hidden="true"><g class="ic"><path d="M28 18a19 19 0 1 0 0.01 0zM28 25a12 12 0 1 1-0.01 0z" fill-rule="evenodd" class="ic-soft"/><circle cx="28" cy="37" r="19"/><circle cx="28" cy="37" r="12"/><circle cx="28" cy="18" r="2.6" class="ic-accent"/><path d="M41.5 23.5 57 13"/><rect x="55" y="5" width="12" height="11" rx="2" class="ic-accent"/><path d="M14 62h44"/></g></svg>
+          <div><b><span class="zh">同步輻射<span class="ps-extra"> <span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span></span></span><span class="en">Synchrotron<span class="ps-extra"> <span style="white-space:nowrap">(TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A)</span></span></span></b><span class="d"><span class="zh"><span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span> 光束線</span><span class="en">Beamlines <span style="white-space:nowrap">TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A</span></span></span><span class="role-t o"><span class="zh">光束線實驗</span><span class="en">Beamline work</span></span></div>
         </li>
       </ul>
       </div>
@@ -1850,6 +1858,14 @@ main.wrap{display:flex;flex-direction:column}
       sec.appendChild(k);sec.appendChild(ul);
     });
     R.appendChild(sec);
+  }
+  // synchrotron gets its own small card at the foot of the sidebar where the Chinese EHS sheet has room
+  var sy=document.querySelector('#methods .inst li.sync svg');
+  if(sy){
+    var syc=document.createElement('section');syc.className='sec ps-sync';
+    syc.innerHTML=sy.outerHTML+'<div><p class="ps-sync-t"><span class="zh">同步輻射光束線實驗</span><span class="en">Synchrotron beamline experiments</span></p>'
+      +'<p class="ps-sync-d"><span class="zh">國家同步輻射研究中心<br><span style="white-space:nowrap">TLS 20A／TPS 27A／TPS 45A</span></span><span class="en">NSRRC · TLS 20A / TPS 27A / TPS 45A</span></p></div>';
+    R.appendChild(syc);
   }
   sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);
 })();
