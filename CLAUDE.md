@@ -23,6 +23,7 @@
 ## PDF 履歷（4 份：resume-zh / resume-en = EHS 版，resume-rd-zh / resume-rd-en = 研發版）
 - 由網頁的列印樣式產生，**4 份都必須維持 A4 一頁**。
 - `.github/workflows/pdf.yml` 會在 `index.html` 變更後自動重新產生並提交 PDF；超過一頁會失敗、保留舊檔。
+- 同步輻射（TLS 20A／TPS 27A／TPS 45A）：網站在專長區與儀器設備都有；EHS 版 PDF 靠儀器設備「操作」組顯示（EHS PDF 隱藏「材料分析儀器」組），研發版 PDF 在「材料分析儀器」組。
 - EHS 版 PDF 不顯示 Nature Materials 下方的說明段落（和「共同作者：負責 TGA 熱重分析量測」重複），網站與研發版照常顯示。
 - 改內容後在本機先確認兩種語言都是一頁（英文版較長，列印時縮到 91%；版面已很滿，加內容前先量剩餘空間）。
 
