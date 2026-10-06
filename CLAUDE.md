@@ -23,6 +23,7 @@
 ## PDF 履歷（4 份：resume-zh / resume-en = EHS 版，resume-rd-zh / resume-rd-en = 研發版）
 - 由網頁的列印樣式產生，**4 份都必須維持 A4 一頁**。
 - `.github/workflows/pdf.yml` 會在 `index.html` 變更後自動重新產生並提交 PDF；超過一頁會失敗、保留舊檔。
+- 合併後 PDF 要等自動產生並重新部署（約 3 分鐘）才會換新，這之前下載到的是舊檔。下載按鈕每次按都會換新的 `?v=`（到分鐘），之後重按就不會拿到瀏覽器暫存的舊檔。
 - 同步輻射（TLS 20A／TPS 27A／TPS 45A）：網站在專長區與儀器設備（最後一格）都有。PDF：EHS 中文在右下角「同步輻射光束線實驗」小卡；EHS 英文右欄已滿，放在儀器設備「Operation」組；研發版在「材料分析儀器」組（EHS PDF 隱藏該組）。網站卡片與 PDF 小卡的圖示用國家同步輻射研究中心（NSRRC）標誌，樣式比照學校校徽（描成單色、用文字顏色）。
 - 右欄右緣會被頁面邊界裁掉約 1px：靠右緣的框線或圖要內縮（校徽 1.5mm、同步輻射小卡 0.8mm）。
 - 儀器名稱「Anton Paar DMA 5002/Lovis 2001」較長：PDF 儀器設備「操作」組把它排第一，讓 ARES-G3 和手套箱共用一行；研發版英文 PDF 專長區只寫「Viscometer (DMA 5002/Lovis 2001)」（網站是「Viscometer & densimeter」），否則會變兩頁。
