@@ -3,7 +3,7 @@ name: Build résumé PDFs
 on:
   push:
     branches: [main]
-    paths: [index.html]
+    paths: [index.html, isep/index.html]
   workflow_dispatch:
 
 permissions:
@@ -33,5 +33,5 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add resume-zh.pdf resume-en.pdf resume-rd-zh.pdf resume-rd-en.pdf
+          git add resume-zh.pdf resume-en.pdf resume-rd-zh.pdf resume-rd-en.pdf resume-isep-zh.pdf resume-isep-en.pdf
           git diff --cached --quiet || { git commit -m "Regenerate résumé PDFs"; git push; }
