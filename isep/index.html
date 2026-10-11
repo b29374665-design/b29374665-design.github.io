@@ -175,7 +175,51 @@ footer{background:var(--navy);color:var(--on-dark-2);padding:56px 0 calc(40px + 
 footer h2{color:var(--on-dark);margin-top:0}
 footer .btns{margin-top:22px}
 footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid var(--navy-line);font-size:12.5px;color:var(--on-dark-3)}
-@media print{.bar,.lang,.btns{display:none!important}section,.hero,footer{padding:24px 0}}
+
+/* ===== one-page A4 résumé (print only) ===== */
+.cv{display:none}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{background:#fff!important;color:#172331!important}
+  body>*:not(.cv){display:none!important}
+  .cv{display:block;width:210mm;height:297mm;overflow:hidden;font:400 8.6pt/1.45 "Noto Sans TC","Noto Sans CJK TC",var(--sans);color:#172331;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body[data-lang="en"] .cv{font-family:"Inter","Noto Sans TC","Noto Sans CJK TC",sans-serif;font-size:8.1pt;line-height:1.4}
+  .cv-head{background:#172331;color:#F4F6F8;padding:9mm 12mm 6.5mm;display:flex;justify-content:space-between;align-items:flex-end;gap:8mm}
+  .cv-head .k{font:600 7pt "Inter",sans-serif;letter-spacing:.2em;color:#F28C38}
+  .cv-head h1{font-size:24pt;font-weight:900;line-height:1.1;margin-top:2mm;letter-spacing:.03em}
+  .cv-head h1 small{font:500 10pt "Inter",sans-serif;letter-spacing:.2em;color:#C5CFDA;margin-left:3mm}
+  .cv-head .role{font-size:12pt;font-weight:700;margin-top:1.5mm}
+  .cv-head .role::before{content:"";display:inline-block;width:6mm;height:1.6mm;background:#F28C38;margin-right:2.5mm;vertical-align:middle}
+  .cv-head ul{list-style:none;margin:0;padding:0;text-align:right;color:#C5CFDA;font-size:8pt;line-height:1.65}
+  .cv-head ul b{color:#F4F6F8;font-weight:500}
+  .cv-sum{padding:3.6mm 12mm;background:#E8ECF0;font-size:8.6pt;line-height:1.55;border-bottom:1.2mm solid #B9530E}
+  body[data-lang="en"] .cv-sum{font-size:8.1pt}
+  .cv-sum b{color:#B9530E}
+  .cv-body{display:grid;grid-template-columns:1fr 62mm;gap:6mm;padding:4.5mm 12mm 0}
+  .cv h2{font-size:9.6pt;font-weight:700;color:#172331;border-bottom:.35mm solid #172331;padding-bottom:.8mm;margin:0 0 2mm;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:baseline}
+  .cv h2 i{font:600 6.6pt "Inter",sans-serif;font-style:normal;letter-spacing:.16em;color:#B9530E}
+  .cv section{padding:0;margin:0 0 3.6mm}
+  .cv h3{font-size:9pt;font-weight:700;margin:0;line-height:1.35}
+  .cv .meta{display:flex;justify-content:space-between;gap:3mm;color:#5B6B7B;font-size:7.8pt;margin:.4mm 0 1.2mm}
+  .cv .meta b{color:#B9530E;font-weight:700;white-space:nowrap}
+  body[data-lang="en"] .cv h2 i{display:none}
+  .cv ul.b{margin:0;padding:0;list-style:none}
+  .cv ul.b li{position:relative;padding-left:3.2mm;margin-bottom:.9mm}
+  .cv ul.b li::before{content:"";position:absolute;left:0;top:.62em;width:1.4mm;height:1.4mm;background:#B9530E}
+  .cv ul.b li b{font-weight:700}
+  .cv .job+.job{margin-top:2.4mm}
+  .cv .lic{margin:0;padding:0;list-style:none}
+  .cv .lic li{padding:1.2mm 0;border-bottom:.2mm solid #D5DCE3;line-height:1.35}
+  .cv .lic li b{display:block;font-weight:700}
+  .cv .lic .s{display:flex;justify-content:space-between;color:#5B6B7B;font-size:7.4pt}
+  .cv .lic .ok{color:#B9530E;font-weight:700}
+  .cv .side p{margin:0 0 1.2mm}
+  .cv .tag{display:inline-block;border:.25mm solid #C3CCD5;border-radius:1mm;padding:0 1.4mm;margin:0 .8mm 1mm 0;font-size:7.6pt}
+  .cv .lbl{font-weight:700;color:#5B6B7B;font-size:7.5pt;letter-spacing:.06em;display:block;margin-top:1.2mm}
+  .cv .foot{position:absolute;left:12mm;right:12mm;bottom:7mm;font-size:7pt;color:#5B6B7B;display:flex;justify-content:space-between;border-top:.2mm solid #D5DCE3;padding-top:1.5mm}
+  .cv{position:relative}
+}
+
 </style>
 </head>
 <body>
@@ -209,7 +253,7 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid var(--navy-li
     <p class="edu"><span class="zh">國立臺灣科技大學 化學工程研究所 碩士班（2027 預計畢業）｜東海大學 化學工程與材料工程學系</span><span class="en">M.S. in Chemical Engineering, NTUST (expected 2027) · B.S. in Chemical &amp; Materials Engineering, Tunghai University</span></p>
     <div class="btns">
       <a class="btn primary" href="mailto:b29374665@gmail.com"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="m2 4.5 6 4.5 6-4.5"/></svg>b29374665@gmail.com</a>
-      <a class="btn" id="cv-pdf" href="../resume-zh.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.2l3.5-3.4M2.5 13.5h11"/></svg><span class="zh">下載履歷（PDF）</span><span class="en">Download CV (PDF)</span></a>
+      <a class="btn" id="cv-pdf" href="../resume-isep-zh.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M4.5 6.8 8 10.2l3.5-3.4M2.5 13.5h11"/></svg><span class="zh">下載履歷（PDF）</span><span class="en">Download CV (PDF)</span></a>
       <a class="btn" id="full-cv" href="../"><span class="zh">完整履歷網站 →</span><span class="en">Full CV site →</span></a>
     </div>
     <div class="stats">
@@ -400,12 +444,104 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid var(--navy-li
     <p style="margin-top:8px"><span class="zh">新北市新莊區・可接受輪班／出差／外派</span><span class="en">Xinzhuang, New Taipei · open to shifts, travel and relocation</span></p>
     <div class="btns">
       <a class="btn primary" href="mailto:b29374665@gmail.com"><span class="zh">寄信給我</span><span class="en">Email me</span></a>
-      <a class="btn" id="cv-pdf-2" href="../resume-zh.pdf" target="_blank" rel="noopener"><span class="zh">下載履歷（PDF）</span><span class="en">Download CV (PDF)</span></a>
+      <a class="btn" id="cv-pdf-2" href="../resume-isep-zh.pdf" target="_blank" rel="noopener"><span class="zh">下載履歷（PDF）</span><span class="en">Download CV (PDF)</span></a>
       <a class="btn" id="full-cv-2" href="../"><span class="zh">完整履歷網站</span><span class="en">Full CV site</span></a>
     </div>
     <p class="fine">© 2026 KUO CHEN CHIH · 郭晨志</p>
   </div>
 </footer>
+
+<article class="cv" aria-hidden="true">
+  <div class="cv-head">
+    <div>
+      <p class="k">CURRICULUM VITAE · 2026</p>
+      <h1>郭晨志<small>KUO, CHEN CHIH</small></h1>
+      <p class="role"><span class="zh">應徵：ISEP 環安衛工程師</span><span class="en">Applying for: ISEP EHS Engineer</span></p>
+    </div>
+    <ul>
+      <li><b>b29374665@gmail.com</b></li>
+      <li><b>b29374665-design.github.io/isep</b></li>
+      <li><span class="zh">新北市新莊區・可輪班／出差／外派</span><span class="en">New Taipei · open to shifts, travel, relocation</span></li>
+      <li><span class="zh">免役・2027 畢業即可到職</span><span class="en">Military-service exempt · available from 2027</span></li>
+    </ul>
+  </div>
+  <p class="cv-sum"><span class="zh">臺科大化工所碩士生。已取得<b>乙級廢水、甲級廢棄物、室內空品</b>三張環保專責證照，職安證照考程已排定；在 SEED 研究中心<b>制定 TGA／DSC 使用規範</b>、負責實驗室安全與設備管理，並<b>自主分析 975 件職災案例</b>。化工背景讓我能從製程端理解危害來源。</span><span class="en">NTUST Chemical Engineering M.S. candidate holding three environmental specialist licences (<b>wastewater, waste, indoor air</b>), with OSH exams scheduled. At the SEED Center I <b>wrote the TGA / DSC user rules</b> and run lab safety and equipment management; I also <b>analysed 975 accident cases</b> on my own. A chemical engineering background lets me trace hazards back to the process.</span></p>
+  <div class="cv-body">
+    <div class="main">
+      <section>
+        <h2><span class="zh">經歷</span><span class="en">Experience</span><i>EXPERIENCE</i></h2>
+        <div class="job">
+          <h3><span class="zh">永續電化學能源發展中心（SEED）・教育部特色領域研究中心</span><span class="en">SEED Center, NTUST · MOE Featured Areas Research Center</span></h3>
+          <p class="meta"><span><span class="zh">實驗室設備採購、資產維護與安全專員（碩士在學期間）</span><span class="en">Lab equipment, asset maintenance &amp; safety officer (during M.S.)</span></span><b><span class="zh">2025 – 現在</span><span class="en">2025 – present</span></b></p>
+          <ul class="b">
+            <li><b><span class="zh">制度建立：</span><span class="en">Rules: </span></b><span class="zh">制定 TGA／DSC 的 PPE、通風換氣與預約規範，所有預約使用者（含其他實驗室）皆須遵守；例如未知樣品須先有 TGA 分解數據才可做 DSC 升溫、易揮發溶劑須用耐壓坩堝。</span><span class="en">wrote the PPE, ventilation and booking rules for the TGA and DSC that every user, including other labs, must follow — e.g. no DSC heating of unknowns without prior TGA decomposition data; volatile solvents only in pressure-rated pans.</span></li>
+            <li><b><span class="zh">流程改善：</span><span class="en">Process: </span></b><span class="zh">改變 TGA 樣品製備方式，減少白金盤汙染並延長壽命；導入原廠液體樣品量測流程。</span><span class="en">changed TGA sample preparation to cut platinum-pan contamination and extend pan life; adopted the vendor's liquid-sample method.</span></li>
+            <li><b><span class="zh">實驗室安全：</span><span class="en">Lab safety: </span></b><span class="zh">鋼瓶管理與安全巡檢、新進成員安全說明、手套箱 O₂／水分監控與感測器異常處理；依潔淨區程序著無塵衣於乾燥室作業。</span><span class="en">gas-cylinder management and safety walk-throughs, newcomer safety briefings, glovebox O₂ / moisture monitoring and sensor faults; dry-room work under cleanroom gowning procedures.</span></li>
+            <li><b><span class="zh">第一線應變：</span><span class="en">First response: </span></b><span class="zh">藥品瓶破裂割傷、手套箱觸媒罐洩漏，現場隔離、處置與清理。</span><span class="en">isolated, handled and cleaned up a broken-glassware cut and a glovebox catalyst-canister leak.</span></li>
+            <li><b><span class="zh">危害性化學品：</span><span class="en">Hazardous materials: </span></b><span class="zh">手套箱內處理鋰金屬（禁水性）、配製醚類／碳酸酯類電解液、拆解與處理 Li–SOCl₂ 異常電池。</span><span class="en">lithium metal (water-reactive) in a glovebox, ether / carbonate electrolytes, dismantling faulty Li–SOCl₂ cells.</span></li>
+            <li><b><span class="zh">設備與廠商：</span><span class="en">Equipment &amp; vendors: </span></b><span class="zh">逾 NT$200 萬設備詢價、採購與驗收及年度維護合約；TGA Q500／DSC 2500 維護校正，故障多能 24 小時內請原廠到場；為 3 系所 6 個實驗室提供 TGA 委測，累計 600 件以上。</span><span class="en">procured and accepted over NT$2M of equipment and service contracts; maintain the TGA Q500 / DSC 2500, usually getting vendor engineers on site within 24 h; ran TGA testing for 6 labs in 3 departments (600+ samples).</span></li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3><span class="zh">產學計畫：智慧水錶長效鋰電池評估</span><span class="en">Industry project: long-life Li batteries for smart water meters</span></h3>
+          <p class="meta"><span><span class="zh">計畫執行負責人</span><span class="en">Project lead</span></span><b>2025 –</b></p>
+          <ul class="b">
+            <li><span class="zh">建立電池篩選 SOP 與測試資料庫，培訓合作廠商品保與研發團隊獨立執行批量篩選與判讀。</span><span class="en">Wrote the cell-screening SOP and test database; trained the partner's QA / R&amp;D teams to run screening on their own.</span></li>
+            <li><span class="zh">以 EIS、OCV Drip、X-ray CT 辨識異常電池，降低儲存與失效風險。</span><span class="en">Used EIS, OCV drip and X-ray CT to flag abnormal cells before they become storage or failure risks.</span></li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3><span class="zh">新北市政府城鄉發展局 暑期實習生｜東海大學宿舍管理員</span><span class="en">New Taipei Urban Development intern · Tunghai dorm resident assistant</span></h3>
+          <p class="meta"><span><span class="zh">跨機關資料查核與民眾諮詢；百人宿舍公共安全與糾紛協調</span><span class="en">Cross-agency eligibility checks, public inquiries; safety and mediation in a 100-resident dorm</span></span><b>2021 – 2024</b></p>
+        </div>
+      </section>
+      <section>
+        <h2><span class="zh">研究與風險管理</span><span class="en">Research &amp; Risk Management</span><i>RESEARCH</i></h2>
+        <ul class="b">
+          <li><b><span class="zh">職災自主分析：</span><span class="en">Accident study: </span></b><span class="zh">下載職安署公開案例 1,005 筆（去重 975 件）依災害類型歸類：47% 為墜落；26 件涉及化學品與缺氧。</span><span class="en">classified all 1,005 OSHA Taiwan public cases (975 unique) by type: 47% falls; 26 involve chemicals or oxygen deficiency.</span></li>
+          <li><b><span class="zh">控制層級實作：</span><span class="en">Hierarchy of controls: </span></b><span class="zh">以 DEE 部分取代 AE 前先比對危害變化；鋰金屬全程手套箱操作；溶劑乾燥並以 Karl Fischer 測水分。</span><span class="en">compared hazards before partly replacing AE with DEE; all lithium work in a glovebox; solvents dried and checked by Karl Fischer.</span></li>
+          <li><b><span class="zh">碩士論文：</span><span class="en">Thesis: </span></b><span class="zh">以二乙醚（DEE）部分取代烯丙基醚（AE），探討 −40 °C 下鋰金屬負極界面動力學。</span><span class="en">partially replacing allyl ether (AE) with diethyl ether (DEE) to study Li-metal interfacial kinetics at −40 °C.</span></li>
+          <li><b>Nature Materials：</b><span class="zh">共同作者（TGA 量測）・審稿中｜2026 台灣化工年會論文發表（12/5–6，逢甲大學）</span><span class="en">co-author (TGA measurements), under review · Presenter, 2026 TwIChE Annual Meeting (Dec 5–6, Feng Chia Univ.)</span></li>
+        </ul>
+      </section>
+    </div>
+    <div class="side">
+      <section>
+        <h2><span class="zh">證照</span><span class="en">Licences</span><i>LICENCES</i></h2>
+        <ul class="lic">
+          <li><b><span class="zh">乙級廢（污）水處理專責人員</span><span class="en">Wastewater Treatment Specialist (B)</span></b><span class="s"><span>GB040231</span><span class="ok">2026/06</span></span></li>
+          <li><b><span class="zh">室內空氣品質維護管理專責人員</span><span class="en">Indoor Air Quality Specialist</span></b><span class="s"><span>IA020236</span><span class="ok">2026/08</span></span></li>
+          <li><b><span class="zh">甲級廢棄物處理專責人員</span><span class="en">Waste Disposal Technician (A)</span></b><span class="s"><span>HA160629</span><span class="ok">2026/10</span></span></li>
+          <li><b><span class="zh">乙級職業安全衛生管理員</span><span class="en">OSH Management Personnel (B)</span></b><span class="s"><span class="zh">資格預審通過</span><span class="en">Eligibility approved</span><span><span class="zh">2026/11 考試</span><span class="en">Exam 2026/11</span></span></span></li>
+          <li><b><span class="zh">甲級職業安全管理師</span><span class="en">Occupational Safety Mgmt Specialist (A)</span></b><span class="s"><span></span><span><span class="zh">2027/03 考試</span><span class="en">Exam 2027/03</span></span></span></li>
+        </ul>
+        <p style="margin-top:1.6mm"><span class="lbl"><span class="zh">職業衛生技師學分班（文化大學）</span><span class="en">Industrial Hygiene credit programme</span></span><span class="zh">工業衛生 87、工業安全 86；職安衛管理與風險評估修習中</span><span class="en">Industrial Hygiene 87, Industrial Safety 86; OSH Mgmt &amp; Risk Assessment in progress</span></p>
+      </section>
+      <section>
+        <h2><span class="zh">學歷</span><span class="en">Education</span><i>EDUCATION</i></h2>
+        <p><b><span class="zh">國立臺灣科技大學 化工所 碩士</span><span class="en">M.S. Chem. Eng., NTUST</span></b><br><span class="zh">2025 – 2027（預計）・修習化工安全與輻射防護</span><span class="en">2025 – 2027 (exp.) · Process Safety &amp; Radiation Protection</span></p>
+        <p><b><span class="zh">東海大學 化工與材料工程學系 學士</span><span class="en">B.S. Chem. &amp; Mat. Eng., Tunghai Univ.</span></b><br>2020 – 2024</p>
+      </section>
+      <section>
+        <h2><span class="zh">專長</span><span class="en">Skills</span><i>SKILLS</i></h2>
+        <span class="lbl"><span class="zh">環安衛基礎</span><span class="en">EHS fundamentals</span></span>
+        <span class="tag"><span class="zh">GHS 標示</span><span class="en">GHS labelling</span></span><span class="tag">LEL／UEL</span><span class="tag"><span class="zh">容許暴露濃度</span><span class="en">Exposure limits</span></span><span class="tag"><span class="zh">通風換氣</span><span class="en">Ventilation</span></span><span class="tag"><span class="zh">控制層級</span><span class="en">Hierarchy of controls</span></span>
+        <span class="lbl"><span class="zh">熱危害與分析</span><span class="en">Thermal hazards &amp; analysis</span></span>
+        <span class="tag">TGA Q500</span><span class="tag">DSC 2500</span><span class="tag">EIS</span>
+        <span class="lbl"><span class="zh">軟體</span><span class="en">Software</span></span>
+        <span class="tag">Word／Excel／PowerPoint</span><span class="tag">OriginPro</span><span class="tag">Aspen Plus</span>
+      </section>
+      <section>
+        <h2><span class="zh">未來規劃</span><span class="en">Next 3–5 years</span><i>PLAN</i></h2>
+        <ul class="b">
+          <li><span class="zh">甲級職業安全管理師、甲級職業衛生管理師</span><span class="en">Level A Occupational Safety and Hygiene Management Specialist</span></li>
+          <li><span class="zh">英文能力、ISO 14001／45001 管理系統</span><span class="en">English; ISO 14001 / 45001 systems</span></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <p class="foot"><span>郭晨志 KUO, CHEN CHIH</span><span>b29374665-design.github.io/isep</span></p>
+</article>
 
 <script>
 (function(){
@@ -413,7 +549,7 @@ footer .fine{margin-top:36px;padding-top:18px;border-top:1px solid var(--navy-li
   function set(l,push){
     b.dataset.lang=l; document.documentElement.lang=l==='en'?'en':'zh-Hant';
     document.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.set===l)});
-    var en=l==='en', pdf='../resume-'+(en?'en':'zh')+'.pdf', home=en?'../?lang=en':'../';
+    var en=l==='en', pdf='../resume-isep-'+(en?'en':'zh')+'.pdf', home=en?'../?lang=en':'../';
     ['cv-pdf','cv-pdf-2'].forEach(function(i){document.getElementById(i).href=pdf});
     ['full-cv','full-cv-2'].forEach(function(i){document.getElementById(i).href=home});
     document.title=en?'KUO CHEN CHIH | Applying for ISEP EHS Engineer':'郭晨志 KUO CHEN CHIH｜應徵 ISEP 環安衛工程師';
