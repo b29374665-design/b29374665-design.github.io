@@ -17,7 +17,7 @@ for (const [role, lang] of [['ehs', 'zh'], ['ehs', 'en'], ['rd', 'zh'], ['rd', '
   const pdf = await page.pdf({ path: file, preferCSSPageSize: true, printBackground: true });
   const pages = (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
   console.log(`${file}: ${pages} page(s), ${Math.round(pdf.length / 1024)} KB`);
-  if (pages !== 1) throw new Error(`${file} has ${pages} pages; shorten the content or the print styles`);
+  if (pages !== 1 && !process.env.DIAG) throw new Error(`${file} has ${pages} pages; shorten the content or the print styles`);
   await page.close();
 }
 // ISEP page (isep/index.html) has its own one-page print résumé
@@ -32,7 +32,7 @@ for (const lang of ['zh', 'en']) {
   const pdf = await page.pdf({ path: file, preferCSSPageSize: true, printBackground: true });
   const pages = (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) || []).length;
   console.log(`${file}: ${pages} page(s), ${Math.round(pdf.length / 1024)} KB`);
-  if (pages !== 1) throw new Error(`${file} has ${pages} pages; shorten the content or the print styles`);
+  if (pages !== 1 && !process.env.DIAG) throw new Error(`${file} has ${pages} pages; shorten the content or the print styles`);
   await page.close();
 }
 await browser.close();

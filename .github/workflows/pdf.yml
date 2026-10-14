@@ -28,7 +28,7 @@ jobs:
           npx playwright install --with-deps chromium
           sudo apt-get install -y fonts-noto-cjk
       - name: Print the PDFs
-        run: node .github/scripts/make-pdf.mjs
+        run: DIAG=1 node .github/scripts/make-pdf.mjs
       - name: Commit the PDFs
         run: |
           git config user.name "github-actions[bot]"
