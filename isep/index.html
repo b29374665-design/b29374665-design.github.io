@@ -2138,9 +2138,9 @@ main.wrap{display:flex;flex-direction:column}
   if(sy){
     var syc=document.createElement('section');syc.className='sec ps-sync';
     var bl=[['TPS 45A2','Submicron Soft X-ray Spectroscopy'],['TPS 27A2','Soft X-ray Nanoscopy'],['TLS 20A1','BM-(H-SGM) XAS']].map(function(b){return '<li><b>'+b[0]+'</b> '+b[1]+'</li>'}).join('');
-    syc.innerHTML=sy.outerHTML+'<div><p class="ps-sync-t"><span class="zh">國家同步輻射研究中心・協助量測</span><span class="en">NSRRC synchrotron · assisted measurements</span></p>'
+    syc.innerHTML=sy.outerHTML+'<div><p class="ps-sync-t"><span class="zh">國家同步輻射研究中心</span><span class="en">NSRRC synchrotron</span></p>'
       +'<ul class="bl">'+bl+'</ul>'
-      +'<p class="ps-sync-d"><span class="zh">並觀察設備保養與逃生動線規劃</span><span class="en">Observed upkeep &amp; evacuation routes</span></p></div>';
+      +'<p class="ps-sync-d"><span class="zh">協助量測，並觀察設備保養與逃生動線規劃</span><span class="en">Assisted measurements; observed upkeep &amp; evacuation routes</span></p></div>';
     R.appendChild(syc);
   }
   sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);
