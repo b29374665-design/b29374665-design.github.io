@@ -167,7 +167,7 @@
 .lic-course b{display:block;color:var(--ink);font-weight:700;letter-spacing:.06em}
 .lic-course .en{letter-spacing:.01em}
 @media print{.print-sheet .lic-course{margin:1mm 0 0;padding-left:2mm;border-left-width:.8pt;font-size:7.2pt;line-height:1.4;max-width:none}.print-sheet .lic-course b{font-size:7.4pt;letter-spacing:.02em}}
-@media print{.print-sheet .ps-inst li.sync-pill{display:none!important}.print-sheet .ig-n{margin:.4mm 0 0;font-size:6.6pt;color:var(--muted);line-height:1.3}.print-sheet ul.bl{list-style:none;margin:.3mm 0 0;padding:0;font-size:6.6pt;line-height:1.38;white-space:nowrap}.print-sheet ul.bl b{font-weight:700;margin-right:.8mm}}
+@media print{.print-sheet .ps-inst li.sync-pill{display:none!important}#cv .print-sheet .ps-sync{display:grid!important;grid-template-columns:10.5mm minmax(0,1fr);gap:2.2mm;align-items:center;margin:auto .8mm 0 0;padding:1.6mm 2.2mm;border:.6pt solid var(--line);border-radius:1.6mm;break-inside:avoid}.print-sheet .ig-n{margin:.4mm 0 0;font-size:6.6pt;color:var(--muted);line-height:1.3}.print-sheet ul.bl{list-style:none;margin:.4mm 0 0;padding:0;font-size:6.6pt;line-height:1.4;white-space:nowrap;color:var(--ink-2)}.print-sheet ul.bl b{font-weight:700;margin-right:.8mm}}
 /* ===== ISEP blocks ===== */
 .ip-h{font-size:clamp(18px,2vw,22px);font-weight:700;letter-spacing:.08em;line-height:1.7;max-width:30em}
 .ip-h .en{letter-spacing:.01em;line-height:1.5}
@@ -1580,14 +1580,14 @@ main.wrap{display:flex;flex-direction:column}
         <div class="when">2025 – 2027/08<span class="zh cjk">（預計）</span><span class="en"> (expected)</span></div>
         <h3><span class="zh">國立臺灣科技大學</span><span class="en">National Taiwan University of Science and Technology</span></h3>
         <p class="deg"><span class="zh">化學工程研究所 碩士班</span><span class="en">M.S. in Chemical Engineering</span></p>
-        <p><span class="zh">專攻超低溫電解液開發與電池老化分析；修習奈米材料與應用（微影製程、奈米壓印微影、自組裝微影）、化工安全與輻射防護等課程。</span><span class="en">Focus on low-temperature electrolytes and battery aging. Coursework: Nanomaterials and Applications (lithography, nanoimprint &amp; self-assembly), Process Safety &amp; Radiation Protection.</span></p>
+        <p><span class="zh">專攻超低溫電解液開發與電池老化分析；修習奈米材料與應用（微影製程、奈米壓印微影、自組裝微影）、化工安全與輻射防護等課程。</span><span class="en">Low-temperature electrolytes and battery aging; coursework incl. Process Safety &amp; Radiation Protection.</span></p>
       </article>
       <article class="edu">
         <svg class="edu-logo" role="img" aria-label="東海大學校徽 Tunghai University emblem"><use href="#logo-thu"/></svg>
         <div class="when">2020 – 2024</div>
         <h3><span class="zh">東海大學</span><span class="en">Tunghai University</span></h3>
         <p class="deg"><span class="zh">化學工程與材料工程學系 學士</span><span class="en">B.S. in Chemical &amp; Materials Engineering</span></p>
-        <p><span class="zh">打下化工核心基礎，修習單元操作與程序控制（Aspen Plus V14／Aspen Dynamics 模擬）。</span><span class="en">Focus on unit operations &amp; process control (Aspen Plus V14 / Aspen Dynamics simulation).</span></p>
+        <p class="ps-hide"><span class="zh">打下化工核心基礎，修習單元操作與程序控制（Aspen Plus V14／Aspen Dynamics 模擬）。</span><span class="en">Focus on unit operations &amp; process control (Aspen Plus V14 / Aspen Dynamics simulation).</span></p>
       </article>
     </div>
   </section>
@@ -1604,10 +1604,10 @@ main.wrap{display:flex;flex-direction:column}
         <h3><span class="zh">環安衛基礎知識</span><span class="en">EHS fundamentals</span></h3>
         <span class="k"><span class="zh">Basics</span><span class="en">基礎知識</span></span>
         <ul class="pills">
-          <li><span class="zh">化學品標示（GHS）法規</span><span class="en">Chemical labelling rules (GHS)</span></li>
-          <li><span class="zh">爆炸上下限（LEL／UEL）</span><span class="en">Explosive limits (LEL / UEL)</span></li>
-          <li><span class="zh">容許暴露濃度</span><span class="en">Occupational exposure limits</span></li>
+          <li><span class="zh">化學品標示（GHS）法規</span><span class="en">GHS labelling</span></li>
           <li><span class="zh">通風換氣</span><span class="en">Ventilation</span></li>
+          <li><span class="zh">爆炸上下限（LEL／UEL）</span><span class="en">LEL / UEL</span></li>
+          <li><span class="zh">容許暴露濃度</span><span class="en">Exposure limits</span></li>
         </ul>
       </div>
       <div class="ps-hide">
@@ -2133,18 +2133,15 @@ main.wrap{display:flex;flex-direction:column}
     });
     R.appendChild(sec);
   }
-  // synchrotron: a fourth group in the instrument list, one pill per beamline
-  var psi=R.querySelector('.ps-inst');
-  if(psi){
-    var gk=document.createElement('p');gk.className='ig-k';
-    gk.innerHTML='<span class="zh">國家同步輻射研究中心・協助量測</span><span class="en">NSRRC synchrotron · assisted measurements</span>';
-    var gu=document.createElement('ul');gu.className='bl';
-    [['TPS 45A2','Submicron Soft X-ray Spectroscopy'],['TPS 27A2','Soft X-ray Nanoscopy'],['TLS 20A1','BM-(H-SGM) XAS']].forEach(function(b){
-      var li=document.createElement('li');li.innerHTML='<b>'+b[0]+'</b> '+b[1];gu.appendChild(li);
-    });
-    var gn=document.createElement('p');gn.className='ig-n';
-    gn.innerHTML='<span class="zh">並觀察設備保養與逃生動線規劃</span><span class="en">Observed equipment upkeep and evacuation routes</span>';
-    psi.appendChild(gk);psi.appendChild(gu);psi.appendChild(gn);
+  // synchrotron: NSRRC emblem card listing the three beamlines
+  var sy=document.querySelector('#methods .inst li.sync svg');
+  if(sy){
+    var syc=document.createElement('section');syc.className='sec ps-sync';
+    var bl=[['TPS 45A2','Submicron Soft X-ray Spectroscopy'],['TPS 27A2','Soft X-ray Nanoscopy'],['TLS 20A1','BM-(H-SGM) XAS']].map(function(b){return '<li><b>'+b[0]+'</b> '+b[1]+'</li>'}).join('');
+    syc.innerHTML=sy.outerHTML+'<div><p class="ps-sync-t"><span class="zh">國家同步輻射研究中心・協助量測</span><span class="en">NSRRC synchrotron · assisted measurements</span></p>'
+      +'<ul class="bl">'+bl+'</ul>'
+      +'<p class="ps-sync-d"><span class="zh">並觀察設備保養與逃生動線規劃</span><span class="en">Observed upkeep &amp; evacuation routes</span></p></div>';
+    R.appendChild(syc);
   }
   sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);
 })();
