@@ -443,6 +443,8 @@ main.wrap{display:flex;flex-direction:column}
 .eqr{display:flex;align-items:center;justify-content:space-between;gap:14px}
 .eqr .m{white-space:nowrap;line-height:1.9}
 .eqr .no{flex-shrink:0}
+.eq.eq-sm{font-size:14px!important}.eq.eq-sm .eqr{gap:10px}
+@media (max-width:360px){.eq.eq-sm{font-size:12.5px!important}.eq.eq-sm .eqr{gap:8px}}
 .fr,.eq sup,.int,.sum{white-space:nowrap}
 .eqr .no{font-size:14px;color:var(--muted)}
 .eq i,.fig-text i,.chips i,.readout i{font-family:"STIX Two Text","Cambria Math","Times New Roman",serif;font-style:italic;letter-spacing:0}
@@ -1129,9 +1131,9 @@ main.wrap{display:flex;flex-direction:column}
             <p class="ehs-use ehs-only"><b><span class="zh">EHS 應用</span><span class="en">EHS use</span></b><span class="zh">評估電池長期可靠度與自放電，作為庫存管理與汰換的判斷依據。</span><span class="en">Long-term reliability and self-discharge data support inventory and replacement decisions.</span></p>
             <h3><span class="zh">脈衝放電的電壓響應</span><span class="en">Voltage response to pulsed discharge</span></h3>
             <p><span class="zh">以 1、10、50、100 mA 定電流放電並記錄電壓變化。Li–SOCl₂ 電池的 LiCl 鈍化膜會使放電初期電壓先下探再回升（電壓延遲），穩定後的壓降 ΔV 隨電流增大；比較加速老化前後的 ΔV 與靜置回復電壓，評估電池長期可靠度。</span><span class="en">Cells are discharged at 1, 10, 50 and 100 mA while voltage is logged. The LiCl passivation film makes the voltage dip and then recover at the start of discharge (voltage delay), and the steady drop ΔV grows with current. Comparing ΔV and rest-recovery voltage before and after accelerated aging gauges long-term reliability.</span></p>
-            <div class="eq" aria-label="Voltage model">
+            <div class="eq eq-sm" aria-label="Voltage model">
               <div class="eqr"><span class="m"><i>V</i>(<i>t</i>) = <i>E</i><sub>OCV</sub> − Δ<i>V</i>(<i>t</i>)</span><span class="no">(5)</span></div>
-              <div class="eqr"><span class="m">Δ<i>V</i>(<i>t</i>) = <i>I</i><i>R</i><sub>Ω</sub> + <i>η</i><sub>ss</sub>(<i>I</i>) + Δ<i>V</i><sub>d</sub> e<sup>−<i>t</i>/<i>τ</i></sup></span><span class="no">(6)</span></div>
+              <div class="eqr"><span class="m">Δ<i>V</i>(<i>t</i>) = <i>I</i><i>R</i><sub>Ω</sub> + (<i>η</i> + Δ<i>V</i><sub>d</sub> e<sup>−<i>t</i>/<i>τ</i><sub>2</sub></sup>)(1 − e<sup>−<i>t</i>/<i>τ</i><sub>1</sub></sup>)</span><span class="no">(6)</span></div>
             </div>
             <ul class="chips">
               <li>1 – 100 mA</li><li>Voltage delay</li><li><span class="zh cjk">加速老化</span><span class="en">Accelerated aging</span></li>
@@ -1676,29 +1678,31 @@ main.wrap{display:flex;flex-direction:column}
   }
 
   /* ================= Fig 2 · OCV drip =================
-     V(t) = OCV − I·RΩ − η_ss(I) − ΔV_d(I)·e^(−t/τ), slow polarization drift */
-  var OCV=3.69,DRIP=[
-    {I:1,  ss:0.110,d:0.000,k:0.0000},
-    {I:10, ss:0.235,d:0.055,k:0.0003},
-    {I:50, ss:0.395,d:0.140,k:0.0008},
-    {I:100,ss:0.560,d:0.250,k:0.0014}
+     V(t) = E_OCV − I·RΩ − η(1 − e^(−t/τ1)) − ΔV_d(1 − e^(−t/τ1))·e^(−t/τ2)
+     shape fitted to a measured HCB cell (1 h constant-current discharge): fast drop from OCV,
+     a short voltage-delay dip at high current, then a flat plateau. t in min, RΩ = 2 Ω. */
+  var OCV=3.67,R_OHM=2,DRIP=[
+    {I:1,  eta:0.068,t1:13.5,d:0.000,t2:1},
+    {I:10, eta:0.156,t1:1.3, d:0.011,t2:30},
+    {I:50, eta:0.202,t1:0.4, d:0.041,t2:3.7},
+    {I:100,eta:0.181,t1:0.4, d:0.018,t2:9.3}
   ];
-  function drip(s,t){return OCV-s.ss-s.d*Math.exp(-t/2.5)-s.k*t}
+  function drip(s,t){var a=1-Math.exp(-t/s.t1);return OCV-s.I*1e-3*R_OHM-s.eta*a-s.d*a*Math.exp(-t/s.t2)}
   function renderOCV(host,W,rd){
     var m={l:44,r:58,t:32,b:44},pw=W-m.l-m.r,ph=Math.max(170,pw*0.52),H=Math.round(m.t+ph+m.b);
     var svg=svgFor(host,W,H,'OCV drip, simulated: cell voltage during 1, 10, 50 and 100 mA discharge');
-    var x=lin(0,60,m.l,m.l+pw),y=lin(2.8,3.8,m.t+ph,m.t);
-    frame(svg,{x:x,y:y,xt:ticks(0,60,10),yt:ticks(2.8,3.8,0.2),xf:String,yf:function(v){return v.toFixed(1)},L:m.l,R:m.l+pw,T:m.t,B:m.t+ph,showX:true,vgrid:false,xTitle:'*t* / min',yTitle:'*V* / V'});
+    var x=lin(0,60,m.l,m.l+pw),y=lin(3.25,3.70,m.t+ph,m.t);
+    frame(svg,{x:x,y:y,xt:ticks(0,60,10),yt:ticks(3.3,3.7,0.1),xf:String,yf:function(v){return v.toFixed(1)},L:m.l,R:m.l+pw,T:m.t,B:m.t+ph,showX:true,vgrid:false,xTitle:'*t* / min',yTitle:'*V* / V'});
     el('line',{x1:m.l,x2:m.l+pw,y1:y(OCV),y2:y(OCV),'class':'cross'},svg);
     txt(svg,m.l+pw+6,y(OCV)+3.5,'OCV','tick','start');
     DRIP.forEach(function(s,i){
-      var pts=[];for(var t=0;t<=60.001;t+=0.25)pts.push([t,drip(s,t)]);
+      var pts=[];for(var t=0;t<3;t+=0.02)pts.push([t,drip(s,t)]);for(t=3;t<=60.001;t+=0.25)pts.push([t,drip(s,t)]);
       el('path',{d:path(pts,x,y),'class':'ln cq'+(i+1)},svg);
       txt(svg,m.l+pw+6,y(drip(s,60))+3.5,s.I+' mA','lbl lat','start');
     });
     var focus=el('g',{visibility:'hidden'},svg),cross=el('line',{y1:m.t,y2:m.t+ph,'class':'cross'},focus),dots=DRIP.map(function(s,i){return el('circle',{r:4,'class':'mk fq'+(i+1)},focus)});
     hover(svg,rd,function(e){
-      var t=Math.round(clamp(x.inv(pointer(svg,e)[0]),0,60)*4)/4,px=x(t);
+      var t=Math.round(clamp(x.inv(pointer(svg,e)[0]),0,60)*10)/10,px=x(t);
       cross.setAttribute('x1',px);cross.setAttribute('x2',px);
       var parts=['<i>t</i> = '+t.toFixed(1)+' min'];
       DRIP.forEach(function(s,i){var v=drip(s,t);dots[i].setAttribute('cx',px);dots[i].setAttribute('cy',y(v));parts.push(s.I+' mA: '+v.toFixed(3)+' V')});
