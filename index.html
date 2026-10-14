@@ -742,6 +742,7 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .ps-sync-d{margin-top:.5mm;font-size:7.2pt;line-height:1.45;color:var(--ink-2)}
   /* the Chinese EHS sheet shows the card instead of the instruments-list tag */
   #cv:not([data-lang="en"]) .print-sheet .ps-inst li.sync-pill{display:none}
+  #cv[data-lang="en"] .print-sheet .ps-inst li.sync-pill{font-size:6.2pt;letter-spacing:0;white-space:nowrap} /* longer beamline IDs: keep the synchrotron pill on one line */
   .print-sheet .ps-inst .pills{margin-top:.4mm}
   .print-sheet .ps-inst li.ps-first{order:-1} /* longest pill first, so the short ones share a row */
   /* sidebar: skills + software */
@@ -1306,7 +1307,7 @@ main.wrap{display:flex;flex-direction:column}
         </li>
         <li class="sync" data-ps="ehs-only sync-pill">
           <svg class="inst-logo" role="img" aria-label="國家同步輻射研究中心 NSRRC emblem"><use href="#logo-nsrrc"/></svg>
-          <div><b><span class="zh">同步輻射<span class="ps-extra"> <span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span></span></span><span class="en">Synchrotron<span class="ps-extra"> <span style="white-space:nowrap">(TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A)</span></span></span></b><span class="d"><span class="zh"><span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span> 光束線</span><span class="en">Beamlines <span style="white-space:nowrap">TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A</span></span></span><span class="role-t o"><span class="zh">光束線實驗</span><span class="en">Beamline work</span></span></div>
+          <div><b><span class="zh">同步輻射<span class="ps-extra"> <span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span></span></span><span class="en">Synchrotron<span class="ps-extra"> <span style="white-space:nowrap">(TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2)</span></span></span></b><span class="d"><span class="zh"><span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span> 光束線</span><span class="en">Beamlines <span style="white-space:nowrap">TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2</span></span></span><span class="role-t o"><span class="zh">光束線實驗</span><span class="en">Beamline work</span></span></div>
         </li>
       </ul>
       </div>
@@ -1370,7 +1371,7 @@ main.wrap{display:flex;flex-direction:column}
         <span class="k"><span class="zh">Instruments</span><span class="en">分析儀器</span></span>
         <ul class="pills">
           <li><span class="zh">熱分析 TGA Q500／DSC 2500</span><span class="en">Thermal analysis (TGA / DSC)</span></li>
-          <li><span class="zh">同步輻射 <span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span></span><span class="en">Synchrotron <span style="white-space:nowrap">(TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A)</span></span></li>
+          <li><span class="zh">同步輻射 <span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span></span><span class="en">Synchrotron <span style="white-space:nowrap">(TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2)</span></span></li>
           <li><span class="zh">ARES‑G3 旋轉流變儀</span><span class="en">Rheology (ARES‑G3)</span></li>
           <li><span class="zh">落球黏度密度計 DMA 5002/Lovis 2001</span><span class="en">Viscometer<span class="web-only"> &amp; densimeter</span> (DMA 5002/Lovis 2001)</span></li>
         </ul>
@@ -1430,7 +1431,7 @@ main.wrap{display:flex;flex-direction:column}
         <div>
           <h3><span class="zh">2026 台灣化學工程學會年會（TwIChE）</span><span class="en">2026 TwIChE Annual Meeting</span></h3>
           <p class="role date">2026/12/05–06<span class="zh">・逢甲大學</span><span class="en"> · Feng Chia University</span></p>
-          <p class="role ptitle"><span class="zh">發表題目：</span><span class="en">Title: </span><i lang="en">Weakly Solvating Allyl Ether Electrolytes for Subzero Li‖SPAN Batteries: Solvation Structure, Transport Properties, and Separator Wettability</i></p>
+          <p class="role ptitle"><span class="zh">發表題目：</span><span class="en">Title: </span><i lang="en">Weakly Solvating Allyl Ether Electrolytes for Subzero Li‖SPAN Batteries: Solvation Structure, Transport Properties and Separator Wettability</i></p>
         </div>
       </li>
       <li>
@@ -1878,7 +1879,7 @@ main.wrap{display:flex;flex-direction:column}
   if(sy){
     var syc=document.createElement('section');syc.className='sec ps-sync';
     syc.innerHTML=sy.outerHTML+'<div><p class="ps-sync-t"><span class="zh">同步輻射光束線實驗</span><span class="en">Synchrotron beamline experiments</span></p>'
-      +'<p class="ps-sync-d"><span class="zh">國家同步輻射研究中心<br><span style="white-space:nowrap">TLS 20A／TPS 27A／TPS 45A</span></span><span class="en">NSRRC · TLS 20A / TPS 27A / TPS 45A</span></p></div>';
+      +'<p class="ps-sync-d"><span class="zh">國家同步輻射研究中心<br><span style="white-space:nowrap">TLS 20A1／TPS 27A2／TPS 45A2</span></span><span class="en">NSRRC · TLS 20A1 / TPS 27A2 / TPS 45A2</span></p></div>';
     R.appendChild(syc);
   }
   sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);

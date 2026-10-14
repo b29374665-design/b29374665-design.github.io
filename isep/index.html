@@ -163,6 +163,13 @@
 .ip-sub .ip-cap{display:none}
 @media (max-width:640px){.ip-sub .ip-cap{display:inline}.ip-sub .ip-sep{display:none}.ip-sub .ip-l2{display:block}}
 @media (max-width:360px){.ip-sub .zh .ip-l2{font-size:13.5px;letter-spacing:.02em}}
+.lic-course{margin-top:18px;padding-left:16px;border-left:3px solid var(--apricot);font-size:14.5px;line-height:1.95;color:var(--ink-2);max-width:40em}
+.lic-course b{display:block;color:var(--ink);font-weight:700;letter-spacing:.06em}
+.lic-course .en{letter-spacing:.01em}
+@media print{.print-sheet .lic-course{margin:1mm 0 0;padding-left:2mm;border-left-width:.8pt;font-size:7.2pt;line-height:1.4;max-width:none}.print-sheet .lic-course b{font-size:7.4pt;letter-spacing:.02em}}
+@media print{.print-sheet .ps-inst li.sync-pill{display:none!important}#cv .print-sheet .ps-sync{display:grid!important;grid-template-columns:10.5mm minmax(0,1fr);gap:2.2mm;align-items:center;margin:auto .8mm 0 0;padding:1.6mm 2.2mm;border:.6pt solid var(--line);border-radius:1.6mm;break-inside:avoid}.print-sheet .ig-n{margin:.4mm 0 0;font-size:6.6pt;color:var(--muted);line-height:1.3}.print-sheet ul.bl{list-style:none;margin:.4mm 0 0;padding:0;font-size:6.6pt;line-height:1.4;white-space:nowrap;color:var(--ink-2)}.print-sheet ul.bl b{font-weight:700;margin-right:.8mm}}
+.ph-photo{display:none}
+@media print{.print-head .ph-photo{display:block;width:16.3mm;height:22mm;object-fit:cover;border-radius:1mm;flex-shrink:0;align-self:flex-end;margin-right:1.5mm}.print-head{gap:4mm!important}}
 /* ===== ISEP blocks ===== */
 .ip-h{font-size:clamp(18px,2vw,22px);font-weight:700;letter-spacing:.08em;line-height:1.7;max-width:30em}
 .ip-h .en{letter-spacing:.01em;line-height:1.5}
@@ -873,6 +880,7 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .ps-sync-d{margin-top:.5mm;font-size:7.2pt;line-height:1.45;color:var(--ink-2)}
   /* the Chinese EHS sheet shows the card instead of the instruments-list tag */
   #cv:not([data-lang="en"]) .print-sheet .ps-inst li.sync-pill{display:none}
+  #cv[data-lang="en"] .print-sheet .ps-inst li.sync-pill{font-size:6.2pt;letter-spacing:0;white-space:nowrap} /* longer beamline IDs: keep the synchrotron pill on one line */
   .print-sheet .ps-inst .pills{margin-top:.4mm}
   .print-sheet .ps-inst li.ps-first{order:-1} /* longest pill first, so the short ones share a row */
   /* sidebar: skills + software */
@@ -958,7 +966,8 @@ main.wrap{display:flex;flex-direction:column}
     <p class="ph-role"><span class="ehs-only"><span class="zh">化工碩士生 ／ 環保專責人員（廢水・廢棄物・室內空品）</span><span class="en">M.S. in Chemical Engineering · Licensed environmental specialist</span></span><span class="rd-only"><span class="zh">化學工程與材料科學研發工程師 ／ 電池技術專家</span><span class="en">Chemical &amp; Materials R&amp;D Engineer · Battery Specialist</span></span></p>
     <p class="ph-seek"><b><span class="zh">求職方向</span><span class="en">Seeking</span></b><span class="ehs-only"><span class="zh">ISEP 環安衛工程師</span><span class="en">ISEP EHS Engineer</span></span><span class="rd-only"><span class="zh">電池／材料研發工程師</span><span class="en">R&amp;D Engineer, batteries &amp; materials</span></span></p>
   </div>
-  <div class="ph-contact"><div><svg class="ph-ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="m2 4.5 6 4.5 6-4.5"/></svg><span class="ph-l"><span class="zh">信箱</span><span class="en">Email</span></span><a href="mailto:b29374665@gmail.com">b29374665@gmail.com</a></div><div><svg class="ph-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 1.8 6.6 4.9 5 6.2c.8 1.9 2.4 3.5 4.3 4.3l1.3-1.6 3.1 1.4-.5 2.7c-.1.5-.5.8-1 .8C6.5 13.6 2.4 9.5 2.2 3.8c0-.5.3-.9.8-1z"/></svg><span class="ph-l"><span class="zh">電話</span><span class="en">Phone</span></span><a class="zh" href="tel:+886966521882">0966-521-882</a><a class="en" href="tel:+886966521882">+886 966 521 882</a></div><div><svg class="ph-ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2 2.8 4.2 2.8 6.5S10 12.5 8 14.5M8 1.5C6 3.5 5.2 5.7 5.2 8S6 12.5 8 14.5"/></svg><span class="ph-l"><span class="zh">個人網站</span><span class="en">Website</span></span><a class="zh" href="https://b29374665-design.github.io/isep/">b29374665-design.github.io/isep</a><a class="en" href="https://b29374665-design.github.io/isep/?lang=en">b29374665-design.github.io/isep</a></div><div><svg class="ph-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14.5s4.8-4.4 4.8-8a4.8 4.8 0 0 0-9.6 0c0 3.6 4.8 8 4.8 8z"/><circle cx="8" cy="6.5" r="1.7"/></svg><span class="zh">新北市新莊區・可出差／外派／輪班</span><span class="en">Xinzhuang, New Taipei · Open to relocation / shifts</span></div><div><span class="ph-l"><span class="zh">其他</span><span class="en">Other</span></span><span class="zh">免役・汽車駕照・2027/08 畢業；預聘，預計 2027/10 到職</span><span class="en">Exempt · Car licence · Graduating Aug 2027; pre-hire, available Oct 2027</span></div></div>
+  <div class="ph-contact"><div><svg class="ph-ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5"/><path d="m2 4.5 6 4.5 6-4.5"/></svg><span class="ph-l"><span class="zh">信箱</span><span class="en">Email</span></span><a href="mailto:b29374665@gmail.com">b29374665@gmail.com</a></div><div><svg class="ph-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 1.8 6.6 4.9 5 6.2c.8 1.9 2.4 3.5 4.3 4.3l1.3-1.6 3.1 1.4-.5 2.7c-.1.5-.5.8-1 .8C6.5 13.6 2.4 9.5 2.2 3.8c0-.5.3-.9.8-1z"/></svg><span class="ph-l"><span class="zh">電話</span><span class="en">Phone</span></span><a class="zh" href="tel:+886966521882">0966-521-882</a><a class="en" href="tel:+886966521882">+886 966 521 882</a></div><div><svg class="ph-ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c2 2 2.8 4.2 2.8 6.5S10 12.5 8 14.5M8 1.5C6 3.5 5.2 5.7 5.2 8S6 12.5 8 14.5"/></svg><span class="ph-l"><span class="zh">個人網站</span><span class="en">Website</span></span><a class="zh" href="https://b29374665-design.github.io/isep/">b29374665-design.github.io/isep</a><a class="en" href="https://b29374665-design.github.io/isep/?lang=en">b29374665-design.github.io/isep</a></div><div><svg class="ph-ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14.5s4.8-4.4 4.8-8a4.8 4.8 0 0 0-9.6 0c0 3.6 4.8 8 4.8 8z"/><circle cx="8" cy="6.5" r="1.7"/></svg><span class="zh">新北市新莊區・可出差／外派／輪班</span><span class="en">Xinzhuang, New Taipei · Open to relocation / shifts</span></div><div><span class="ph-l"><span class="zh">其他</span><span class="en">Other</span></span><span class="zh">免役・汽車駕照・預聘，預計 2027/10 到職</span><span class="en">Exempt · Car licence · Pre-hire, from Oct 2027</span></div></div>
+  <img class="ph-photo" src="photo.jpg" alt="郭晨志 照片" width="360" height="487">
 </header>
 <main class="wrap">
 
@@ -974,8 +983,8 @@ main.wrap{display:flex;flex-direction:column}
         <span class="en">M.S. candidate in Chemical Engineering at NTUST, specializing in <mark>electrochemistry, ultra-low-temperature electrolytes</mark> and <mark>lithium battery reliability / aging</mark>; co-author on a <mark>Nature Materials</mark> submission.</span>
       </p>
       <p class="lead ehs-only">
-        <span class="zh">國立臺灣科技大學化工所碩士生，已取得<mark>乙級廢水、甲級廢棄物、室內空氣品質</mark>三張環保專責證照，職安證照考程已排定（乙級 2026/11、甲級 2027/03）；具<mark>危害性化學品</mark>操作（手套箱內鋰金屬、有機溶劑電解液、Li–SOCl₂ 電池異常品）、實驗室安全管理與材料以 TGA／DSC 量測分解與放熱溫度、評估<mark>熱危害</mark>的實務，並具<mark>乾燥室潔淨區</mark>作業經驗。在同步輻射中心看到設備靠預防保養運轉逾 30 年，讓我確信制度才是安全的關鍵，也希望把這套觀念帶到半導體廠的環安衛系統中學習並落地。</span>
-        <span class="en">NTUST Chemical Engineering M.S. candidate holding three environmental specialist licences (<mark>wastewater, waste, indoor air</mark>), OSH exams scheduled (Level B Nov 2026, Level A Mar 2027); hands-on with <mark>hazardous materials</mark> (lithium metal, organic-solvent electrolytes, faulty Li–SOCl₂ cells), lab safety and <mark>TGA / DSC thermal-hazard assessment</mark>, plus <mark>dry-room</mark> clean-area work. Seeing synchrotron equipment run for 30+ years on preventive maintenance convinced me that systems are what keep people safe, and I want to learn to apply it in a fab.</span>
+        <span class="zh">國立臺灣科技大學化工所碩士生，已取得<mark>乙級廢水、甲級廢棄物、室內空氣品質</mark>三張環保專責證照，職安證照考程已排定（乙級職業安全衛生管理員〔已過預審〕2026/11、甲級職業安全管理師 2027/03）；具<mark>危害性化學品</mark>操作（手套箱內鋰金屬、有機溶劑電解液、Li–SOCl₂ 電池異常品）、實驗室安全管理與材料以 TGA／DSC 量測分解與放熱溫度、評估<mark>熱危害</mark>的實務，並具<mark>乾燥室潔淨區</mark>作業經驗。在同步輻射中心看到設備靠預防保養運轉逾 30 年，讓我確信制度才是安全的關鍵，也希望把這套觀念帶到半導體廠的環安衛系統中學習並落地。</span>
+        <span class="en">NTUST Chemical Engineering M.S. candidate holding three environmental specialist licences (<mark>wastewater, waste, indoor air</mark>), OSH exams scheduled (OSH Management Personnel, Level B, pre-screen passed, Nov 2026; Occupational Safety Management Specialist, Level A, Mar 2027); hands-on with <mark>hazardous materials</mark> (lithium metal, organic-solvent electrolytes, faulty Li–SOCl₂ cells), lab safety and <mark>TGA / DSC thermal-hazard assessment</mark>, plus <mark>dry-room</mark> clean-area work. Seeing synchrotron equipment run for 30+ years on preventive maintenance convinced me that systems are what keep people safe, and I want to learn to apply it in a fab.</span>
       </p>
       <p class="body-text rd-only">
         <span class="zh">修習奈米材料與應用（微影製程、奈米壓印微影、自組裝微影）課程，於 Nature Materials 論文中負責熱重分析（TGA）量測。具備 SEED 大型研究中心逾 200 萬元精密設備採購與核心熱分析儀器（TGA Q500、DSC 2500）維護實務，並獨立負責智慧水錶長效鋰電池產學合作案（Li–SOCl₂ 電池篩選與 EIS／老化分析），兼具紮實化工單元操作、可靠度分析與產業落地能力。</span>
@@ -1071,7 +1080,7 @@ main.wrap{display:flex;flex-direction:column}
         <li>
           <span class="dot"></span>
           <span class="cert-name"><span class="zh">乙級職業安全衛生管理員</span><span class="en">Occupational Safety and Health Management Personnel (Level B)</span><span class="law ehs-only"><span class="zh">依《職業安全衛生管理辦法》設置之職安衛人員</span><span class="en">Under the Occupational Safety and Health Management Regulations</span></span></span>
-          <span class="status">2026 / 11 <span class="zh cjk">中旬預計應考</span><span class="en">· mid-Nov exam scheduled</span></span>
+          <span class="status">2026 / 11 <span class="zh cjk">應考（已過預審）</span><span class="en">· exam, pre-screen passed</span></span>
         </li>
         <li>
           <span class="dot"></span>
@@ -1079,7 +1088,8 @@ main.wrap{display:flex;flex-direction:column}
           <span class="status">2027 / 03 <span class="zh cjk">預計應考</span><span class="en">· exam scheduled</span></span>
         </li>
       </ol>
-      <p class="ip-claim web-only"><span class="zh">現階段：環保三證可依法登記為廢水、廢棄物、室內空品專責人員；職安證照取得前，從巡檢、化學品與承攬商管理累積現場實務。另修習職業衛生技師學分班（文化大學）：工業衛生 87、工業安全 86，職安衛管理與風險評估修習中。</span><span class="en">Today: my three environmental licences qualify me to be registered as the designated wastewater, waste and indoor-air specialist; until my OSH licences arrive, I can build field experience in inspections, chemical management and contractor management. I am also taking the Industrial Hygiene Engineer credit programme (Chinese Culture University): Industrial Hygiene 87, Industrial Safety 86, OSH Management &amp; Risk Assessment in progress.</span></p>
+      <p class="lic-course"><b><span class="zh">修習職業衛生技師學分班（文化大學）</span><span class="en">Industrial Hygiene Engineer credit programme (Chinese Culture University)</span></b><span class="zh">工業衛生與工業安全已修習，職安衛管理與風險評估修習中。</span><span class="en">Industrial Hygiene and Industrial Safety completed; OSH Management &amp; Risk Assessment in progress.</span></p>
+      <p class="ip-claim web-only"><span class="zh">現階段：環保三證可依法登記為廢水、廢棄物、室內空品專責人員；職安證照取得前，從巡檢、化學品與承攬商管理累積現場實務。</span><span class="en">Today: my three environmental licences qualify me to be registered as the designated wastewater, waste and indoor-air specialist; until my OSH licences arrive, I can build field experience in inspections, chemical management and contractor management.</span></p>
     </div>
   </section>
 
@@ -1105,7 +1115,7 @@ main.wrap{display:flex;flex-direction:column}
             <li><span class="zh"><b>跨系所 TGA 委測：</b>為化工、機械、材料 3 系所共 6 個實驗室的研究生提供 TGA 委託測試與數據判讀；連同本實驗室樣品，累計量測 600 件以上。</span><span class="en"><b>TGA testing service:</b> Ran TGA measurements and data interpretation for graduate students from 6 labs across Chemical, Mechanical and Materials Engineering at NTUST — over 600 samples in total, including my own lab's.</span></li>
             
             <li class="ehs-only web-only"><span class="zh"><b>TGA 流程優化：</b>改變製備樣品模式，提高樣品量與量測精準度，減少白金盤汙染、並延長使用壽命；同時導入原廠液體樣品量測流程。</span><span class="en"><b>TGA workflow:</b> changed how samples are prepared, raising sample mass and precision, reducing platinum-pan contamination and extending pan life; adopted the vendor's liquid-sample method.</span></li>
-            <li><span class="zh"><b>儀器維護與校正：</b>負責熱分析儀器 TGA Q500 與 DSC 2500 的日常維護與定期校正，確保量測準確、儀器穩定運作。</span><span class="en"><b>Instrument maintenance:</b> Responsible for maintenance and calibration of the key thermal analysis instruments, TGA Q500 and DSC 2500.</span></li>
+            <li class="ps-hide"><span class="zh"><b>儀器維護與校正：</b>負責熱分析儀器 TGA Q500 與 DSC 2500 的日常維護與定期校正，確保量測準確、儀器穩定運作。</span><span class="en"><b>Instrument maintenance:</b> Responsible for maintenance and calibration of the key thermal analysis instruments, TGA Q500 and DSC 2500.</span></li>
             <li class="web-only"><span class="zh">與原廠及代理商（TA Waters、勝綻科技）維修工程師保持聯繫，儀器故障時即時通報，多數能在 <b>24 小時內</b>安排工程師到場處理，縮短停機時間。</span><span class="en">Maintained close, responsive contact with vendor engineers (TA Instruments, Sunbloom Technology), frequently securing on-site repair within <b>24 hours</b> of a fault report — significantly reducing instrument downtime.</span></li>
           </ul>
         </div>
@@ -1555,7 +1565,7 @@ main.wrap{display:flex;flex-direction:column}
         </li>
         <li class="sync" data-ps="ehs-only sync-pill">
           <svg class="inst-logo" role="img" aria-label="國家同步輻射研究中心 NSRRC emblem"><use href="#logo-nsrrc"/></svg>
-          <div><b><span class="zh">同步輻射<span class="ps-extra"> <span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span></span></span><span class="en">Synchrotron<span class="ps-extra"> <span style="white-space:nowrap">(TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A)</span></span></span></b><span class="d"><span class="zh"><span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span> 光束線：協助量測，並觀察設備保養與逃生動線規劃</span><span class="en">Assisted measurements and observed equipment upkeep and evacuation routes · Beamlines <span style="white-space:nowrap">TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A</span></span></span><span class="role-t o"><span class="zh">光束線實驗</span><span class="en">Beamline work</span></span></div>
+          <div><b><span class="zh">同步輻射<span class="ps-extra"> <span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span></span></span><span class="en">Synchrotron<span class="ps-extra"> <span style="white-space:nowrap">(TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2)</span></span></span></b><span class="d"><span class="zh"><span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span> 光束線：協助量測，並觀察設備保養與逃生動線規劃</span><span class="en">Assisted measurements and observed equipment upkeep and evacuation routes · Beamlines <span style="white-space:nowrap">TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2</span></span></span><span class="role-t o"><span class="zh">光束線實驗</span><span class="en">Beamline work</span></span></div>
         </li>
       </ul>
       </div>
@@ -1574,14 +1584,14 @@ main.wrap{display:flex;flex-direction:column}
         <div class="when">2025 – 2027/08<span class="zh cjk">（預計）</span><span class="en"> (expected)</span></div>
         <h3><span class="zh">國立臺灣科技大學</span><span class="en">National Taiwan University of Science and Technology</span></h3>
         <p class="deg"><span class="zh">化學工程研究所 碩士班</span><span class="en">M.S. in Chemical Engineering</span></p>
-        <p><span class="zh">專攻超低溫電解液開發與電池老化分析；修習奈米材料與應用（微影製程、奈米壓印微影、自組裝微影）、化工安全與輻射防護等課程。</span><span class="en">Focus on low-temperature electrolytes and battery aging. Coursework: Nanomaterials and Applications (lithography, nanoimprint &amp; self-assembly), Process Safety &amp; Radiation Protection.</span></p>
+        <p><span class="zh">專攻超低溫電解液開發與電池老化分析；修習奈米材料與應用（微影製程、奈米壓印微影、自組裝微影）、化工安全與輻射防護等課程。</span><span class="en">Low-temperature electrolytes and battery aging; coursework incl. Process Safety &amp; Radiation Protection.</span></p>
       </article>
       <article class="edu">
         <svg class="edu-logo" role="img" aria-label="東海大學校徽 Tunghai University emblem"><use href="#logo-thu"/></svg>
         <div class="when">2020 – 2024</div>
         <h3><span class="zh">東海大學</span><span class="en">Tunghai University</span></h3>
         <p class="deg"><span class="zh">化學工程與材料工程學系 學士</span><span class="en">B.S. in Chemical &amp; Materials Engineering</span></p>
-        <p><span class="zh">打下化工核心基礎，修習單元操作與程序控制（Aspen Plus V14／Aspen Dynamics 模擬）。</span><span class="en">Focus on unit operations &amp; process control (Aspen Plus V14 / Aspen Dynamics simulation).</span></p>
+        <p class="ps-hide"><span class="zh">打下化工核心基礎，修習單元操作與程序控制（Aspen Plus V14／Aspen Dynamics 模擬）。</span><span class="en">Focus on unit operations &amp; process control (Aspen Plus V14 / Aspen Dynamics simulation).</span></p>
       </article>
     </div>
   </section>
@@ -1598,10 +1608,10 @@ main.wrap{display:flex;flex-direction:column}
         <h3><span class="zh">環安衛基礎知識</span><span class="en">EHS fundamentals</span></h3>
         <span class="k"><span class="zh">Basics</span><span class="en">基礎知識</span></span>
         <ul class="pills">
-          <li><span class="zh">化學品標示（GHS）法規</span><span class="en">Chemical labelling rules (GHS)</span></li>
-          <li><span class="zh">爆炸上下限（LEL／UEL）</span><span class="en">Explosive limits (LEL / UEL)</span></li>
-          <li><span class="zh">容許暴露濃度</span><span class="en">Occupational exposure limits</span></li>
+          <li><span class="zh">化學品標示（GHS）法規</span><span class="en">GHS labelling</span></li>
           <li><span class="zh">通風換氣</span><span class="en">Ventilation</span></li>
+          <li><span class="zh">爆炸上下限（LEL／UEL）</span><span class="en">LEL / UEL</span></li>
+          <li><span class="zh">容許暴露濃度</span><span class="en">Exposure limits</span></li>
         </ul>
       </div>
       <div class="ps-hide">
@@ -1619,7 +1629,7 @@ main.wrap{display:flex;flex-direction:column}
         <span class="k"><span class="zh">Instruments</span><span class="en">分析儀器</span></span>
         <ul class="pills">
           <li><span class="zh">熱分析 TGA Q500／DSC 2500</span><span class="en">Thermal analysis (TGA / DSC)</span></li>
-          <li><span class="zh">同步輻射 <span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span></span><span class="en">Synchrotron <span style="white-space:nowrap">(TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A)</span></span></li>
+          <li><span class="zh">同步輻射 <span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span></span><span class="en">Synchrotron <span style="white-space:nowrap">(TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2)</span></span></li>
           <li><span class="zh">ARES‑G3 旋轉流變儀</span><span class="en">Rheology (ARES‑G3)</span></li>
           <li><span class="zh">落球黏度密度計 DMA 5002/Lovis 2001</span><span class="en">Viscometer<span class="web-only"> &amp; densimeter</span> (DMA 5002/Lovis 2001)</span></li>
         </ul>
@@ -1679,7 +1689,7 @@ main.wrap{display:flex;flex-direction:column}
         <div>
           <h3><span class="zh">2026 台灣化學工程學會年會（TwIChE）</span><span class="en">2026 TwIChE Annual Meeting</span></h3>
           <p class="role date">2026/12/05–06<span class="zh">・逢甲大學</span><span class="en"> · Feng Chia University</span></p>
-          <p class="role ptitle"><span class="zh">發表題目：</span><span class="en">Title: </span><i lang="en">Weakly Solvating Allyl Ether Electrolytes for Subzero Li‖SPAN Batteries: Solvation Structure, Transport Properties, and Separator Wettability</i></p>
+          <p class="role ptitle"><span class="zh">發表題目：</span><span class="en">Title: </span><i lang="en">Weakly Solvating Allyl Ether Electrolytes for Subzero Li‖SPAN Batteries: Solvation Structure, Transport Properties and Separator Wettability</i></p>
         </div>
       </li>
       <li>
@@ -2127,12 +2137,14 @@ main.wrap{display:flex;flex-direction:column}
     });
     R.appendChild(sec);
   }
-  // synchrotron gets its own small card at the foot of the sidebar where the Chinese EHS sheet has room
+  // synchrotron: NSRRC emblem card listing the three beamlines
   var sy=document.querySelector('#methods .inst li.sync svg');
   if(sy){
     var syc=document.createElement('section');syc.className='sec ps-sync';
-    syc.innerHTML=sy.outerHTML+'<div><p class="ps-sync-t"><span class="zh">同步輻射光束線實驗</span><span class="en">Synchrotron beamline experiments</span></p>'
-      +'<p class="ps-sync-d"><span class="zh">協助量測，觀察設備保養與逃生動線<br><span style="white-space:nowrap">TLS 20A／TPS 27A／TPS 45A</span></span><span class="en">NSRRC · TLS 20A / TPS 27A / TPS 45A</span></p></div>';
+    var bl=[['TPS 45A2','Submicron Soft X-ray Spectroscopy'],['TPS 27A2','Soft X-ray Nanoscopy'],['TLS 20A1','BM-(H-SGM) XAS']].map(function(b){return '<li><b>'+b[0]+'</b> '+b[1]+'</li>'}).join('');
+    syc.innerHTML=sy.outerHTML+'<div><p class="ps-sync-t"><span class="zh">國家同步輻射研究中心</span><span class="en">NSRRC synchrotron</span></p>'
+      +'<ul class="bl">'+bl+'</ul>'
+      +'<p class="ps-sync-d"><span class="zh">協助量測，並觀察設備保養與逃生動線規劃</span><span class="en">Assisted measurements; observed upkeep &amp; evacuation routes</span></p></div>';
     R.appendChild(syc);
   }
   sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);
