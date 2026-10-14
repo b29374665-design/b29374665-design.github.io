@@ -880,6 +880,7 @@ main.wrap{display:flex;flex-direction:column}
   .print-sheet .ps-sync-d{margin-top:.5mm;font-size:7.2pt;line-height:1.45;color:var(--ink-2)}
   /* the Chinese EHS sheet shows the card instead of the instruments-list tag */
   #cv:not([data-lang="en"]) .print-sheet .ps-inst li.sync-pill{display:none}
+  #cv[data-lang="en"] .print-sheet .ps-inst li.sync-pill{font-size:6.2pt;letter-spacing:0;white-space:nowrap} /* longer beamline IDs: keep the synchrotron pill on one line */
   .print-sheet .ps-inst .pills{margin-top:.4mm}
   .print-sheet .ps-inst li.ps-first{order:-1} /* longest pill first, so the short ones share a row */
   /* sidebar: skills + software */
