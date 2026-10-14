@@ -167,6 +167,7 @@
 .lic-course b{display:block;color:var(--ink);font-weight:700;letter-spacing:.06em}
 .lic-course .en{letter-spacing:.01em}
 @media print{.print-sheet .lic-course{margin:1mm 0 0;padding-left:2mm;border-left-width:.8pt;font-size:7.2pt;line-height:1.4;max-width:none}.print-sheet .lic-course b{font-size:7.4pt;letter-spacing:.02em}}
+@media print{.print-sheet .ps-inst li.sync-pill{display:none!important}.print-sheet .ig-n{margin:.6mm 0 0;font-size:6.9pt;color:var(--muted);line-height:1.35}}
 /* ===== ISEP blocks ===== */
 .ip-h{font-size:clamp(18px,2vw,22px);font-weight:700;letter-spacing:.08em;line-height:1.7;max-width:30em}
 .ip-h .en{letter-spacing:.01em;line-height:1.5}
@@ -1560,7 +1561,7 @@ main.wrap{display:flex;flex-direction:column}
         </li>
         <li class="sync" data-ps="ehs-only sync-pill">
           <svg class="inst-logo" role="img" aria-label="國家同步輻射研究中心 NSRRC emblem"><use href="#logo-nsrrc"/></svg>
-          <div><b><span class="zh">同步輻射<span class="ps-extra"> <span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span></span></span><span class="en">Synchrotron<span class="ps-extra"> <span style="white-space:nowrap">(TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A)</span></span></span></b><span class="d"><span class="zh"><span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span> 光束線：協助量測，並觀察設備保養與逃生動線規劃</span><span class="en">Assisted measurements and observed equipment upkeep and evacuation routes · Beamlines <span style="white-space:nowrap">TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A</span></span></span><span class="role-t o"><span class="zh">光束線實驗</span><span class="en">Beamline work</span></span></div>
+          <div><b><span class="zh">同步輻射<span class="ps-extra"> <span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span></span></span><span class="en">Synchrotron<span class="ps-extra"> <span style="white-space:nowrap">(TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2)</span></span></span></b><span class="d"><span class="zh"><span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span> 光束線：協助量測，並觀察設備保養與逃生動線規劃</span><span class="en">Assisted measurements and observed equipment upkeep and evacuation routes · Beamlines <span style="white-space:nowrap">TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2</span></span></span><span class="role-t o"><span class="zh">光束線實驗</span><span class="en">Beamline work</span></span></div>
         </li>
       </ul>
       </div>
@@ -1624,7 +1625,7 @@ main.wrap{display:flex;flex-direction:column}
         <span class="k"><span class="zh">Instruments</span><span class="en">分析儀器</span></span>
         <ul class="pills">
           <li><span class="zh">熱分析 TGA Q500／DSC 2500</span><span class="en">Thermal analysis (TGA / DSC)</span></li>
-          <li><span class="zh">同步輻射 <span style="white-space:nowrap">TLS 20A／</span><span style="white-space:nowrap">TPS 27A／</span><span style="white-space:nowrap">TPS 45A</span></span><span class="en">Synchrotron <span style="white-space:nowrap">(TLS 20A /</span> <span style="white-space:nowrap">TPS 27A /</span> <span style="white-space:nowrap">TPS 45A)</span></span></li>
+          <li><span class="zh">同步輻射 <span style="white-space:nowrap">TLS 20A1／</span><span style="white-space:nowrap">TPS 27A2／</span><span style="white-space:nowrap">TPS 45A2</span></span><span class="en">Synchrotron <span style="white-space:nowrap">(TLS 20A1 /</span> <span style="white-space:nowrap">TPS 27A2 /</span> <span style="white-space:nowrap">TPS 45A2)</span></span></li>
           <li><span class="zh">ARES‑G3 旋轉流變儀</span><span class="en">Rheology (ARES‑G3)</span></li>
           <li><span class="zh">落球黏度密度計 DMA 5002/Lovis 2001</span><span class="en">Viscometer<span class="web-only"> &amp; densimeter</span> (DMA 5002/Lovis 2001)</span></li>
         </ul>
@@ -2132,13 +2133,18 @@ main.wrap{display:flex;flex-direction:column}
     });
     R.appendChild(sec);
   }
-  // synchrotron gets its own small card at the foot of the sidebar where the Chinese EHS sheet has room
-  var sy=document.querySelector('#methods .inst li.sync svg');
-  if(sy){
-    var syc=document.createElement('section');syc.className='sec ps-sync';
-    syc.innerHTML=sy.outerHTML+'<div><p class="ps-sync-t"><span class="zh">同步輻射光束線實驗</span><span class="en">Synchrotron beamline experiments</span></p>'
-      +'<p class="ps-sync-d"><span class="zh">協助量測，觀察設備保養與逃生動線<br><span style="white-space:nowrap">TLS 20A／TPS 27A／TPS 45A</span></span><span class="en">NSRRC · TLS 20A / TPS 27A / TPS 45A</span></p></div>';
-    R.appendChild(syc);
+  // synchrotron: a fourth group in the instrument list, one pill per beamline
+  var psi=R.querySelector('.ps-inst');
+  if(psi){
+    var gk=document.createElement('p');gk.className='ig-k';
+    gk.innerHTML='<span class="zh">國家同步輻射研究中心・協助量測</span><span class="en">NSRRC synchrotron · assisted measurements</span>';
+    var gu=document.createElement('ul');gu.className='pills';
+    [['TPS 45A2','Submicron Soft X-ray Spectroscopy'],['TPS 27A2','Soft X-ray Nanoscopy'],['TLS 20A1','BM-(H-SGM) XAS']].forEach(function(b){
+      var li=document.createElement('li');li.innerHTML=b[0]+' '+b[1];gu.appendChild(li);
+    });
+    var gn=document.createElement('p');gn.className='ig-n';
+    gn.innerHTML='<span class="zh">並觀察設備保養與逃生動線規劃</span><span class="en">Observed equipment upkeep and evacuation routes</span>';
+    psi.appendChild(gk);psi.appendChild(gu);psi.appendChild(gn);
   }
   sheet.appendChild(L);sheet.appendChild(R);main.parentNode.insertBefore(sheet,main.nextSibling);
 })();
