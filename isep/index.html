@@ -83,12 +83,18 @@
 .ip-fill{fill:var(--apricot-soft);opacity:.6}
 .ip-line{fill:none;stroke:var(--burnt);stroke-width:3;vector-effect:non-scaling-stroke}
 .ip-onset{stroke:var(--burnt);stroke-width:1.2;stroke-dasharray:4 5;vector-effect:non-scaling-stroke}
+.ip-tipbox{pointer-events:none}
+.ip-tip{position:absolute;left:0;top:0;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--burnt);box-shadow:0 0 0 5px rgba(201,96,58,.2);box-shadow:0 0 0 5px color-mix(in srgb,var(--burnt) 22%,transparent);opacity:0}
+/* start hidden; the script below plays the staged entrance. The 9s animations are a fail-safe that reveal everything if the script never runs. */
 @media (prefers-reduced-motion:no-preference){
-  .ip-line{stroke-dasharray:1;stroke-dashoffset:1;animation:ip-draw 1.8s cubic-bezier(.4,0,.2,1) .2s forwards}
-  .ip-onset{opacity:0;animation:ip-in .5s ease 1.6s forwards}
+  .ip-line{stroke-dasharray:1;stroke-dashoffset:1;animation:ip-show 0s 9s forwards}
+  .ip-fillsvg{-webkit-mask:linear-gradient(90deg,#000 36.7%,transparent 40%) 65% 0/300% 100% no-repeat;mask:linear-gradient(90deg,#000 36.7%,transparent 40%) 65% 0/300% 100% no-repeat;animation:ip-show-fill 0s 9s forwards}
+  .ip-onset{opacity:0;animation:ip-show-op 0s 9s forwards}
 }
-@keyframes ip-draw{to{stroke-dashoffset:0}}
-@keyframes ip-in{to{opacity:1}}
+@keyframes ip-show{to{stroke-dashoffset:0}}
+@keyframes ip-show-fill{to{-webkit-mask-position:5% 0;mask-position:5% 0}}
+@keyframes ip-show-op{to{opacity:1}}
+@media print{.ip-tipbox{display:none}}
 .ip-hero-in{position:relative;width:100%;max-width:1180px;margin:0 auto;padding:clamp(56px,9vh,96px) clamp(20px,5vw,56px) 0}
 .ip-hero h1{font-size:clamp(64px,10vw,124px);font-weight:900;letter-spacing:.06em;line-height:1;color:var(--ink)}
 .ip-hero h1 .en{font-family:var(--latin);font-weight:800;font-stretch:112%;font-size:clamp(46px,7vw,92px);letter-spacing:0}
@@ -941,11 +947,14 @@ main.wrap{display:flex;flex-direction:column}
 
 <!-- ============ HERO ============ -->
 <header class="hero ip-hero" id="top">
-  <svg class="ip-curve" viewBox="0 0 1440 330" preserveAspectRatio="none" aria-hidden="true">
+  <svg class="ip-curve ip-fillsvg" viewBox="0 0 1440 330" preserveAspectRatio="none" aria-hidden="true">
     <path class="ip-fill" d="M0 70 C300 70 520 72 640 80 C720 86 760 150 820 210 C870 258 930 268 1060 270 C1180 272 1300 272 1440 272 L1440 330 L0 330Z"/>
+  </svg>
+  <svg class="ip-curve" viewBox="0 0 1440 330" preserveAspectRatio="none" aria-hidden="true">
     <path class="ip-line" pathLength="1" d="M0 70 C300 70 520 72 640 80 C720 86 760 150 820 210 C870 258 930 268 1060 270 C1180 272 1300 272 1440 272"/>
     <line class="ip-onset" x1="700" y1="36" x2="700" y2="304"/>
   </svg>
+  <div class="ip-curve ip-tipbox" aria-hidden="true"><i class="ip-tip"></i></div>
   <div class="ip-hero-in">
     <h1><span class="zh">郭晨志</span><span class="en">Kuo Chen Chih</span></h1>
     <p class="ip-rom"><span class="zh">Kuo, Chen Chih</span><span class="en cjk">郭晨志</span></p>
@@ -2153,6 +2162,29 @@ main.wrap{display:flex;flex-direction:column}
 </script>
 
 <!-- visit counter (no cookies): https://kuochenchih.goatcounter.com -->
+<script>
+/* Hero TGA curve entrance: the line, its trailing fill, the onset marker and the tip dot share one easing so they stay in step. */
+(function(){
+  var line=document.querySelector('.ip-line'),fill=document.querySelector('.ip-fillsvg'),
+      onset=document.querySelector('.ip-onset'),tip=document.querySelector('.ip-tip');
+  if(!line||!fill||!onset||!tip||!line.animate||!line.getTotalLength)return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  try{
+    var L=line.getTotalLength(),N=80,P=[],i,k;
+    for(i=0;i<=N;i++)P.push(line.getPointAtLength(L*i/N));
+    var T={duration:5200,delay:700,easing:'cubic-bezier(.45,.05,.2,1)',fill:'forwards'};
+    line.animate([{strokeDashoffset:1},{strokeDashoffset:0}],T);
+    /* soft-edged wipe: a 300%-wide gradient mask is slid across; position % = (1.2 - tipX/width)/2 */
+    fill.animate(P.map(function(q,j){var m=(((1.2-(j===N?1.12:q.x/1440))/2)*100).toFixed(3)+'% 0';return{offset:j/N,maskPosition:m,webkitMaskPosition:m}}),
+      {duration:T.duration,delay:T.delay+250,easing:T.easing,fill:'forwards'});
+    k=0;while(k<N&&P[k].x<700)k++;
+    var po=k/N;
+    onset.animate([{offset:0,opacity:0},{offset:Math.max(0,po-.01),opacity:0},{offset:Math.min(1,po+.07),opacity:1},{offset:1,opacity:1}],T);
+    tip.animate(P.map(function(q,j){return{offset:j/N,left:(q.x/14.4).toFixed(3)+'%',top:(q.y/3.3).toFixed(3)+'%'}}),T);
+    tip.animate([{opacity:0},{offset:.04,opacity:1},{offset:.93,opacity:1},{opacity:0}],T);
+  }catch(e){}
+})();
+</script>
 <script data-goatcounter="https://kuochenchih.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
