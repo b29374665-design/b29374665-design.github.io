@@ -27,7 +27,7 @@
 - 同步輻射（TLS 20A1／TPS 27A2／TPS 45A2）：網站在專長區與儀器設備（最後一格）都有。PDF：EHS 中文在右下角「同步輻射光束線實驗」小卡；EHS 英文右欄已滿，放在儀器設備「Operation」組；研發版在「材料分析儀器」組（EHS PDF 隱藏該組）。網站卡片與 PDF 小卡的圖示用國家同步輻射研究中心（NSRRC）標誌，樣式比照學校校徽（描成單色、用文字顏色）。
 - 右欄右緣會被頁面邊界裁掉約 1px：靠右緣的框線或圖要內縮（校徽 1.5mm、同步輻射小卡 0.8mm）。
 - 儀器名稱「Anton Paar DMA 5002/Lovis 2001」較長：PDF 儀器設備「操作」組把它排第一，讓 ARES-G3 和手套箱共用一行；研發版英文 PDF 專長區只寫「Viscometer (DMA 5002/Lovis 2001)」（網站是「Viscometer & densimeter」），否則會變兩頁。
-- EHS 版 PDF 不顯示 Nature Materials 下方的說明段落（和「共同作者：負責 TGA 熱重分析量測」重複），網站與研發版照常顯示。
+- EHS 版 PDF 不顯示 Nature Communications 下方的說明段落（和「共同作者：負責 TGA 熱重分析量測」重複），網站與研發版照常顯示。
 - 改內容後在本機先確認兩種語言都是一頁（英文版較長，列印時縮到 91%；版面已很滿，加內容前先量剩餘空間）。
 
 ## 設計偏好
@@ -39,7 +39,7 @@
 
 ## 內容注意
 - 求職方向：EHS 版投環安衛工程師；研發版投電池／材料研發工程師。
-- 期刊投稿：Nature Materials（2026/10 起），不公開稿件編號，顯示「審稿中」。
+- 期刊投稿：Nature Communications（2026/10 起），不公開稿件編號，顯示「審稿中」。
 - 英文的下載按鈕與分頁標題用「Download CV (PDF)」「CV」，不要用帶重音的「Résumé」（使用者覺得像怪字）。
 - 儀器原廠名稱：中文寫「TA Waters」（台灣的稱呼），英文寫「TA Instruments」。
 - 代理商：中文「勝綻科技」，英文「Sunbloom Technology」（公司全名 Sunbloom Technology Inc.）。
